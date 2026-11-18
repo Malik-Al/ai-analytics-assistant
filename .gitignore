@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets
+.env
+
+# Data (downloaded by script, never committed)
+data/
+
+# OS / IDE
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/
