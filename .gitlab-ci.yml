@@ -1,0 +1,33 @@
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+stages:
+  - lint
+  - test
+
+variables:
+  UV_CACHE_DIR: "$CI_PROJECT_DIR/.uv-cache"
+  UV_LINK_MODE: copy
+
+default:
+  image: ghcr.io/astral-sh/uv:python3.12-bookworm-slim
+  cache:
+    key:
+      files: [ingestion/uv.lock]
+    paths: [.uv-cache]
+  before_script:
+    - cd ingestion
+    - uv sync --locked
+
+lint:
+  stage: lint
+  script:
+    - uv run ruff format --check .
+    - uv run ruff check .
+
+test:
+  stage: test
+  script:
+    - uv run pytest
