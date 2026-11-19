@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from psycopg import sql
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DATA_DIR = REPO_ROOT / "data" / "raw"
+DATA_DIR = Path(os.environ.get("RAW_DATA_DIR", REPO_ROOT / "data" / "raw"))
 SCHEMA = "raw"
 
 
@@ -34,12 +34,12 @@ def load_file(conn: psycopg.Connection, path: Path) -> int:
     col_list = sql.SQL(", ").join(map(sql.Identifier, columns))
 
     with conn.cursor() as cur:
-        cur.execute(sql.SQL("DROP TABLE IF EXISTS {}").format(table))
         cur.execute(
-            sql.SQL("CREATE TABLE {} ({}, _loaded_at timestamptz NOT NULL DEFAULT now())").format(
-                table, col_defs
-            )
+            sql.SQL(
+                "CREATE TABLE IF NOT EXISTS {} ({}, _loaded_at timestamptz NOT NULL DEFAULT now())"
+            ).format(table, col_defs)
         )
+        cur.execute(sql.SQL("TRUNCATE {}").format(table))
 
         copy_stmt = sql.SQL("COPY {} ({}) FROM STDIN WITH (FORMAT csv, HEADER true)").format(
             table, col_list
@@ -55,7 +55,8 @@ def load_file(conn: psycopg.Connection, path: Path) -> int:
 def main() -> int:
     load_dotenv(REPO_ROOT / ".env")
     dsn = (
-        f"host=localhost port={os.environ['POSTGRES_PORT']} "
+        f"host={os.environ.get('POSTGRES_HOST', 'localhost')} "
+        f"port={os.environ['POSTGRES_PORT']} "
         f"dbname={os.environ['POSTGRES_DB']} "
         f"user={os.environ['POSTGRES_USER']} password={os.environ['POSTGRES_PASSWORD']}"
     )
@@ -67,6 +68,7 @@ def main() -> int:
 
     # One transaction for all files: either everything loads or nothing changes
     with psycopg.connect(dsn) as conn:
+        conn.execute("CREATE SCHEMA IF NOT EXISTS raw")
         for path in files:
             rows = load_file(conn, path)
             print(f"{SCHEMA}.{table_name_from_file(path):<36} {rows:>9,} rows")

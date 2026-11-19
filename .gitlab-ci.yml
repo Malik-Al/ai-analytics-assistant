@@ -15,7 +15,7 @@ default:
   image: ghcr.io/astral-sh/uv:python3.12-bookworm-slim
   cache:
     key:
-      files: [ingestion/uv.lock]
+      files: [ingestion/uv.lock, dbt/uv.lock]
     paths: [.uv-cache]
   before_script:
     - cd ingestion
@@ -31,3 +31,23 @@ test:
   stage: test
   script:
     - uv run pytest
+
+dbt_build:
+  stage: test
+  image: ghcr.io/astral-sh/uv:python3.13-bookworm-slim
+  services:
+    - name: pgvector/pgvector:pg16
+      alias: postgres
+  variables:
+    POSTGRES_USER: analytics
+    POSTGRES_PASSWORD: analytics
+    POSTGRES_DB: dwh
+    POSTGRES_HOST: postgres
+    POSTGRES_PORT: "5432"
+    RAW_DATA_DIR: "$CI_PROJECT_DIR/data/sample"
+  before_script: []
+  script:
+    - cd "$CI_PROJECT_DIR/ingestion" && uv sync --locked
+    - uv run python load_raw.py
+    - cd "$CI_PROJECT_DIR/dbt" && uv sync --locked
+    - uv run dbt build

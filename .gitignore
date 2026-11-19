@@ -9,7 +9,8 @@ __pycache__/
 .env
 
 # Data (downloaded by script, never committed)
-data/
+data/*
+!data/sample/
 
 # OS / IDE
 Thumbs.db
@@ -21,4 +22,5 @@ Thumbs.db
 # dbt
 dbt/target/
 dbt/dbt_packages/
-dbt/logs/dbt/.user.yml
+dbt/logs/
+dbt/.user.yml
