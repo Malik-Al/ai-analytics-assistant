@@ -1924,3 +1924,2878 @@ having count(*) > 1
 [0m17:22:35.204124 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A05DC55B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A0A5A5370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A0A4750D0>]}
 [0m17:22:35.204343 [debug] [MainThread]: Flushing usage events
 [0m17:22:35.439799 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:41:33.038558 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE4D5E7B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE1DE3C50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE71B3ED0>]}
+
+
+============================== 17:41:33.045078 | 280d0b26-4a2c-4a15-ba81-9d2eef85795d ==============================
+[0m17:41:33.045078 [info ] [MainThread]: Running with dbt=1.11.17
+[0m17:41:33.045474 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'D:\\personal\\ai-analytics-assistant\\dbt', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt build', 'use_experimental_parser': 'False', 'log_path': 'D:\\personal\\ai-analytics-assistant\\dbt\\logs'}
+[0m17:41:33.184969 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE545E060>]}
+[0m17:41:33.227018 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE6193240>]}
+[0m17:41:33.228675 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m17:41:33.609769 [debug] [MainThread]: checksum: 6b6411fb925d7fe017d7428f9d9af996704b52c1bbfb75b401b39f0bcbc3f5dc, vars: {}, profile: , target: , version: 1.11.17
+[0m17:41:33.724571 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 8 files added, 8 files changed.
+[0m17:41:33.725006 [debug] [MainThread]: Partial parsing: added file: aaa://models\marts\dim_date.sql
+[0m17:41:33.725222 [debug] [MainThread]: Partial parsing: added file: aaa://models\marts\dim_products.sql
+[0m17:41:33.725410 [debug] [MainThread]: Partial parsing: added file: aaa://tests\assert_order_items_amount_matches.sql
+[0m17:41:33.725630 [debug] [MainThread]: Partial parsing: added file: aaa://models\marts\dim_customers.sql
+[0m17:41:33.725920 [debug] [MainThread]: Partial parsing: added file: aaa://models\marts\dim_sellers.sql
+[0m17:41:33.726195 [debug] [MainThread]: Partial parsing: added file: aaa://models\marts\_marts_models.yml
+[0m17:41:33.726386 [debug] [MainThread]: Partial parsing: added file: aaa://models\marts\fct_order_items.sql
+[0m17:41:33.726562 [debug] [MainThread]: Partial parsing: added file: aaa://models\marts\fct_orders.sql
+[0m17:41:33.726812 [debug] [MainThread]: Partial parsing: updated file: aaa://models\staging\stg_geolocation.sql
+[0m17:41:33.727049 [debug] [MainThread]: Partial parsing: updated file: aaa://models\staging\stg_order_reviews.sql
+[0m17:41:33.727275 [debug] [MainThread]: Partial parsing: updated file: aaa://models\staging\stg_products.sql
+[0m17:41:33.727509 [debug] [MainThread]: Partial parsing: updated file: aaa://models\staging\stg_order_payments.sql
+[0m17:41:33.727797 [debug] [MainThread]: Partial parsing: updated file: aaa://models\staging\stg_sellers.sql
+[0m17:41:33.728093 [debug] [MainThread]: Partial parsing: updated file: aaa://models\staging\stg_customers.sql
+[0m17:41:33.728337 [debug] [MainThread]: Partial parsing: updated file: aaa://models\staging\stg_order_items.sql
+[0m17:41:33.728557 [debug] [MainThread]: Partial parsing: updated file: aaa://models\staging\stg_product_category_translation.sql
+[0m17:41:34.157791 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE77FE150>]}
+[0m17:41:34.218572 [debug] [MainThread]: Wrote artifact WritableManifest to D:\personal\ai-analytics-assistant\dbt\target\manifest.json
+[0m17:41:34.221135 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\personal\ai-analytics-assistant\dbt\target\semantic_manifest.json
+[0m17:41:34.250255 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE7BE3890>]}
+[0m17:41:34.250588 [info ] [MainThread]: Found 15 models, 40 data tests, 9 sources, 479 macros
+[0m17:41:34.253327 [info ] [MainThread]: 
+[0m17:41:34.253737 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m17:41:34.254023 [info ] [MainThread]: 
+[0m17:41:34.254376 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m17:41:34.257533 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dwh'
+[0m17:41:34.263067 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dwh'
+[0m17:41:34.368810 [debug] [ThreadPool]: Using postgres connection "list_dwh"
+[0m17:41:34.369135 [debug] [ThreadPool]: Using postgres connection "list_dwh"
+[0m17:41:34.369370 [debug] [ThreadPool]: On list_dwh: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "connection_name": "list_dwh"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m17:41:34.369596 [debug] [ThreadPool]: On list_dwh: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "connection_name": "list_dwh"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m17:41:34.369803 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:41:34.370028 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:41:34.389136 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.019 seconds
+[0m17:41:34.389490 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.019 seconds
+[0m17:41:34.390345 [debug] [ThreadPool]: On list_dwh: Close
+[0m17:41:34.391064 [debug] [ThreadPool]: On list_dwh: Close
+[0m17:41:34.392977 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dwh_staging'
+[0m17:41:34.396593 [debug] [ThreadPool]: Using postgres connection "list_dwh_staging"
+[0m17:41:34.396907 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dwh_marts'
+[0m17:41:34.397172 [debug] [ThreadPool]: On list_dwh_staging: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "connection_name": "list_dwh_staging"} */
+select
+      'dwh' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging'
+    union all
+    select
+      'dwh' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging'
+    union all
+    select
+      'dwh' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'staging'
+    union all
+    select distinct
+     'dwh' as database,
+     proname as name,
+     ns.nspname as schema,
+     'function' as type
+    from pg_proc
+     join pg_namespace as ns on pronamespace = ns.oid
+    where ns.nspname ilike 'staging'
+  
+[0m17:41:34.398305 [debug] [ThreadPool]: Using postgres connection "list_dwh_marts"
+[0m17:41:34.398649 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:41:34.398887 [debug] [ThreadPool]: On list_dwh_marts: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "connection_name": "list_dwh_marts"} */
+select
+      'dwh' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'marts'
+    union all
+    select
+      'dwh' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'marts'
+    union all
+    select
+      'dwh' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'marts'
+    union all
+    select distinct
+     'dwh' as database,
+     proname as name,
+     ns.nspname as schema,
+     'function' as type
+    from pg_proc
+     join pg_namespace as ns on pronamespace = ns.oid
+    where ns.nspname ilike 'marts'
+  
+[0m17:41:34.399172 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:41:34.409386 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.010 seconds
+[0m17:41:34.410277 [debug] [ThreadPool]: On list_dwh_marts: ROLLBACK
+[0m17:41:34.410778 [debug] [ThreadPool]: On list_dwh_marts: Close
+[0m17:41:34.420096 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.021 seconds
+[0m17:41:34.421077 [debug] [ThreadPool]: On list_dwh_staging: ROLLBACK
+[0m17:41:34.421659 [debug] [ThreadPool]: On list_dwh_staging: Close
+[0m17:41:34.425757 [debug] [MainThread]: Using postgres connection "master"
+[0m17:41:34.426025 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m17:41:34.426270 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:41:34.451765 [debug] [MainThread]: SQL status: SELECT 9 in 0.025 seconds
+[0m17:41:34.452643 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE7D22A50>]}
+[0m17:41:34.452958 [debug] [MainThread]: On master: ROLLBACK
+[0m17:41:34.453475 [debug] [MainThread]: On master: COMMIT
+[0m17:41:34.453838 [debug] [MainThread]: Using postgres connection "master"
+[0m17:41:34.454034 [debug] [MainThread]: On master: COMMIT
+[0m17:41:34.454860 [debug] [MainThread]: SQL status: COMMIT in 0.001 seconds
+[0m17:41:34.455159 [debug] [MainThread]: On master: Close
+[0m17:41:34.461048 [debug] [Thread-4 (]: Began running node model.aaa.stg_order_items
+[0m17:41:34.461339 [debug] [Thread-3 (]: Began running node model.aaa.stg_geolocation
+[0m17:41:34.461614 [debug] [Thread-1 (]: Began running node model.aaa.dim_date
+[0m17:41:34.461862 [debug] [Thread-2 (]: Began running node model.aaa.stg_customers
+[0m17:41:34.462201 [info ] [Thread-4 (]: 4 of 55 START sql view model staging.stg_order_items ........................... [RUN]
+[0m17:41:34.462524 [info ] [Thread-3 (]: 3 of 55 START sql view model staging.stg_geolocation ........................... [RUN]
+[0m17:41:34.462829 [info ] [Thread-1 (]: 1 of 55 START sql table model marts.dim_date ................................... [RUN]
+[0m17:41:34.463527 [debug] [Thread-4 (]: Acquiring new postgres connection 'model.aaa.stg_order_items'
+[0m17:41:34.463164 [info ] [Thread-2 (]: 2 of 55 START sql view model staging.stg_customers ............................. [RUN]
+[0m17:41:34.463910 [debug] [Thread-3 (]: Acquiring new postgres connection 'model.aaa.stg_geolocation'
+[0m17:41:34.464196 [debug] [Thread-1 (]: Acquiring new postgres connection 'model.aaa.dim_date'
+[0m17:41:34.464439 [debug] [Thread-4 (]: Began compiling node model.aaa.stg_order_items
+[0m17:41:34.464708 [debug] [Thread-2 (]: Acquiring new postgres connection 'model.aaa.stg_customers'
+[0m17:41:34.464932 [debug] [Thread-3 (]: Began compiling node model.aaa.stg_geolocation
+[0m17:41:34.465141 [debug] [Thread-1 (]: Began compiling node model.aaa.dim_date
+[0m17:41:34.469134 [debug] [Thread-4 (]: Writing injected SQL for node "model.aaa.stg_order_items"
+[0m17:41:34.469443 [debug] [Thread-2 (]: Began compiling node model.aaa.stg_customers
+[0m17:41:34.470984 [debug] [Thread-3 (]: Writing injected SQL for node "model.aaa.stg_geolocation"
+[0m17:41:34.471864 [debug] [Thread-1 (]: Writing injected SQL for node "model.aaa.dim_date"
+[0m17:41:34.473433 [debug] [Thread-2 (]: Writing injected SQL for node "model.aaa.stg_customers"
+[0m17:41:34.474022 [debug] [Thread-4 (]: Began executing node model.aaa.stg_order_items
+[0m17:41:34.495403 [debug] [Thread-4 (]: Writing runtime sql for node "model.aaa.stg_order_items"
+[0m17:41:34.496633 [debug] [Thread-2 (]: Began executing node model.aaa.stg_customers
+[0m17:41:34.499087 [debug] [Thread-2 (]: Writing runtime sql for node "model.aaa.stg_customers"
+[0m17:41:34.499499 [debug] [Thread-1 (]: Began executing node model.aaa.dim_date
+[0m17:41:34.499811 [debug] [Thread-3 (]: Began executing node model.aaa.stg_geolocation
+[0m17:41:34.514644 [debug] [Thread-1 (]: Writing runtime sql for node "model.aaa.dim_date"
+[0m17:41:34.516289 [debug] [Thread-3 (]: Writing runtime sql for node "model.aaa.stg_geolocation"
+[0m17:41:34.516652 [debug] [Thread-4 (]: Using postgres connection "model.aaa.stg_order_items"
+[0m17:41:34.517178 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_customers"
+[0m17:41:34.517442 [debug] [Thread-4 (]: On model.aaa.stg_order_items: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_order_items"} */
+
+  create view "dwh"."staging"."stg_order_items__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "dwh"."raw"."order_items"
+)
+
+select
+    order_id,
+    order_item_id::int                    as order_item_id,
+    product_id,
+    seller_id,
+    shipping_limit_date::timestamp        as shipping_limit_at,
+    price::numeric(12, 2)                 as price,
+    freight_value::numeric(12, 2)         as freight_value
+from source
+  );
+[0m17:41:34.517710 [debug] [Thread-2 (]: On model.aaa.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_customers"} */
+
+  create view "dwh"."staging"."stg_customers__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "dwh"."raw"."customers"
+)
+
+select
+    customer_id,
+    customer_unique_id,
+    customer_zip_code_prefix              as zip_code_prefix,
+    lower(trim(customer_city))            as city,
+    upper(trim(customer_state))           as state
+from source
+  );
+[0m17:41:34.518006 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m17:41:34.518277 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m17:41:34.518521 [debug] [Thread-3 (]: Using postgres connection "model.aaa.stg_geolocation"
+[0m17:41:34.518963 [debug] [Thread-1 (]: Using postgres connection "model.aaa.dim_date"
+[0m17:41:34.519229 [debug] [Thread-3 (]: On model.aaa.stg_geolocation: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_geolocation"} */
+
+  create view "dwh"."staging"."stg_geolocation__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "dwh"."raw"."geolocation"
+)
+
+select
+    geolocation_zip_code_prefix                                  as zip_code_prefix,
+    avg(geolocation_lat::numeric)::numeric(9, 6)                 as latitude,
+    avg(geolocation_lng::numeric)::numeric(9, 6)                 as longitude,
+    mode() within group (order by lower(geolocation_city))       as city,
+    mode() within group (order by upper(geolocation_state))      as state
+from source
+group by 1
+  );
+[0m17:41:34.519501 [debug] [Thread-1 (]: On model.aaa.dim_date: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.dim_date"} */
+
+  
+    
+
+  create  table "dwh"."marts"."dim_date__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with days as (
+    select generate_series('2016-01-01'::date, '2018-12-31'::date, interval '1 day')::date as date_day
+)
+
+select
+    date_day,
+    extract(year from date_day)::int           as year,
+    extract(quarter from date_day)::int        as quarter,
+    extract(month from date_day)::int          as month,
+    to_char(date_day, 'Mon')                   as month_name,
+    to_char(date_day, 'YYYY-MM')               as year_month,
+    extract(isodow from date_day)::int         as day_of_week,
+    to_char(date_day, 'Dy')                    as day_name,
+    extract(isodow from date_day) in (6, 7)    as is_weekend
+from days
+  );
+  
+[0m17:41:34.519779 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m17:41:34.520018 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m17:41:34.532219 [debug] [Thread-4 (]: SQL status: CREATE VIEW in 0.014 seconds
+[0m17:41:34.532629 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.014 seconds
+[0m17:41:34.538363 [debug] [Thread-4 (]: Using postgres connection "model.aaa.stg_order_items"
+[0m17:41:34.540349 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_customers"
+[0m17:41:34.540638 [debug] [Thread-4 (]: On model.aaa.stg_order_items: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_order_items"} */
+alter table "dwh"."staging"."stg_order_items" rename to "stg_order_items__dbt_backup"
+[0m17:41:34.540921 [debug] [Thread-2 (]: On model.aaa.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_customers"} */
+alter table "dwh"."staging"."stg_customers" rename to "stg_customers__dbt_backup"
+[0m17:41:34.541680 [debug] [Thread-1 (]: SQL status: SELECT 1096 in 0.022 seconds
+[0m17:41:34.545194 [debug] [Thread-1 (]: Using postgres connection "model.aaa.dim_date"
+[0m17:41:34.545445 [debug] [Thread-1 (]: On model.aaa.dim_date: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.dim_date"} */
+alter table "dwh"."marts"."dim_date__dbt_tmp" rename to "dim_date"
+[0m17:41:34.545722 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.004 seconds
+[0m17:41:34.546008 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.005 seconds
+[0m17:41:34.547495 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_customers"
+[0m17:41:34.547782 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m17:41:34.549268 [debug] [Thread-4 (]: Using postgres connection "model.aaa.stg_order_items"
+[0m17:41:34.549570 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.030 seconds
+[0m17:41:34.549805 [debug] [Thread-2 (]: On model.aaa.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_customers"} */
+alter table "dwh"."staging"."stg_customers__dbt_tmp" rename to "stg_customers"
+[0m17:41:34.559018 [debug] [Thread-1 (]: On model.aaa.dim_date: COMMIT
+[0m17:41:34.559322 [debug] [Thread-4 (]: On model.aaa.stg_order_items: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_order_items"} */
+alter table "dwh"."staging"."stg_order_items__dbt_tmp" rename to "stg_order_items"
+[0m17:41:34.560819 [debug] [Thread-3 (]: Using postgres connection "model.aaa.stg_geolocation"
+[0m17:41:34.561163 [debug] [Thread-1 (]: Using postgres connection "model.aaa.dim_date"
+[0m17:41:34.561510 [debug] [Thread-3 (]: On model.aaa.stg_geolocation: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_geolocation"} */
+alter table "dwh"."staging"."stg_geolocation" rename to "stg_geolocation__dbt_backup"
+[0m17:41:34.561808 [debug] [Thread-1 (]: On model.aaa.dim_date: COMMIT
+[0m17:41:34.562378 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:34.562673 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m17:41:34.564699 [debug] [Thread-4 (]: On model.aaa.stg_order_items: COMMIT
+[0m17:41:34.564942 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.003 seconds
+[0m17:41:34.565174 [debug] [Thread-1 (]: SQL status: COMMIT in 0.003 seconds
+[0m17:41:34.565910 [debug] [Thread-2 (]: On model.aaa.stg_customers: COMMIT
+[0m17:41:34.566160 [debug] [Thread-4 (]: Using postgres connection "model.aaa.stg_order_items"
+[0m17:41:34.567557 [debug] [Thread-3 (]: Using postgres connection "model.aaa.stg_geolocation"
+[0m17:41:34.571173 [debug] [Thread-1 (]: Applying DROP to: "dwh"."marts"."dim_date__dbt_backup"
+[0m17:41:34.571494 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_customers"
+[0m17:41:34.571752 [debug] [Thread-4 (]: On model.aaa.stg_order_items: COMMIT
+[0m17:41:34.571982 [debug] [Thread-3 (]: On model.aaa.stg_geolocation: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_geolocation"} */
+alter table "dwh"."staging"."stg_geolocation__dbt_tmp" rename to "stg_geolocation"
+[0m17:41:34.574744 [debug] [Thread-1 (]: Using postgres connection "model.aaa.dim_date"
+[0m17:41:34.575055 [debug] [Thread-2 (]: On model.aaa.stg_customers: COMMIT
+[0m17:41:34.575666 [debug] [Thread-1 (]: On model.aaa.dim_date: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.dim_date"} */
+drop table if exists "dwh"."marts"."dim_date__dbt_backup" cascade
+[0m17:41:34.576318 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:34.577215 [debug] [Thread-3 (]: On model.aaa.stg_geolocation: COMMIT
+[0m17:41:34.577527 [debug] [Thread-4 (]: SQL status: COMMIT in 0.002 seconds
+[0m17:41:34.577810 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.002 seconds
+[0m17:41:34.578083 [debug] [Thread-3 (]: Using postgres connection "model.aaa.stg_geolocation"
+[0m17:41:34.578335 [debug] [Thread-2 (]: SQL status: COMMIT in 0.002 seconds
+[0m17:41:34.579735 [debug] [Thread-4 (]: Applying DROP to: "dwh"."staging"."stg_order_items__dbt_backup"
+[0m17:41:34.581611 [debug] [Thread-1 (]: On model.aaa.dim_date: Close
+[0m17:41:34.582059 [debug] [Thread-3 (]: On model.aaa.stg_geolocation: COMMIT
+[0m17:41:34.584055 [debug] [Thread-2 (]: Applying DROP to: "dwh"."staging"."stg_customers__dbt_backup"
+[0m17:41:34.585789 [debug] [Thread-4 (]: Using postgres connection "model.aaa.stg_order_items"
+[0m17:41:34.586285 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_customers"
+[0m17:41:34.587812 [debug] [Thread-4 (]: On model.aaa.stg_order_items: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_order_items"} */
+drop view if exists "dwh"."staging"."stg_order_items__dbt_backup" cascade
+[0m17:41:34.588158 [debug] [Thread-2 (]: On model.aaa.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_customers"} */
+drop view if exists "dwh"."staging"."stg_customers__dbt_backup" cascade
+[0m17:41:34.588520 [debug] [Thread-3 (]: SQL status: COMMIT in 0.002 seconds
+[0m17:41:34.590744 [debug] [Thread-3 (]: Applying DROP to: "dwh"."staging"."stg_geolocation__dbt_backup"
+[0m17:41:34.591291 [debug] [Thread-3 (]: Using postgres connection "model.aaa.stg_geolocation"
+[0m17:41:34.591563 [debug] [Thread-3 (]: On model.aaa.stg_geolocation: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_geolocation"} */
+drop view if exists "dwh"."staging"."stg_geolocation__dbt_backup" cascade
+[0m17:41:34.591834 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.003 seconds
+[0m17:41:34.592120 [debug] [Thread-4 (]: SQL status: DROP VIEW in 0.003 seconds
+[0m17:41:34.593050 [debug] [Thread-2 (]: On model.aaa.stg_customers: Close
+[0m17:41:34.593903 [debug] [Thread-4 (]: On model.aaa.stg_order_items: Close
+[0m17:41:34.594193 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.002 seconds
+[0m17:41:34.594458 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE80FB930>]}
+[0m17:41:34.594918 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE7CBDC10>]}
+[0m17:41:34.595876 [debug] [Thread-3 (]: On model.aaa.stg_geolocation: Close
+[0m17:41:34.596211 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE7CBDF10>]}
+[0m17:41:34.596734 [info ] [Thread-1 (]: 1 of 55 OK created sql table model marts.dim_date .............................. [[32mSELECT 1096[0m in 0.12s]
+[0m17:41:34.598051 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE8246710>]}
+[0m17:41:34.597170 [info ] [Thread-2 (]: 2 of 55 OK created sql view model staging.stg_customers ........................ [[32mCREATE VIEW[0m in 0.13s]
+[0m17:41:34.598536 [debug] [Thread-1 (]: Finished running node model.aaa.dim_date
+[0m17:41:34.597679 [info ] [Thread-4 (]: 4 of 55 OK created sql view model staging.stg_order_items ...................... [[32mCREATE VIEW[0m in 0.13s]
+[0m17:41:34.599340 [debug] [Thread-2 (]: Finished running node model.aaa.stg_customers
+[0m17:41:34.598936 [info ] [Thread-3 (]: 3 of 55 OK created sql view model staging.stg_geolocation ...................... [[32mCREATE VIEW[0m in 0.13s]
+[0m17:41:34.599708 [debug] [Thread-1 (]: Began running node model.aaa.stg_order_payments
+[0m17:41:34.600285 [debug] [Thread-4 (]: Finished running node model.aaa.stg_order_items
+[0m17:41:34.600588 [debug] [Thread-2 (]: Began running node model.aaa.stg_order_reviews
+[0m17:41:34.601062 [debug] [Thread-3 (]: Finished running node model.aaa.stg_geolocation
+[0m17:41:34.601372 [info ] [Thread-1 (]: 5 of 55 START sql view model staging.stg_order_payments ........................ [RUN]
+[0m17:41:34.601766 [debug] [Thread-4 (]: Began running node model.aaa.stg_orders
+[0m17:41:34.602163 [info ] [Thread-2 (]: 6 of 55 START sql view model staging.stg_order_reviews ......................... [RUN]
+[0m17:41:34.602555 [debug] [Thread-3 (]: Began running node model.aaa.stg_product_category_translation
+[0m17:41:34.602863 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.aaa.dim_date, now model.aaa.stg_order_payments)
+[0m17:41:34.603548 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.aaa.stg_customers, now model.aaa.stg_order_reviews)
+[0m17:41:34.603206 [info ] [Thread-4 (]: 7 of 55 START sql view model staging.stg_orders ................................ [RUN]
+[0m17:41:34.604018 [info ] [Thread-3 (]: 8 of 55 START sql view model staging.stg_product_category_translation .......... [RUN]
+[0m17:41:34.604366 [debug] [Thread-1 (]: Began compiling node model.aaa.stg_order_payments
+[0m17:41:34.604647 [debug] [Thread-2 (]: Began compiling node model.aaa.stg_order_reviews
+[0m17:41:34.604987 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.aaa.stg_order_items, now model.aaa.stg_orders)
+[0m17:41:34.605297 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.aaa.stg_geolocation, now model.aaa.stg_product_category_translation)
+[0m17:41:34.607367 [debug] [Thread-1 (]: Writing injected SQL for node "model.aaa.stg_order_payments"
+[0m17:41:34.609148 [debug] [Thread-2 (]: Writing injected SQL for node "model.aaa.stg_order_reviews"
+[0m17:41:34.609573 [debug] [Thread-4 (]: Began compiling node model.aaa.stg_orders
+[0m17:41:34.609937 [debug] [Thread-3 (]: Began compiling node model.aaa.stg_product_category_translation
+[0m17:41:34.611850 [debug] [Thread-4 (]: Writing injected SQL for node "model.aaa.stg_orders"
+[0m17:41:34.613511 [debug] [Thread-3 (]: Writing injected SQL for node "model.aaa.stg_product_category_translation"
+[0m17:41:34.614020 [debug] [Thread-1 (]: Began executing node model.aaa.stg_order_payments
+[0m17:41:34.616642 [debug] [Thread-1 (]: Writing runtime sql for node "model.aaa.stg_order_payments"
+[0m17:41:34.617030 [debug] [Thread-2 (]: Began executing node model.aaa.stg_order_reviews
+[0m17:41:34.618929 [debug] [Thread-2 (]: Writing runtime sql for node "model.aaa.stg_order_reviews"
+[0m17:41:34.619360 [debug] [Thread-3 (]: Began executing node model.aaa.stg_product_category_translation
+[0m17:41:34.619617 [debug] [Thread-4 (]: Began executing node model.aaa.stg_orders
+[0m17:41:34.621353 [debug] [Thread-3 (]: Writing runtime sql for node "model.aaa.stg_product_category_translation"
+[0m17:41:34.621807 [debug] [Thread-1 (]: Using postgres connection "model.aaa.stg_order_payments"
+[0m17:41:34.623704 [debug] [Thread-4 (]: Writing runtime sql for node "model.aaa.stg_orders"
+[0m17:41:34.624179 [debug] [Thread-1 (]: On model.aaa.stg_order_payments: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_order_payments"} */
+
+  create view "dwh"."staging"."stg_order_payments__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "dwh"."raw"."order_payments"
+)
+
+select
+    order_id,
+    payment_sequential::int               as payment_sequential,
+    payment_type,
+    payment_installments::int             as payment_installments,
+    payment_value::numeric(12, 2)         as payment_value
+from source
+  );
+[0m17:41:34.624742 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_order_reviews"
+[0m17:41:34.625108 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:34.625453 [debug] [Thread-2 (]: On model.aaa.stg_order_reviews: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_order_reviews"} */
+
+  create view "dwh"."staging"."stg_order_reviews__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "dwh"."raw"."order_reviews"
+),
+
+typed as (
+    select
+        md5(review_id || '-' || order_id)          as review_key,
+        review_id,
+        order_id,
+        review_score::int                          as review_score,
+        nullif(trim(review_comment_title), '')     as comment_title,
+        nullif(trim(review_comment_message), '')   as comment_message,
+        review_creation_date::timestamp            as created_at,
+        review_answer_timestamp::timestamp         as answered_at
+    from source
+),
+
+deduplicated as (
+    select
+        *,
+        row_number() over (
+            partition by review_key
+            order by answered_at desc
+        ) as rn
+    from typed
+)
+
+select
+    review_key, review_id, order_id, review_score,
+    comment_title, comment_message, created_at, answered_at
+from deduplicated
+where rn = 1
+  );
+[0m17:41:34.625933 [debug] [Thread-3 (]: Using postgres connection "model.aaa.stg_product_category_translation"
+[0m17:41:34.626338 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:34.626628 [debug] [Thread-4 (]: Using postgres connection "model.aaa.stg_orders"
+[0m17:41:34.626949 [debug] [Thread-3 (]: On model.aaa.stg_product_category_translation: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_product_category_translation"} */
+
+  create view "dwh"."staging"."stg_product_category_translation__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "dwh"."raw"."product_category_name_translation"
+)
+
+select
+    product_category_name                 as category_name,
+    product_category_name_english         as category_name_en
+from source
+  );
+[0m17:41:34.627438 [debug] [Thread-4 (]: On model.aaa.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_orders"} */
+
+  create view "dwh"."staging"."stg_orders__dbt_tmp"
+    
+    
+  as (
+    with source as (
+
+    select * from "dwh"."raw"."orders"
+
+),
+
+renamed as (
+
+    select
+        order_id,
+        customer_id,
+        order_status,
+        order_purchase_timestamp::timestamp      as ordered_at,
+        order_approved_at::timestamp             as approved_at,
+        order_delivered_carrier_date::timestamp  as shipped_at,
+        order_delivered_customer_date::timestamp as delivered_at,
+        order_estimated_delivery_date::timestamp as estimated_delivery_at
+
+    from source
+
+)
+
+select * from renamed
+  );
+[0m17:41:34.627776 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:41:34.628090 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:34.643804 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.016 seconds
+[0m17:41:34.644217 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.018 seconds
+[0m17:41:34.644508 [debug] [Thread-4 (]: SQL status: CREATE VIEW in 0.016 seconds
+[0m17:41:34.648938 [debug] [Thread-3 (]: Using postgres connection "model.aaa.stg_product_category_translation"
+[0m17:41:34.651273 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_order_reviews"
+[0m17:41:34.652908 [debug] [Thread-4 (]: Using postgres connection "model.aaa.stg_orders"
+[0m17:41:34.653205 [debug] [Thread-3 (]: On model.aaa.stg_product_category_translation: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_product_category_translation"} */
+alter table "dwh"."staging"."stg_product_category_translation" rename to "stg_product_category_translation__dbt_backup"
+[0m17:41:34.653565 [debug] [Thread-2 (]: On model.aaa.stg_order_reviews: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_order_reviews"} */
+alter table "dwh"."staging"."stg_order_reviews" rename to "stg_order_reviews__dbt_backup"
+[0m17:41:34.653889 [debug] [Thread-4 (]: On model.aaa.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_orders"} */
+alter table "dwh"."staging"."stg_orders" rename to "stg_orders__dbt_backup"
+[0m17:41:34.655535 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:34.655951 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m17:41:34.656233 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m17:41:34.659407 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_order_reviews"
+[0m17:41:34.659687 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.035 seconds
+[0m17:41:34.663602 [debug] [Thread-3 (]: Using postgres connection "model.aaa.stg_product_category_translation"
+[0m17:41:34.665169 [debug] [Thread-4 (]: Using postgres connection "model.aaa.stg_orders"
+[0m17:41:34.665429 [debug] [Thread-2 (]: On model.aaa.stg_order_reviews: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_order_reviews"} */
+alter table "dwh"."staging"."stg_order_reviews__dbt_tmp" rename to "stg_order_reviews"
+[0m17:41:34.666833 [debug] [Thread-1 (]: Using postgres connection "model.aaa.stg_order_payments"
+[0m17:41:34.667073 [debug] [Thread-3 (]: On model.aaa.stg_product_category_translation: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_product_category_translation"} */
+alter table "dwh"."staging"."stg_product_category_translation__dbt_tmp" rename to "stg_product_category_translation"
+[0m17:41:34.667315 [debug] [Thread-4 (]: On model.aaa.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_orders"} */
+alter table "dwh"."staging"."stg_orders__dbt_tmp" rename to "stg_orders"
+[0m17:41:34.667582 [debug] [Thread-1 (]: On model.aaa.stg_order_payments: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_order_payments"} */
+alter table "dwh"."staging"."stg_order_payments" rename to "stg_order_payments__dbt_backup"
+[0m17:41:34.668655 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:34.668976 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:34.669274 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m17:41:34.669562 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m17:41:34.671535 [debug] [Thread-1 (]: Using postgres connection "model.aaa.stg_order_payments"
+[0m17:41:34.672465 [debug] [Thread-3 (]: On model.aaa.stg_product_category_translation: COMMIT
+[0m17:41:34.673206 [debug] [Thread-2 (]: On model.aaa.stg_order_reviews: COMMIT
+[0m17:41:34.673893 [debug] [Thread-4 (]: On model.aaa.stg_orders: COMMIT
+[0m17:41:34.674157 [debug] [Thread-1 (]: On model.aaa.stg_order_payments: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_order_payments"} */
+alter table "dwh"."staging"."stg_order_payments__dbt_tmp" rename to "stg_order_payments"
+[0m17:41:34.674404 [debug] [Thread-3 (]: Using postgres connection "model.aaa.stg_product_category_translation"
+[0m17:41:34.674639 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_order_reviews"
+[0m17:41:34.674866 [debug] [Thread-4 (]: Using postgres connection "model.aaa.stg_orders"
+[0m17:41:34.675113 [debug] [Thread-3 (]: On model.aaa.stg_product_category_translation: COMMIT
+[0m17:41:34.675341 [debug] [Thread-2 (]: On model.aaa.stg_order_reviews: COMMIT
+[0m17:41:34.675587 [debug] [Thread-4 (]: On model.aaa.stg_orders: COMMIT
+[0m17:41:34.675826 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:34.676735 [debug] [Thread-1 (]: On model.aaa.stg_order_payments: COMMIT
+[0m17:41:34.677015 [debug] [Thread-1 (]: Using postgres connection "model.aaa.stg_order_payments"
+[0m17:41:34.677238 [debug] [Thread-1 (]: On model.aaa.stg_order_payments: COMMIT
+[0m17:41:34.677867 [debug] [Thread-2 (]: SQL status: COMMIT in 0.002 seconds
+[0m17:41:34.680404 [debug] [Thread-2 (]: Applying DROP to: "dwh"."staging"."stg_order_reviews__dbt_backup"
+[0m17:41:34.680762 [debug] [Thread-1 (]: SQL status: COMMIT in 0.003 seconds
+[0m17:41:34.681280 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_order_reviews"
+[0m17:41:34.681576 [debug] [Thread-3 (]: SQL status: COMMIT in 0.005 seconds
+[0m17:41:34.681838 [debug] [Thread-4 (]: SQL status: COMMIT in 0.006 seconds
+[0m17:41:34.683182 [debug] [Thread-1 (]: Applying DROP to: "dwh"."staging"."stg_order_payments__dbt_backup"
+[0m17:41:34.683480 [debug] [Thread-2 (]: On model.aaa.stg_order_reviews: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_order_reviews"} */
+drop view if exists "dwh"."staging"."stg_order_reviews__dbt_backup" cascade
+[0m17:41:34.684577 [debug] [Thread-3 (]: Applying DROP to: "dwh"."staging"."stg_product_category_translation__dbt_backup"
+[0m17:41:34.685786 [debug] [Thread-4 (]: Applying DROP to: "dwh"."staging"."stg_orders__dbt_backup"
+[0m17:41:34.686140 [debug] [Thread-1 (]: Using postgres connection "model.aaa.stg_order_payments"
+[0m17:41:34.686504 [debug] [Thread-3 (]: Using postgres connection "model.aaa.stg_product_category_translation"
+[0m17:41:34.687149 [debug] [Thread-4 (]: Using postgres connection "model.aaa.stg_orders"
+[0m17:41:34.687438 [debug] [Thread-1 (]: On model.aaa.stg_order_payments: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_order_payments"} */
+drop view if exists "dwh"."staging"."stg_order_payments__dbt_backup" cascade
+[0m17:41:34.687763 [debug] [Thread-3 (]: On model.aaa.stg_product_category_translation: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_product_category_translation"} */
+drop view if exists "dwh"."staging"."stg_product_category_translation__dbt_backup" cascade
+[0m17:41:34.688114 [debug] [Thread-4 (]: On model.aaa.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_orders"} */
+drop view if exists "dwh"."staging"."stg_orders__dbt_backup" cascade
+[0m17:41:34.688709 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.002 seconds
+[0m17:41:34.689571 [debug] [Thread-2 (]: On model.aaa.stg_order_reviews: Close
+[0m17:41:34.689990 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE8298650>]}
+[0m17:41:34.690302 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.002 seconds
+[0m17:41:34.691021 [debug] [Thread-4 (]: SQL status: DROP VIEW in 0.003 seconds
+[0m17:41:34.691902 [debug] [Thread-1 (]: On model.aaa.stg_order_payments: Close
+[0m17:41:34.692178 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.004 seconds
+[0m17:41:34.690756 [info ] [Thread-2 (]: 6 of 55 OK created sql view model staging.stg_order_reviews .................... [[32mCREATE VIEW[0m in 0.09s]
+[0m17:41:34.693076 [debug] [Thread-4 (]: On model.aaa.stg_orders: Close
+[0m17:41:34.694058 [debug] [Thread-3 (]: On model.aaa.stg_product_category_translation: Close
+[0m17:41:34.694500 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE800BF50>]}
+[0m17:41:34.694920 [debug] [Thread-2 (]: Finished running node model.aaa.stg_order_reviews
+[0m17:41:34.696788 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE807F3B0>]}
+[0m17:41:34.697295 [debug] [Thread-2 (]: Began running node model.aaa.stg_products
+[0m17:41:34.698073 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE807F470>]}
+[0m17:41:34.695919 [info ] [Thread-1 (]: 5 of 55 OK created sql view model staging.stg_order_payments ................... [[32mCREATE VIEW[0m in 0.09s]
+[0m17:41:34.699081 [info ] [Thread-4 (]: 7 of 55 OK created sql view model staging.stg_orders ........................... [[32mCREATE VIEW[0m in 0.09s]
+[0m17:41:34.700729 [debug] [Thread-1 (]: Finished running node model.aaa.stg_order_payments
+[0m17:41:34.699652 [info ] [Thread-2 (]: 9 of 55 START sql view model staging.stg_products .............................. [RUN]
+[0m17:41:34.701218 [debug] [Thread-4 (]: Finished running node model.aaa.stg_orders
+[0m17:41:34.701532 [debug] [Thread-1 (]: Began running node model.aaa.stg_sellers
+[0m17:41:34.700313 [info ] [Thread-3 (]: 8 of 55 OK created sql view model staging.stg_product_category_translation ..... [[32mCREATE VIEW[0m in 0.09s]
+[0m17:41:34.701992 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.aaa.stg_order_reviews, now model.aaa.stg_products)
+[0m17:41:34.702350 [debug] [Thread-4 (]: Began running node test.aaa.not_null_dim_date_date_day.e3f312efb2
+[0m17:41:34.702706 [info ] [Thread-1 (]: 10 of 55 START sql view model staging.stg_sellers .............................. [RUN]
+[0m17:41:34.703192 [debug] [Thread-3 (]: Finished running node model.aaa.stg_product_category_translation
+[0m17:41:34.703423 [debug] [Thread-2 (]: Began compiling node model.aaa.stg_products
+[0m17:41:34.703707 [info ] [Thread-4 (]: 11 of 55 START test not_null_dim_date_date_day ................................. [RUN]
+[0m17:41:34.704030 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.aaa.stg_order_payments, now model.aaa.stg_sellers)
+[0m17:41:34.704330 [debug] [Thread-3 (]: Began running node test.aaa.unique_dim_date_date_day.d56fd19199
+[0m17:41:34.706021 [debug] [Thread-2 (]: Writing injected SQL for node "model.aaa.stg_products"
+[0m17:41:34.706417 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.aaa.stg_orders, now test.aaa.not_null_dim_date_date_day.e3f312efb2)
+[0m17:41:34.706726 [debug] [Thread-1 (]: Began compiling node model.aaa.stg_sellers
+[0m17:41:34.707031 [info ] [Thread-3 (]: 12 of 55 START test unique_dim_date_date_day ................................... [RUN]
+[0m17:41:34.707493 [debug] [Thread-4 (]: Began compiling node test.aaa.not_null_dim_date_date_day.e3f312efb2
+[0m17:41:34.711183 [debug] [Thread-1 (]: Writing injected SQL for node "model.aaa.stg_sellers"
+[0m17:41:34.711974 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.aaa.stg_product_category_translation, now test.aaa.unique_dim_date_date_day.d56fd19199)
+[0m17:41:34.718726 [debug] [Thread-4 (]: Writing injected SQL for node "test.aaa.not_null_dim_date_date_day.e3f312efb2"
+[0m17:41:34.719219 [debug] [Thread-2 (]: Began executing node model.aaa.stg_products
+[0m17:41:34.719514 [debug] [Thread-3 (]: Began compiling node test.aaa.unique_dim_date_date_day.d56fd19199
+[0m17:41:34.721501 [debug] [Thread-2 (]: Writing runtime sql for node "model.aaa.stg_products"
+[0m17:41:34.727053 [debug] [Thread-3 (]: Writing injected SQL for node "test.aaa.unique_dim_date_date_day.d56fd19199"
+[0m17:41:34.727887 [debug] [Thread-1 (]: Began executing node model.aaa.stg_sellers
+[0m17:41:34.731520 [debug] [Thread-1 (]: Writing runtime sql for node "model.aaa.stg_sellers"
+[0m17:41:34.732563 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_products"
+[0m17:41:34.732921 [debug] [Thread-2 (]: On model.aaa.stg_products: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_products"} */
+
+  create view "dwh"."staging"."stg_products__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "dwh"."raw"."products"
+)
+
+select
+    product_id,
+    product_category_name                         as category_name,
+    product_name_lenght::numeric::int             as name_length,
+    product_description_lenght::numeric::int      as description_length,
+    product_photos_qty::numeric::int              as photos_qty,
+    product_weight_g::numeric::int                as weight_g,
+    product_length_cm::numeric::int               as length_cm,
+    product_height_cm::numeric::int               as height_cm,
+    product_width_cm::numeric::int                as width_cm
+from source
+  );
+[0m17:41:34.733218 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:34.733684 [debug] [Thread-4 (]: Began executing node test.aaa.not_null_dim_date_date_day.e3f312efb2
+[0m17:41:34.743430 [debug] [Thread-1 (]: Using postgres connection "model.aaa.stg_sellers"
+[0m17:41:34.747965 [debug] [Thread-4 (]: Writing runtime sql for node "test.aaa.not_null_dim_date_date_day.e3f312efb2"
+[0m17:41:34.748610 [debug] [Thread-3 (]: Began executing node test.aaa.unique_dim_date_date_day.d56fd19199
+[0m17:41:34.748934 [debug] [Thread-1 (]: On model.aaa.stg_sellers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_sellers"} */
+
+  create view "dwh"."staging"."stg_sellers__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "dwh"."raw"."sellers"
+)
+
+select
+    seller_id,
+    seller_zip_code_prefix                as zip_code_prefix,
+    lower(trim(seller_city))              as city,
+    upper(trim(seller_state))             as state
+from source
+  );
+[0m17:41:34.751622 [debug] [Thread-3 (]: Writing runtime sql for node "test.aaa.unique_dim_date_date_day.d56fd19199"
+[0m17:41:34.751950 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:34.752447 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.019 seconds
+[0m17:41:34.754396 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_products"
+[0m17:41:34.754743 [debug] [Thread-2 (]: On model.aaa.stg_products: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_products"} */
+alter table "dwh"."staging"."stg_products" rename to "stg_products__dbt_backup"
+[0m17:41:34.755152 [debug] [Thread-4 (]: Using postgres connection "test.aaa.not_null_dim_date_date_day.e3f312efb2"
+[0m17:41:34.755446 [debug] [Thread-3 (]: Using postgres connection "test.aaa.unique_dim_date_date_day.d56fd19199"
+[0m17:41:34.755702 [debug] [Thread-4 (]: On test.aaa.not_null_dim_date_date_day.e3f312efb2: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_dim_date_date_day.e3f312efb2"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select date_day
+from "dwh"."marts"."dim_date"
+where date_day is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:34.755976 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:34.756442 [debug] [Thread-3 (]: On test.aaa.unique_dim_date_date_day.d56fd19199: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_dim_date_date_day.d56fd19199"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    date_day as unique_field,
+    count(*) as n_records
+
+from "dwh"."marts"."dim_date"
+where date_day is not null
+group by date_day
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:34.756744 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:34.758321 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_products"
+[0m17:41:34.758616 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:41:34.759028 [debug] [Thread-2 (]: On model.aaa.stg_products: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_products"} */
+alter table "dwh"."staging"."stg_products__dbt_tmp" rename to "stg_products"
+[0m17:41:34.760293 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:34.761793 [debug] [Thread-2 (]: On model.aaa.stg_products: COMMIT
+[0m17:41:34.762314 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_products"
+[0m17:41:34.762726 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.011 seconds
+[0m17:41:34.763016 [debug] [Thread-2 (]: On model.aaa.stg_products: COMMIT
+[0m17:41:34.766250 [debug] [Thread-1 (]: Using postgres connection "model.aaa.stg_sellers"
+[0m17:41:34.766637 [debug] [Thread-1 (]: On model.aaa.stg_sellers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_sellers"} */
+alter table "dwh"."staging"."stg_sellers" rename to "stg_sellers__dbt_backup"
+[0m17:41:34.767780 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:34.769577 [debug] [Thread-1 (]: Using postgres connection "model.aaa.stg_sellers"
+[0m17:41:34.769838 [debug] [Thread-2 (]: SQL status: COMMIT in 0.003 seconds
+[0m17:41:34.770096 [debug] [Thread-1 (]: On model.aaa.stg_sellers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_sellers"} */
+alter table "dwh"."staging"."stg_sellers__dbt_tmp" rename to "stg_sellers"
+[0m17:41:34.771277 [debug] [Thread-2 (]: Applying DROP to: "dwh"."staging"."stg_products__dbt_backup"
+[0m17:41:34.771674 [debug] [Thread-2 (]: Using postgres connection "model.aaa.stg_products"
+[0m17:41:34.771892 [debug] [Thread-2 (]: On model.aaa.stg_products: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_products"} */
+drop view if exists "dwh"."staging"."stg_products__dbt_backup" cascade
+[0m17:41:34.772129 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:34.772883 [debug] [Thread-1 (]: On model.aaa.stg_sellers: COMMIT
+[0m17:41:34.773115 [debug] [Thread-1 (]: Using postgres connection "model.aaa.stg_sellers"
+[0m17:41:34.773305 [debug] [Thread-1 (]: On model.aaa.stg_sellers: COMMIT
+[0m17:41:34.773759 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.001 seconds
+[0m17:41:34.774661 [debug] [Thread-2 (]: On model.aaa.stg_products: Close
+[0m17:41:34.774929 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m17:41:34.776944 [debug] [Thread-1 (]: Applying DROP to: "dwh"."staging"."stg_sellers__dbt_backup"
+[0m17:41:34.777853 [debug] [Thread-1 (]: Using postgres connection "model.aaa.stg_sellers"
+[0m17:41:34.778363 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE82BD6D0>]}
+[0m17:41:34.778658 [debug] [Thread-1 (]: On model.aaa.stg_sellers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.stg_sellers"} */
+drop view if exists "dwh"."staging"."stg_sellers__dbt_backup" cascade
+[0m17:41:34.779182 [info ] [Thread-2 (]: 9 of 55 OK created sql view model staging.stg_products ......................... [[32mCREATE VIEW[0m in 0.08s]
+[0m17:41:34.779725 [debug] [Thread-2 (]: Finished running node model.aaa.stg_products
+[0m17:41:34.780111 [debug] [Thread-2 (]: Began running node test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m17:41:34.780647 [info ] [Thread-2 (]: 13 of 55 START test not_null_stg_customers_customer_id ......................... [RUN]
+[0m17:41:34.781545 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.aaa.stg_products, now test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa)
+[0m17:41:34.781924 [debug] [Thread-2 (]: Began compiling node test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m17:41:34.784355 [debug] [Thread-2 (]: Writing injected SQL for node "test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa"
+[0m17:41:34.784759 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.005 seconds
+[0m17:41:34.785826 [debug] [Thread-1 (]: On model.aaa.stg_sellers: Close
+[0m17:41:34.786120 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.029 seconds
+[0m17:41:34.786413 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.028 seconds
+[0m17:41:34.786906 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE82BC410>]}
+[0m17:41:34.789561 [debug] [Thread-4 (]: On test.aaa.not_null_dim_date_date_day.e3f312efb2: ROLLBACK
+[0m17:41:34.790855 [debug] [Thread-3 (]: On test.aaa.unique_dim_date_date_day.d56fd19199: ROLLBACK
+[0m17:41:34.791170 [debug] [Thread-2 (]: Began executing node test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m17:41:34.791626 [info ] [Thread-1 (]: 10 of 55 OK created sql view model staging.stg_sellers ......................... [[32mCREATE VIEW[0m in 0.08s]
+[0m17:41:34.793113 [debug] [Thread-2 (]: Writing runtime sql for node "test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa"
+[0m17:41:34.793384 [debug] [Thread-4 (]: On test.aaa.not_null_dim_date_date_day.e3f312efb2: Close
+[0m17:41:34.793974 [debug] [Thread-3 (]: On test.aaa.unique_dim_date_date_day.d56fd19199: Close
+[0m17:41:34.794348 [debug] [Thread-1 (]: Finished running node model.aaa.stg_sellers
+[0m17:41:34.795982 [debug] [Thread-1 (]: Began running node test.aaa.not_null_stg_customers_customer_unique_id.7144461cba
+[0m17:41:34.795043 [info ] [Thread-4 (]: 11 of 55 PASS not_null_dim_date_date_day ....................................... [[32mPASS[0m in 0.09s]
+[0m17:41:34.795618 [info ] [Thread-3 (]: 12 of 55 PASS unique_dim_date_date_day ......................................... [[32mPASS[0m in 0.08s]
+[0m17:41:34.797413 [debug] [Thread-4 (]: Finished running node test.aaa.not_null_dim_date_date_day.e3f312efb2
+[0m17:41:34.798086 [debug] [Thread-3 (]: Finished running node test.aaa.unique_dim_date_date_day.d56fd19199
+[0m17:41:34.798545 [debug] [Thread-2 (]: Using postgres connection "test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa"
+[0m17:41:34.796625 [info ] [Thread-1 (]: 14 of 55 START test not_null_stg_customers_customer_unique_id .................. [RUN]
+[0m17:41:34.799150 [debug] [Thread-4 (]: Began running node test.aaa.unique_stg_customers_customer_id.c7614daada
+[0m17:41:34.799531 [debug] [Thread-3 (]: Began running node test.aaa.not_null_stg_order_items_order_id.2063801f96
+[0m17:41:34.799846 [debug] [Thread-2 (]: On test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select customer_id
+from "dwh"."staging"."stg_customers"
+where customer_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:34.800166 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.aaa.stg_sellers, now test.aaa.not_null_stg_customers_customer_unique_id.7144461cba)
+[0m17:41:34.800426 [info ] [Thread-4 (]: 15 of 55 START test unique_stg_customers_customer_id ........................... [RUN]
+[0m17:41:34.800963 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:34.801210 [debug] [Thread-1 (]: Began compiling node test.aaa.not_null_stg_customers_customer_unique_id.7144461cba
+[0m17:41:34.800652 [info ] [Thread-3 (]: 16 of 55 START test not_null_stg_order_items_order_id .......................... [RUN]
+[0m17:41:34.801695 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_dim_date_date_day.e3f312efb2, now test.aaa.unique_stg_customers_customer_id.c7614daada)
+[0m17:41:34.805047 [debug] [Thread-1 (]: Writing injected SQL for node "test.aaa.not_null_stg_customers_customer_unique_id.7144461cba"
+[0m17:41:34.805660 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.aaa.unique_dim_date_date_day.d56fd19199, now test.aaa.not_null_stg_order_items_order_id.2063801f96)
+[0m17:41:34.806093 [debug] [Thread-4 (]: Began compiling node test.aaa.unique_stg_customers_customer_id.c7614daada
+[0m17:41:34.806454 [debug] [Thread-3 (]: Began compiling node test.aaa.not_null_stg_order_items_order_id.2063801f96
+[0m17:41:34.809225 [debug] [Thread-4 (]: Writing injected SQL for node "test.aaa.unique_stg_customers_customer_id.c7614daada"
+[0m17:41:34.814248 [debug] [Thread-3 (]: Writing injected SQL for node "test.aaa.not_null_stg_order_items_order_id.2063801f96"
+[0m17:41:34.815758 [debug] [Thread-1 (]: Began executing node test.aaa.not_null_stg_customers_customer_unique_id.7144461cba
+[0m17:41:34.818691 [debug] [Thread-1 (]: Writing runtime sql for node "test.aaa.not_null_stg_customers_customer_unique_id.7144461cba"
+[0m17:41:34.819129 [debug] [Thread-4 (]: Began executing node test.aaa.unique_stg_customers_customer_id.c7614daada
+[0m17:41:34.819463 [debug] [Thread-3 (]: Began executing node test.aaa.not_null_stg_order_items_order_id.2063801f96
+[0m17:41:34.820720 [debug] [Thread-4 (]: Writing runtime sql for node "test.aaa.unique_stg_customers_customer_id.c7614daada"
+[0m17:41:34.824494 [debug] [Thread-3 (]: Writing runtime sql for node "test.aaa.not_null_stg_order_items_order_id.2063801f96"
+[0m17:41:34.825016 [debug] [Thread-1 (]: Using postgres connection "test.aaa.not_null_stg_customers_customer_unique_id.7144461cba"
+[0m17:41:34.825720 [debug] [Thread-1 (]: On test.aaa.not_null_stg_customers_customer_unique_id.7144461cba: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_stg_customers_customer_unique_id.7144461cba"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select customer_unique_id
+from "dwh"."staging"."stg_customers"
+where customer_unique_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:34.826109 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:34.826952 [debug] [Thread-3 (]: Using postgres connection "test.aaa.not_null_stg_order_items_order_id.2063801f96"
+[0m17:41:34.827285 [debug] [Thread-4 (]: Using postgres connection "test.aaa.unique_stg_customers_customer_id.c7614daada"
+[0m17:41:34.827551 [debug] [Thread-3 (]: On test.aaa.not_null_stg_order_items_order_id.2063801f96: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_stg_order_items_order_id.2063801f96"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from "dwh"."staging"."stg_order_items"
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:34.828073 [debug] [Thread-4 (]: On test.aaa.unique_stg_customers_customer_id.c7614daada: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_stg_customers_customer_id.c7614daada"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    customer_id as unique_field,
+    count(*) as n_records
+
+from "dwh"."staging"."stg_customers"
+where customer_id is not null
+group by customer_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:34.828551 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:41:34.828906 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:34.849349 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.048 seconds
+[0m17:41:34.849774 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.024 seconds
+[0m17:41:34.850796 [debug] [Thread-2 (]: On test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa: ROLLBACK
+[0m17:41:34.851676 [debug] [Thread-1 (]: On test.aaa.not_null_stg_customers_customer_unique_id.7144461cba: ROLLBACK
+[0m17:41:34.852378 [debug] [Thread-1 (]: On test.aaa.not_null_stg_customers_customer_unique_id.7144461cba: Close
+[0m17:41:34.852697 [debug] [Thread-2 (]: On test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa: Close
+[0m17:41:34.853281 [info ] [Thread-1 (]: 14 of 55 PASS not_null_stg_customers_customer_unique_id ........................ [[32mPASS[0m in 0.05s]
+[0m17:41:34.854395 [debug] [Thread-1 (]: Finished running node test.aaa.not_null_stg_customers_customer_unique_id.7144461cba
+[0m17:41:34.853870 [info ] [Thread-2 (]: 13 of 55 PASS not_null_stg_customers_customer_id ............................... [[32mPASS[0m in 0.07s]
+[0m17:41:34.854967 [debug] [Thread-1 (]: Began running node test.aaa.not_null_stg_order_items_price.ff3393f991
+[0m17:41:34.856000 [debug] [Thread-2 (]: Finished running node test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m17:41:34.856717 [debug] [Thread-2 (]: Began running node test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc
+[0m17:41:34.856358 [info ] [Thread-1 (]: 17 of 55 START test not_null_stg_order_items_price ............................. [RUN]
+[0m17:41:34.857530 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_stg_customers_customer_unique_id.7144461cba, now test.aaa.not_null_stg_order_items_price.ff3393f991)
+[0m17:41:34.857154 [info ] [Thread-2 (]: 18 of 55 START test not_null_stg_geolocation_zip_code_prefix ................... [RUN]
+[0m17:41:34.857978 [debug] [Thread-1 (]: Began compiling node test.aaa.not_null_stg_order_items_price.ff3393f991
+[0m17:41:34.858321 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_stg_customers_customer_id.e2cfb1f9aa, now test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc)
+[0m17:41:34.861365 [debug] [Thread-1 (]: Writing injected SQL for node "test.aaa.not_null_stg_order_items_price.ff3393f991"
+[0m17:41:34.861790 [debug] [Thread-2 (]: Began compiling node test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc
+[0m17:41:34.864961 [debug] [Thread-2 (]: Writing injected SQL for node "test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc"
+[0m17:41:34.865900 [debug] [Thread-1 (]: Began executing node test.aaa.not_null_stg_order_items_price.ff3393f991
+[0m17:41:34.867458 [debug] [Thread-1 (]: Writing runtime sql for node "test.aaa.not_null_stg_order_items_price.ff3393f991"
+[0m17:41:34.867764 [debug] [Thread-2 (]: Began executing node test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc
+[0m17:41:34.870423 [debug] [Thread-2 (]: Writing runtime sql for node "test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc"
+[0m17:41:34.871567 [debug] [Thread-1 (]: Using postgres connection "test.aaa.not_null_stg_order_items_price.ff3393f991"
+[0m17:41:34.871919 [debug] [Thread-1 (]: On test.aaa.not_null_stg_order_items_price.ff3393f991: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_stg_order_items_price.ff3393f991"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price
+from "dwh"."staging"."stg_order_items"
+where price is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:34.872272 [debug] [Thread-2 (]: Using postgres connection "test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc"
+[0m17:41:34.872603 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:34.872961 [debug] [Thread-2 (]: On test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select zip_code_prefix
+from "dwh"."staging"."stg_geolocation"
+where zip_code_prefix is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:34.873362 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:34.886962 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.058 seconds
+[0m17:41:34.888372 [debug] [Thread-3 (]: On test.aaa.not_null_stg_order_items_order_id.2063801f96: ROLLBACK
+[0m17:41:34.888991 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.060 seconds
+[0m17:41:34.889538 [debug] [Thread-3 (]: On test.aaa.not_null_stg_order_items_order_id.2063801f96: Close
+[0m17:41:34.891079 [debug] [Thread-4 (]: On test.aaa.unique_stg_customers_customer_id.c7614daada: ROLLBACK
+[0m17:41:34.891723 [info ] [Thread-3 (]: 16 of 55 PASS not_null_stg_order_items_order_id ................................ [[32mPASS[0m in 0.09s]
+[0m17:41:34.892185 [debug] [Thread-4 (]: On test.aaa.unique_stg_customers_customer_id.c7614daada: Close
+[0m17:41:34.892609 [debug] [Thread-3 (]: Finished running node test.aaa.not_null_stg_order_items_order_id.2063801f96
+[0m17:41:34.893092 [debug] [Thread-3 (]: Began running node test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b
+[0m17:41:34.893879 [info ] [Thread-4 (]: 15 of 55 PASS unique_stg_customers_customer_id ................................. [[32mPASS[0m in 0.09s]
+[0m17:41:34.894903 [debug] [Thread-4 (]: Finished running node test.aaa.unique_stg_customers_customer_id.c7614daada
+[0m17:41:34.894390 [info ] [Thread-3 (]: 19 of 55 START test unique_stg_geolocation_zip_code_prefix ..................... [RUN]
+[0m17:41:34.895344 [debug] [Thread-4 (]: Began running node test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301
+[0m17:41:34.895988 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_stg_order_items_order_id.2063801f96, now test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b)
+[0m17:41:34.896704 [debug] [Thread-3 (]: Began compiling node test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b
+[0m17:41:34.896374 [info ] [Thread-4 (]: 20 of 55 START test accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5  [RUN]
+[0m17:41:34.902223 [debug] [Thread-3 (]: Writing injected SQL for node "test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b"
+[0m17:41:34.902921 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.aaa.unique_stg_customers_customer_id.c7614daada, now test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301)
+[0m17:41:34.903569 [debug] [Thread-4 (]: Began compiling node test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301
+[0m17:41:34.906181 [debug] [Thread-4 (]: Writing injected SQL for node "test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301"
+[0m17:41:34.907025 [debug] [Thread-3 (]: Began executing node test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b
+[0m17:41:34.908626 [debug] [Thread-3 (]: Writing runtime sql for node "test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b"
+[0m17:41:34.909138 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.036 seconds
+[0m17:41:34.909794 [debug] [Thread-4 (]: Began executing node test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301
+[0m17:41:34.911796 [debug] [Thread-1 (]: On test.aaa.not_null_stg_order_items_price.ff3393f991: ROLLBACK
+[0m17:41:34.914822 [debug] [Thread-4 (]: Writing runtime sql for node "test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301"
+[0m17:41:34.916221 [debug] [Thread-3 (]: Using postgres connection "test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b"
+[0m17:41:34.916577 [debug] [Thread-3 (]: On test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    zip_code_prefix as unique_field,
+    count(*) as n_records
+
+from "dwh"."staging"."stg_geolocation"
+where zip_code_prefix is not null
+group by zip_code_prefix
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:34.916892 [debug] [Thread-1 (]: On test.aaa.not_null_stg_order_items_price.ff3393f991: Close
+[0m17:41:34.917200 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:41:34.918300 [debug] [Thread-4 (]: Using postgres connection "test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301"
+[0m17:41:34.917940 [info ] [Thread-1 (]: 17 of 55 PASS not_null_stg_order_items_price ................................... [[32mPASS[0m in 0.06s]
+[0m17:41:34.918742 [debug] [Thread-4 (]: On test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        review_score as value_field,
+        count(*) as n_records
+
+    from "dwh"."staging"."stg_order_reviews"
+    group by review_score
+
+)
+
+select *
+from all_values
+where value_field not in (
+    1,2,3,4,5
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:34.919238 [debug] [Thread-1 (]: Finished running node test.aaa.not_null_stg_order_items_price.ff3393f991
+[0m17:41:34.919556 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:34.919950 [debug] [Thread-1 (]: Began running node test.aaa.not_null_stg_order_reviews_review_key.3ab609331f
+[0m17:41:34.920454 [info ] [Thread-1 (]: 21 of 55 START test not_null_stg_order_reviews_review_key ...................... [RUN]
+[0m17:41:34.921076 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_stg_order_items_price.ff3393f991, now test.aaa.not_null_stg_order_reviews_review_key.3ab609331f)
+[0m17:41:34.921735 [debug] [Thread-1 (]: Began compiling node test.aaa.not_null_stg_order_reviews_review_key.3ab609331f
+[0m17:41:34.926455 [debug] [Thread-1 (]: Writing injected SQL for node "test.aaa.not_null_stg_order_reviews_review_key.3ab609331f"
+[0m17:41:34.928085 [debug] [Thread-1 (]: Began executing node test.aaa.not_null_stg_order_reviews_review_key.3ab609331f
+[0m17:41:34.930230 [debug] [Thread-1 (]: Writing runtime sql for node "test.aaa.not_null_stg_order_reviews_review_key.3ab609331f"
+[0m17:41:34.932961 [debug] [Thread-1 (]: Using postgres connection "test.aaa.not_null_stg_order_reviews_review_key.3ab609331f"
+[0m17:41:34.933595 [debug] [Thread-1 (]: On test.aaa.not_null_stg_order_reviews_review_key.3ab609331f: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_stg_order_reviews_review_key.3ab609331f"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select review_key
+from "dwh"."staging"."stg_order_reviews"
+where review_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:34.933936 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:34.994572 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.121 seconds
+[0m17:41:34.996148 [debug] [Thread-2 (]: On test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc: ROLLBACK
+[0m17:41:34.997027 [debug] [Thread-2 (]: On test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc: Close
+[0m17:41:34.997660 [info ] [Thread-2 (]: 18 of 55 PASS not_null_stg_geolocation_zip_code_prefix ......................... [[32mPASS[0m in 0.14s]
+[0m17:41:34.998310 [debug] [Thread-2 (]: Finished running node test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc
+[0m17:41:34.998620 [debug] [Thread-2 (]: Began running node test.aaa.unique_stg_order_reviews_review_key.9999d0e96b
+[0m17:41:34.998959 [info ] [Thread-2 (]: 22 of 55 START test unique_stg_order_reviews_review_key ........................ [RUN]
+[0m17:41:34.999639 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_stg_geolocation_zip_code_prefix.cbea6eaacc, now test.aaa.unique_stg_order_reviews_review_key.9999d0e96b)
+[0m17:41:35.000127 [debug] [Thread-2 (]: Began compiling node test.aaa.unique_stg_order_reviews_review_key.9999d0e96b
+[0m17:41:35.004422 [debug] [Thread-2 (]: Writing injected SQL for node "test.aaa.unique_stg_order_reviews_review_key.9999d0e96b"
+[0m17:41:35.005719 [debug] [Thread-2 (]: Began executing node test.aaa.unique_stg_order_reviews_review_key.9999d0e96b
+[0m17:41:35.007810 [debug] [Thread-2 (]: Writing runtime sql for node "test.aaa.unique_stg_order_reviews_review_key.9999d0e96b"
+[0m17:41:35.009064 [debug] [Thread-2 (]: Using postgres connection "test.aaa.unique_stg_order_reviews_review_key.9999d0e96b"
+[0m17:41:35.009539 [debug] [Thread-2 (]: On test.aaa.unique_stg_order_reviews_review_key.9999d0e96b: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_stg_order_reviews_review_key.9999d0e96b"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    review_key as unique_field,
+    count(*) as n_records
+
+from "dwh"."staging"."stg_order_reviews"
+where review_key is not null
+group by review_key
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.010035 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:35.021790 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.104 seconds
+[0m17:41:35.023817 [debug] [Thread-3 (]: On test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b: ROLLBACK
+[0m17:41:35.024924 [debug] [Thread-3 (]: On test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b: Close
+[0m17:41:35.025793 [info ] [Thread-3 (]: 19 of 55 PASS unique_stg_geolocation_zip_code_prefix ........................... [[32mPASS[0m in 0.13s]
+[0m17:41:35.026656 [debug] [Thread-3 (]: Finished running node test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b
+[0m17:41:35.027118 [debug] [Thread-3 (]: Began running node test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e
+[0m17:41:35.027797 [info ] [Thread-3 (]: 23 of 55 START test accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined  [RUN]
+[0m17:41:35.028640 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.aaa.unique_stg_geolocation_zip_code_prefix.2c5b74ef6b, now test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e)
+[0m17:41:35.029164 [debug] [Thread-3 (]: Began compiling node test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e
+[0m17:41:35.033803 [debug] [Thread-3 (]: Writing injected SQL for node "test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e"
+[0m17:41:35.035074 [debug] [Thread-3 (]: Began executing node test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e
+[0m17:41:35.037048 [debug] [Thread-3 (]: Writing runtime sql for node "test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e"
+[0m17:41:35.038461 [debug] [Thread-3 (]: Using postgres connection "test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e"
+[0m17:41:35.038827 [debug] [Thread-3 (]: On test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        payment_type as value_field,
+        count(*) as n_records
+
+    from "dwh"."staging"."stg_order_payments"
+    group by payment_type
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'credit_card','boleto','voucher','debit_card','not_defined'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.039127 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:41:35.057823 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.124 seconds
+[0m17:41:35.059777 [debug] [Thread-1 (]: On test.aaa.not_null_stg_order_reviews_review_key.3ab609331f: ROLLBACK
+[0m17:41:35.060802 [debug] [Thread-1 (]: On test.aaa.not_null_stg_order_reviews_review_key.3ab609331f: Close
+[0m17:41:35.062358 [info ] [Thread-1 (]: 21 of 55 PASS not_null_stg_order_reviews_review_key ............................ [[32mPASS[0m in 0.14s]
+[0m17:41:35.063701 [debug] [Thread-1 (]: Finished running node test.aaa.not_null_stg_order_reviews_review_key.3ab609331f
+[0m17:41:35.064211 [debug] [Thread-1 (]: Began running node test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c
+[0m17:41:35.064757 [info ] [Thread-1 (]: 24 of 55 START test accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved  [RUN]
+[0m17:41:35.065313 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_stg_order_reviews_review_key.3ab609331f, now test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c)
+[0m17:41:35.065649 [debug] [Thread-1 (]: Began compiling node test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c
+[0m17:41:35.074220 [debug] [Thread-1 (]: Writing injected SQL for node "test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c"
+[0m17:41:35.075031 [debug] [Thread-1 (]: Began executing node test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c
+[0m17:41:35.076717 [debug] [Thread-1 (]: Writing runtime sql for node "test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c"
+[0m17:41:35.078091 [debug] [Thread-1 (]: Using postgres connection "test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c"
+[0m17:41:35.078557 [debug] [Thread-1 (]: On test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        order_status as value_field,
+        count(*) as n_records
+
+    from "dwh"."staging"."stg_orders"
+    group by order_status
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'delivered','shipped','canceled','unavailable','invoiced','processing','created','approved'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.078871 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:35.083195 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.044 seconds
+[0m17:41:35.084501 [debug] [Thread-3 (]: On test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e: ROLLBACK
+[0m17:41:35.085184 [debug] [Thread-3 (]: On test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e: Close
+[0m17:41:35.085834 [info ] [Thread-3 (]: 23 of 55 PASS accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined  [[32mPASS[0m in 0.06s]
+[0m17:41:35.086445 [debug] [Thread-3 (]: Finished running node test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e
+[0m17:41:35.086763 [debug] [Thread-3 (]: Began running node test.aaa.not_null_stg_orders_customer_id.af79d5e4b5
+[0m17:41:35.087132 [info ] [Thread-3 (]: 25 of 55 START test not_null_stg_orders_customer_id ............................ [RUN]
+[0m17:41:35.087608 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.aaa.accepted_values_stg_order_payments_payment_type__credit_card__boleto__voucher__debit_card__not_defined.5658caf87e, now test.aaa.not_null_stg_orders_customer_id.af79d5e4b5)
+[0m17:41:35.087887 [debug] [Thread-3 (]: Began compiling node test.aaa.not_null_stg_orders_customer_id.af79d5e4b5
+[0m17:41:35.090471 [debug] [Thread-3 (]: Writing injected SQL for node "test.aaa.not_null_stg_orders_customer_id.af79d5e4b5"
+[0m17:41:35.091319 [debug] [Thread-3 (]: Began executing node test.aaa.not_null_stg_orders_customer_id.af79d5e4b5
+[0m17:41:35.093676 [debug] [Thread-3 (]: Writing runtime sql for node "test.aaa.not_null_stg_orders_customer_id.af79d5e4b5"
+[0m17:41:35.094417 [debug] [Thread-3 (]: Using postgres connection "test.aaa.not_null_stg_orders_customer_id.af79d5e4b5"
+[0m17:41:35.094699 [debug] [Thread-3 (]: On test.aaa.not_null_stg_orders_customer_id.af79d5e4b5: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_stg_orders_customer_id.af79d5e4b5"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select customer_id
+from "dwh"."staging"."stg_orders"
+where customer_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.094951 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:41:35.108193 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.029 seconds
+[0m17:41:35.109420 [debug] [Thread-1 (]: On test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c: ROLLBACK
+[0m17:41:35.110736 [debug] [Thread-1 (]: On test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c: Close
+[0m17:41:35.111683 [info ] [Thread-1 (]: 24 of 55 PASS accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved  [[32mPASS[0m in 0.05s]
+[0m17:41:35.112294 [debug] [Thread-1 (]: Finished running node test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c
+[0m17:41:35.112587 [debug] [Thread-1 (]: Began running node test.aaa.not_null_stg_orders_order_id.81cfe2fe64
+[0m17:41:35.112917 [info ] [Thread-1 (]: 26 of 55 START test not_null_stg_orders_order_id ............................... [RUN]
+[0m17:41:35.113301 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.aaa.accepted_values_stg_orders_order_status__delivered__shipped__canceled__unavailable__invoiced__processing__created__approved.a06d34fe4c, now test.aaa.not_null_stg_orders_order_id.81cfe2fe64)
+[0m17:41:35.113619 [debug] [Thread-1 (]: Began compiling node test.aaa.not_null_stg_orders_order_id.81cfe2fe64
+[0m17:41:35.115807 [debug] [Thread-1 (]: Writing injected SQL for node "test.aaa.not_null_stg_orders_order_id.81cfe2fe64"
+[0m17:41:35.116448 [debug] [Thread-1 (]: Began executing node test.aaa.not_null_stg_orders_order_id.81cfe2fe64
+[0m17:41:35.118247 [debug] [Thread-1 (]: Writing runtime sql for node "test.aaa.not_null_stg_orders_order_id.81cfe2fe64"
+[0m17:41:35.118948 [debug] [Thread-1 (]: Using postgres connection "test.aaa.not_null_stg_orders_order_id.81cfe2fe64"
+[0m17:41:35.119223 [debug] [Thread-1 (]: On test.aaa.not_null_stg_orders_order_id.81cfe2fe64: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_stg_orders_order_id.81cfe2fe64"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from "dwh"."staging"."stg_orders"
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.119486 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:35.129912 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.035 seconds
+[0m17:41:35.130978 [debug] [Thread-3 (]: On test.aaa.not_null_stg_orders_customer_id.af79d5e4b5: ROLLBACK
+[0m17:41:35.131749 [debug] [Thread-3 (]: On test.aaa.not_null_stg_orders_customer_id.af79d5e4b5: Close
+[0m17:41:35.132286 [info ] [Thread-3 (]: 25 of 55 PASS not_null_stg_orders_customer_id .................................. [[32mPASS[0m in 0.04s]
+[0m17:41:35.133350 [debug] [Thread-3 (]: Finished running node test.aaa.not_null_stg_orders_customer_id.af79d5e4b5
+[0m17:41:35.133669 [debug] [Thread-3 (]: Began running node test.aaa.unique_stg_orders_order_id.e3b841c71a
+[0m17:41:35.133990 [info ] [Thread-3 (]: 27 of 55 START test unique_stg_orders_order_id ................................. [RUN]
+[0m17:41:35.134431 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_stg_orders_customer_id.af79d5e4b5, now test.aaa.unique_stg_orders_order_id.e3b841c71a)
+[0m17:41:35.134670 [debug] [Thread-3 (]: Began compiling node test.aaa.unique_stg_orders_order_id.e3b841c71a
+[0m17:41:35.136927 [debug] [Thread-3 (]: Writing injected SQL for node "test.aaa.unique_stg_orders_order_id.e3b841c71a"
+[0m17:41:35.137982 [debug] [Thread-3 (]: Began executing node test.aaa.unique_stg_orders_order_id.e3b841c71a
+[0m17:41:35.139328 [debug] [Thread-3 (]: Writing runtime sql for node "test.aaa.unique_stg_orders_order_id.e3b841c71a"
+[0m17:41:35.140365 [debug] [Thread-3 (]: Using postgres connection "test.aaa.unique_stg_orders_order_id.e3b841c71a"
+[0m17:41:35.140665 [debug] [Thread-3 (]: On test.aaa.unique_stg_orders_order_id.e3b841c71a: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_stg_orders_order_id.e3b841c71a"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    order_id as unique_field,
+    count(*) as n_records
+
+from "dwh"."staging"."stg_orders"
+where order_id is not null
+group by order_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.140917 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:41:35.146147 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.027 seconds
+[0m17:41:35.147148 [debug] [Thread-1 (]: On test.aaa.not_null_stg_orders_order_id.81cfe2fe64: ROLLBACK
+[0m17:41:35.147915 [debug] [Thread-1 (]: On test.aaa.not_null_stg_orders_order_id.81cfe2fe64: Close
+[0m17:41:35.148553 [info ] [Thread-1 (]: 26 of 55 PASS not_null_stg_orders_order_id ..................................... [[32mPASS[0m in 0.04s]
+[0m17:41:35.149128 [debug] [Thread-1 (]: Finished running node test.aaa.not_null_stg_orders_order_id.81cfe2fe64
+[0m17:41:35.149409 [debug] [Thread-1 (]: Began running node test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937
+[0m17:41:35.149764 [info ] [Thread-1 (]: 28 of 55 START test not_null_stg_product_category_translation_category_name .... [RUN]
+[0m17:41:35.150217 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_stg_orders_order_id.81cfe2fe64, now test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937)
+[0m17:41:35.150507 [debug] [Thread-1 (]: Began compiling node test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937
+[0m17:41:35.152910 [debug] [Thread-1 (]: Writing injected SQL for node "test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937"
+[0m17:41:35.153634 [debug] [Thread-1 (]: Began executing node test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937
+[0m17:41:35.154913 [debug] [Thread-1 (]: Writing runtime sql for node "test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937"
+[0m17:41:35.155578 [debug] [Thread-1 (]: Using postgres connection "test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937"
+[0m17:41:35.155861 [debug] [Thread-1 (]: On test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select category_name
+from "dwh"."staging"."stg_product_category_translation"
+where category_name is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.156102 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:35.184337 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.028 seconds
+[0m17:41:35.185403 [debug] [Thread-1 (]: On test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937: ROLLBACK
+[0m17:41:35.185966 [debug] [Thread-1 (]: On test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937: Close
+[0m17:41:35.186513 [info ] [Thread-1 (]: 28 of 55 PASS not_null_stg_product_category_translation_category_name .......... [[32mPASS[0m in 0.04s]
+[0m17:41:35.187256 [debug] [Thread-1 (]: Finished running node test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937
+[0m17:41:35.187603 [debug] [Thread-1 (]: Began running node test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb
+[0m17:41:35.188099 [info ] [Thread-1 (]: 29 of 55 START test unique_stg_product_category_translation_category_name ...... [RUN]
+[0m17:41:35.188733 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_stg_product_category_translation_category_name.ce8677c937, now test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb)
+[0m17:41:35.189041 [debug] [Thread-1 (]: Began compiling node test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb
+[0m17:41:35.192311 [debug] [Thread-1 (]: Writing injected SQL for node "test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb"
+[0m17:41:35.192699 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.273 seconds
+[0m17:41:35.193820 [debug] [Thread-4 (]: On test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301: ROLLBACK
+[0m17:41:35.194245 [debug] [Thread-1 (]: Began executing node test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb
+[0m17:41:35.195473 [debug] [Thread-1 (]: Writing runtime sql for node "test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb"
+[0m17:41:35.195720 [debug] [Thread-4 (]: On test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301: Close
+[0m17:41:35.196217 [info ] [Thread-4 (]: 20 of 55 PASS accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5  [[32mPASS[0m in 0.29s]
+[0m17:41:35.196779 [debug] [Thread-4 (]: Finished running node test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301
+[0m17:41:35.197093 [debug] [Thread-1 (]: Using postgres connection "test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb"
+[0m17:41:35.197418 [debug] [Thread-4 (]: Began running node test.aaa.not_null_stg_products_product_id.6373b0acf3
+[0m17:41:35.197832 [debug] [Thread-1 (]: On test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    category_name as unique_field,
+    count(*) as n_records
+
+from "dwh"."staging"."stg_product_category_translation"
+where category_name is not null
+group by category_name
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.198153 [info ] [Thread-4 (]: 30 of 55 START test not_null_stg_products_product_id ........................... [RUN]
+[0m17:41:35.198561 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:35.198881 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.aaa.accepted_values_stg_order_reviews_review_score__False__1__2__3__4__5.9409f74301, now test.aaa.not_null_stg_products_product_id.6373b0acf3)
+[0m17:41:35.199274 [debug] [Thread-4 (]: Began compiling node test.aaa.not_null_stg_products_product_id.6373b0acf3
+[0m17:41:35.201756 [debug] [Thread-4 (]: Writing injected SQL for node "test.aaa.not_null_stg_products_product_id.6373b0acf3"
+[0m17:41:35.202840 [debug] [Thread-4 (]: Began executing node test.aaa.not_null_stg_products_product_id.6373b0acf3
+[0m17:41:35.204493 [debug] [Thread-4 (]: Writing runtime sql for node "test.aaa.not_null_stg_products_product_id.6373b0acf3"
+[0m17:41:35.205223 [debug] [Thread-4 (]: Using postgres connection "test.aaa.not_null_stg_products_product_id.6373b0acf3"
+[0m17:41:35.205524 [debug] [Thread-4 (]: On test.aaa.not_null_stg_products_product_id.6373b0acf3: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_stg_products_product_id.6373b0acf3"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select product_id
+from "dwh"."staging"."stg_products"
+where product_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.205778 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:35.208255 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.067 seconds
+[0m17:41:35.210075 [debug] [Thread-3 (]: On test.aaa.unique_stg_orders_order_id.e3b841c71a: ROLLBACK
+[0m17:41:35.210854 [debug] [Thread-3 (]: On test.aaa.unique_stg_orders_order_id.e3b841c71a: Close
+[0m17:41:35.211508 [info ] [Thread-3 (]: 27 of 55 PASS unique_stg_orders_order_id ....................................... [[32mPASS[0m in 0.08s]
+[0m17:41:35.212008 [debug] [Thread-3 (]: Finished running node test.aaa.unique_stg_orders_order_id.e3b841c71a
+[0m17:41:35.212283 [debug] [Thread-3 (]: Began running node test.aaa.unique_stg_products_product_id.7d950a1467
+[0m17:41:35.212605 [info ] [Thread-3 (]: 31 of 55 START test unique_stg_products_product_id ............................. [RUN]
+[0m17:41:35.213035 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.aaa.unique_stg_orders_order_id.e3b841c71a, now test.aaa.unique_stg_products_product_id.7d950a1467)
+[0m17:41:35.213267 [debug] [Thread-3 (]: Began compiling node test.aaa.unique_stg_products_product_id.7d950a1467
+[0m17:41:35.216563 [debug] [Thread-3 (]: Writing injected SQL for node "test.aaa.unique_stg_products_product_id.7d950a1467"
+[0m17:41:35.217358 [debug] [Thread-3 (]: Began executing node test.aaa.unique_stg_products_product_id.7d950a1467
+[0m17:41:35.220837 [debug] [Thread-3 (]: Writing runtime sql for node "test.aaa.unique_stg_products_product_id.7d950a1467"
+[0m17:41:35.221230 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.015 seconds
+[0m17:41:35.222235 [debug] [Thread-4 (]: On test.aaa.not_null_stg_products_product_id.6373b0acf3: ROLLBACK
+[0m17:41:35.222522 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.024 seconds
+[0m17:41:35.223588 [debug] [Thread-1 (]: On test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb: ROLLBACK
+[0m17:41:35.223886 [debug] [Thread-4 (]: On test.aaa.not_null_stg_products_product_id.6373b0acf3: Close
+[0m17:41:35.224244 [debug] [Thread-3 (]: Using postgres connection "test.aaa.unique_stg_products_product_id.7d950a1467"
+[0m17:41:35.224622 [debug] [Thread-3 (]: On test.aaa.unique_stg_products_product_id.7d950a1467: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_stg_products_product_id.7d950a1467"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    product_id as unique_field,
+    count(*) as n_records
+
+from "dwh"."staging"."stg_products"
+where product_id is not null
+group by product_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.225571 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:41:35.225217 [info ] [Thread-4 (]: 30 of 55 PASS not_null_stg_products_product_id ................................. [[32mPASS[0m in 0.03s]
+[0m17:41:35.226277 [debug] [Thread-1 (]: On test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb: Close
+[0m17:41:35.226942 [debug] [Thread-4 (]: Finished running node test.aaa.not_null_stg_products_product_id.6373b0acf3
+[0m17:41:35.227436 [debug] [Thread-4 (]: Began running node test.aaa.not_null_stg_sellers_seller_id.35d0bce315
+[0m17:41:35.228395 [info ] [Thread-1 (]: 29 of 55 PASS unique_stg_product_category_translation_category_name ............ [[32mPASS[0m in 0.04s]
+[0m17:41:35.229655 [debug] [Thread-1 (]: Finished running node test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb
+[0m17:41:35.230031 [debug] [Thread-1 (]: Began running node test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8
+[0m17:41:35.228809 [info ] [Thread-4 (]: 32 of 55 START test not_null_stg_sellers_seller_id ............................. [RUN]
+[0m17:41:35.230825 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_stg_products_product_id.6373b0acf3, now test.aaa.not_null_stg_sellers_seller_id.35d0bce315)
+[0m17:41:35.230458 [info ] [Thread-1 (]: 33 of 55 START test unique_stg_sellers_seller_id ............................... [RUN]
+[0m17:41:35.231237 [debug] [Thread-4 (]: Began compiling node test.aaa.not_null_stg_sellers_seller_id.35d0bce315
+[0m17:41:35.231585 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.aaa.unique_stg_product_category_translation_category_name.e67bc0c3fb, now test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8)
+[0m17:41:35.234175 [debug] [Thread-4 (]: Writing injected SQL for node "test.aaa.not_null_stg_sellers_seller_id.35d0bce315"
+[0m17:41:35.234485 [debug] [Thread-1 (]: Began compiling node test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8
+[0m17:41:35.236860 [debug] [Thread-1 (]: Writing injected SQL for node "test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8"
+[0m17:41:35.237651 [debug] [Thread-4 (]: Began executing node test.aaa.not_null_stg_sellers_seller_id.35d0bce315
+[0m17:41:35.239558 [debug] [Thread-4 (]: Writing runtime sql for node "test.aaa.not_null_stg_sellers_seller_id.35d0bce315"
+[0m17:41:35.239996 [debug] [Thread-1 (]: Began executing node test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8
+[0m17:41:35.241502 [debug] [Thread-1 (]: Writing runtime sql for node "test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8"
+[0m17:41:35.242328 [debug] [Thread-4 (]: Using postgres connection "test.aaa.not_null_stg_sellers_seller_id.35d0bce315"
+[0m17:41:35.242635 [debug] [Thread-4 (]: On test.aaa.not_null_stg_sellers_seller_id.35d0bce315: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_stg_sellers_seller_id.35d0bce315"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select seller_id
+from "dwh"."staging"."stg_sellers"
+where seller_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.242895 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:35.243465 [debug] [Thread-1 (]: Using postgres connection "test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8"
+[0m17:41:35.243796 [debug] [Thread-1 (]: On test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    seller_id as unique_field,
+    count(*) as n_records
+
+from "dwh"."staging"."stg_sellers"
+where seller_id is not null
+group by seller_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.244068 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:35.251501 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.026 seconds
+[0m17:41:35.252693 [debug] [Thread-3 (]: On test.aaa.unique_stg_products_product_id.7d950a1467: ROLLBACK
+[0m17:41:35.253599 [debug] [Thread-3 (]: On test.aaa.unique_stg_products_product_id.7d950a1467: Close
+[0m17:41:35.254268 [info ] [Thread-3 (]: 31 of 55 PASS unique_stg_products_product_id ................................... [[32mPASS[0m in 0.04s]
+[0m17:41:35.254788 [debug] [Thread-3 (]: Finished running node test.aaa.unique_stg_products_product_id.7d950a1467
+[0m17:41:35.255079 [debug] [Thread-3 (]: Began running node model.aaa.dim_customers
+[0m17:41:35.255630 [info ] [Thread-3 (]: 34 of 55 START sql table model marts.dim_customers ............................. [RUN]
+[0m17:41:35.256227 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.aaa.unique_stg_products_product_id.7d950a1467, now model.aaa.dim_customers)
+[0m17:41:35.256544 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.014 seconds
+[0m17:41:35.256862 [debug] [Thread-3 (]: Began compiling node model.aaa.dim_customers
+[0m17:41:35.257186 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.013 seconds
+[0m17:41:35.258647 [debug] [Thread-4 (]: On test.aaa.not_null_stg_sellers_seller_id.35d0bce315: ROLLBACK
+[0m17:41:35.261960 [debug] [Thread-3 (]: Writing injected SQL for node "model.aaa.dim_customers"
+[0m17:41:35.263573 [debug] [Thread-1 (]: On test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8: ROLLBACK
+[0m17:41:35.264625 [debug] [Thread-3 (]: Began executing node model.aaa.dim_customers
+[0m17:41:35.267177 [debug] [Thread-3 (]: Writing runtime sql for node "model.aaa.dim_customers"
+[0m17:41:35.267504 [debug] [Thread-4 (]: On test.aaa.not_null_stg_sellers_seller_id.35d0bce315: Close
+[0m17:41:35.267787 [debug] [Thread-1 (]: On test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8: Close
+[0m17:41:35.268391 [info ] [Thread-4 (]: 32 of 55 PASS not_null_stg_sellers_seller_id ................................... [[32mPASS[0m in 0.04s]
+[0m17:41:35.269966 [debug] [Thread-4 (]: Finished running node test.aaa.not_null_stg_sellers_seller_id.35d0bce315
+[0m17:41:35.269006 [info ] [Thread-1 (]: 33 of 55 PASS unique_stg_sellers_seller_id ..................................... [[32mPASS[0m in 0.04s]
+[0m17:41:35.270756 [debug] [Thread-4 (]: Began running node model.aaa.fct_order_items
+[0m17:41:35.271310 [debug] [Thread-1 (]: Finished running node test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8
+[0m17:41:35.271676 [debug] [Thread-3 (]: Using postgres connection "model.aaa.dim_customers"
+[0m17:41:35.272627 [debug] [Thread-1 (]: Began running node model.aaa.dim_products
+[0m17:41:35.272258 [info ] [Thread-4 (]: 35 of 55 START sql table model marts.fct_order_items ........................... [RUN]
+[0m17:41:35.273195 [debug] [Thread-3 (]: On model.aaa.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.dim_customers"} */
+
+  
+    
+
+  create  table "dwh"."marts"."dim_customers__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with customers as (
+    select * from "dwh"."staging"."stg_customers"
+),
+
+orders as (
+    select * from "dwh"."staging"."stg_orders"
+),
+
+geo as (
+    select * from "dwh"."staging"."stg_geolocation"
+),
+
+customer_orders as (
+    select
+        c.customer_unique_id,
+        c.zip_code_prefix,
+        c.city,
+        c.state,
+        o.ordered_at
+    from customers c
+    join orders o on o.customer_id = c.customer_id
+),
+
+latest_address as (
+    select distinct on (customer_unique_id)
+        customer_unique_id,
+        zip_code_prefix,
+        city,
+        state
+    from customer_orders
+    order by customer_unique_id, ordered_at desc
+),
+
+order_stats as (
+    select
+        customer_unique_id,
+        min(ordered_at) as first_order_at,
+        max(ordered_at) as last_order_at,
+        count(*)        as orders_count
+    from customer_orders
+    group by 1
+)
+
+select
+    a.customer_unique_id,
+    a.zip_code_prefix,
+    a.city,
+    a.state,
+    g.latitude,
+    g.longitude,
+    s.first_order_at,
+    s.last_order_at,
+    s.orders_count
+from latest_address a
+join order_stats s using (customer_unique_id)
+left join geo g using (zip_code_prefix)
+  );
+  
+[0m17:41:35.273797 [info ] [Thread-1 (]: 36 of 55 START sql table model marts.dim_products .............................. [RUN]
+[0m17:41:35.274258 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_stg_sellers_seller_id.35d0bce315, now model.aaa.fct_order_items)
+[0m17:41:35.274633 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:41:35.275030 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.aaa.unique_stg_sellers_seller_id.cb2e34d4b8, now model.aaa.dim_products)
+[0m17:41:35.275392 [debug] [Thread-4 (]: Began compiling node model.aaa.fct_order_items
+[0m17:41:35.275871 [debug] [Thread-1 (]: Began compiling node model.aaa.dim_products
+[0m17:41:35.279765 [debug] [Thread-4 (]: Writing injected SQL for node "model.aaa.fct_order_items"
+[0m17:41:35.282515 [debug] [Thread-1 (]: Writing injected SQL for node "model.aaa.dim_products"
+[0m17:41:35.283582 [debug] [Thread-4 (]: Began executing node model.aaa.fct_order_items
+[0m17:41:35.283919 [debug] [Thread-1 (]: Began executing node model.aaa.dim_products
+[0m17:41:35.286044 [debug] [Thread-4 (]: Writing runtime sql for node "model.aaa.fct_order_items"
+[0m17:41:35.288227 [debug] [Thread-1 (]: Writing runtime sql for node "model.aaa.dim_products"
+[0m17:41:35.289880 [debug] [Thread-4 (]: Using postgres connection "model.aaa.fct_order_items"
+[0m17:41:35.290371 [debug] [Thread-1 (]: Using postgres connection "model.aaa.dim_products"
+[0m17:41:35.290871 [debug] [Thread-4 (]: On model.aaa.fct_order_items: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.fct_order_items"} */
+
+  
+    
+
+  create  table "dwh"."marts"."fct_order_items__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with items as (
+    select * from "dwh"."staging"."stg_order_items"
+),
+
+orders as (
+    select * from "dwh"."staging"."stg_orders"
+),
+
+customers as (
+    select customer_id, customer_unique_id from "dwh"."staging"."stg_customers"
+)
+
+select
+    md5(i.order_id || '-' || i.order_item_id)    as order_item_key,
+    i.order_id,
+    i.order_item_id,
+    c.customer_unique_id,
+    i.product_id,
+    i.seller_id,
+    o.ordered_at::date                           as order_date,
+    o.order_status,
+    i.price,
+    i.freight_value,
+    i.price + i.freight_value                    as total_amount
+from items i
+join orders o    on o.order_id = i.order_id
+join customers c on c.customer_id = o.customer_id
+  );
+  
+[0m17:41:35.291284 [debug] [Thread-1 (]: On model.aaa.dim_products: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.dim_products"} */
+
+  
+    
+
+  create  table "dwh"."marts"."dim_products__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with products as (
+    select * from "dwh"."staging"."stg_products"
+),
+
+translation as (
+    select * from "dwh"."staging"."stg_product_category_translation"
+)
+
+select
+    p.product_id,
+    coalesce(p.category_name, 'unknown')                         as category_name_pt,
+    coalesce(t.category_name_en, p.category_name, 'unknown')     as category,
+    p.name_length,
+    p.description_length,
+    p.photos_qty,
+    p.weight_g,
+    p.length_cm,
+    p.height_cm,
+    p.width_cm
+from products p
+left join translation t using (category_name)
+  );
+  
+[0m17:41:35.291680 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:35.291975 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:35.360372 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.350 seconds
+[0m17:41:35.361934 [debug] [Thread-2 (]: On test.aaa.unique_stg_order_reviews_review_key.9999d0e96b: ROLLBACK
+[0m17:41:35.363568 [debug] [Thread-2 (]: On test.aaa.unique_stg_order_reviews_review_key.9999d0e96b: Close
+[0m17:41:35.364512 [info ] [Thread-2 (]: 22 of 55 PASS unique_stg_order_reviews_review_key .............................. [[32mPASS[0m in 0.36s]
+[0m17:41:35.365146 [debug] [Thread-2 (]: Finished running node test.aaa.unique_stg_order_reviews_review_key.9999d0e96b
+[0m17:41:35.365469 [debug] [Thread-2 (]: Began running node model.aaa.dim_sellers
+[0m17:41:35.365945 [info ] [Thread-2 (]: 37 of 55 START sql table model marts.dim_sellers ............................... [RUN]
+[0m17:41:35.366695 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.aaa.unique_stg_order_reviews_review_key.9999d0e96b, now model.aaa.dim_sellers)
+[0m17:41:35.367192 [debug] [Thread-2 (]: Began compiling node model.aaa.dim_sellers
+[0m17:41:35.370098 [debug] [Thread-2 (]: Writing injected SQL for node "model.aaa.dim_sellers"
+[0m17:41:35.371601 [debug] [Thread-2 (]: Began executing node model.aaa.dim_sellers
+[0m17:41:35.374500 [debug] [Thread-2 (]: Writing runtime sql for node "model.aaa.dim_sellers"
+[0m17:41:35.375613 [debug] [Thread-2 (]: Using postgres connection "model.aaa.dim_sellers"
+[0m17:41:35.375960 [debug] [Thread-2 (]: On model.aaa.dim_sellers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.dim_sellers"} */
+
+  
+    
+
+  create  table "dwh"."marts"."dim_sellers__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with sellers as (
+    select * from "dwh"."staging"."stg_sellers"
+),
+
+geo as (
+    select * from "dwh"."staging"."stg_geolocation"
+)
+
+select
+    s.seller_id,
+    s.zip_code_prefix,
+    s.city,
+    s.state,
+    g.latitude,
+    g.longitude
+from sellers s
+left join geo g using (zip_code_prefix)
+  );
+  
+[0m17:41:35.376244 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:35.417757 [debug] [Thread-1 (]: SQL status: SELECT 32951 in 0.126 seconds
+[0m17:41:35.421221 [debug] [Thread-1 (]: Using postgres connection "model.aaa.dim_products"
+[0m17:41:35.421882 [debug] [Thread-1 (]: On model.aaa.dim_products: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.dim_products"} */
+alter table "dwh"."marts"."dim_products__dbt_tmp" rename to "dim_products"
+[0m17:41:35.423969 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m17:41:35.425834 [debug] [Thread-1 (]: On model.aaa.dim_products: COMMIT
+[0m17:41:35.426280 [debug] [Thread-1 (]: Using postgres connection "model.aaa.dim_products"
+[0m17:41:35.426557 [debug] [Thread-1 (]: On model.aaa.dim_products: COMMIT
+[0m17:41:35.446960 [debug] [Thread-1 (]: SQL status: COMMIT in 0.020 seconds
+[0m17:41:35.450224 [debug] [Thread-1 (]: Applying DROP to: "dwh"."marts"."dim_products__dbt_backup"
+[0m17:41:35.450902 [debug] [Thread-1 (]: Using postgres connection "model.aaa.dim_products"
+[0m17:41:35.451202 [debug] [Thread-1 (]: On model.aaa.dim_products: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.dim_products"} */
+drop table if exists "dwh"."marts"."dim_products__dbt_backup" cascade
+[0m17:41:35.452822 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.001 seconds
+[0m17:41:35.454856 [debug] [Thread-1 (]: On model.aaa.dim_products: Close
+[0m17:41:35.455873 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE82BDCD0>]}
+[0m17:41:35.456943 [info ] [Thread-1 (]: 36 of 55 OK created sql table model marts.dim_products ......................... [[32mSELECT 32951[0m in 0.18s]
+[0m17:41:35.457935 [debug] [Thread-1 (]: Finished running node model.aaa.dim_products
+[0m17:41:35.458414 [debug] [Thread-1 (]: Began running node model.aaa.fct_orders
+[0m17:41:35.459233 [info ] [Thread-1 (]: 38 of 55 START sql table model marts.fct_orders ................................ [RUN]
+[0m17:41:35.460144 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.aaa.dim_products, now model.aaa.fct_orders)
+[0m17:41:35.460492 [debug] [Thread-1 (]: Began compiling node model.aaa.fct_orders
+[0m17:41:35.463259 [debug] [Thread-1 (]: Writing injected SQL for node "model.aaa.fct_orders"
+[0m17:41:35.464274 [debug] [Thread-1 (]: Began executing node model.aaa.fct_orders
+[0m17:41:35.466534 [debug] [Thread-1 (]: Writing runtime sql for node "model.aaa.fct_orders"
+[0m17:41:35.467419 [debug] [Thread-1 (]: Using postgres connection "model.aaa.fct_orders"
+[0m17:41:35.467847 [debug] [Thread-1 (]: On model.aaa.fct_orders: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.fct_orders"} */
+
+  
+    
+
+  create  table "dwh"."marts"."fct_orders__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with orders as (
+    select * from "dwh"."staging"."stg_orders"
+),
+
+customers as (
+    select customer_id, customer_unique_id from "dwh"."staging"."stg_customers"
+),
+
+items as (
+    select
+        order_id,
+        count(*)            as item_count,
+        sum(price)          as items_amount,
+        sum(freight_value)  as freight_amount
+    from "dwh"."staging"."stg_order_items"
+    group by 1
+),
+
+payments as (
+    select
+        order_id,
+        sum(payment_value)          as payment_amount,
+        max(payment_installments)   as max_installments
+    from "dwh"."staging"."stg_order_payments"
+    group by 1
+),
+
+reviews as (
+    select
+        order_id,
+        avg(review_score)::numeric(3, 2) as review_score
+    from "dwh"."staging"."stg_order_reviews"
+    group by 1
+)
+
+select
+    o.order_id,
+    c.customer_unique_id,
+    o.ordered_at::date                                  as order_date,
+    o.order_status,
+    o.ordered_at,
+    o.approved_at,
+    o.shipped_at,
+    o.delivered_at,
+    o.estimated_delivery_at,
+    coalesce(i.item_count, 0)                           as item_count,
+    coalesce(i.items_amount, 0)                         as items_amount,
+    coalesce(i.freight_amount, 0)                       as freight_amount,
+    coalesce(p.payment_amount, 0)                       as payment_amount,
+    p.max_installments,
+    r.review_score,
+    round((extract(epoch from (o.delivered_at - o.ordered_at)) / 86400)::numeric, 1)
+                                                        as delivery_days,
+    case
+        when o.delivered_at is null then null
+        else o.delivered_at::date > o.estimated_delivery_at::date
+    end                                                 as is_late
+from orders o
+join customers c      on c.customer_id = o.customer_id
+left join items i     on i.order_id = o.order_id
+left join payments p  on p.order_id = o.order_id
+left join reviews r   on r.order_id = o.order_id
+  );
+  
+[0m17:41:35.468189 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:35.734812 [debug] [Thread-4 (]: SQL status: SELECT 112650 in 0.443 seconds
+[0m17:41:35.737715 [debug] [Thread-4 (]: Using postgres connection "model.aaa.fct_order_items"
+[0m17:41:35.738091 [debug] [Thread-2 (]: SQL status: SELECT 3095 in 0.362 seconds
+[0m17:41:35.738485 [debug] [Thread-4 (]: On model.aaa.fct_order_items: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.fct_order_items"} */
+alter table "dwh"."marts"."fct_order_items__dbt_tmp" rename to "fct_order_items"
+[0m17:41:35.740121 [debug] [Thread-2 (]: Using postgres connection "model.aaa.dim_sellers"
+[0m17:41:35.740444 [debug] [Thread-2 (]: On model.aaa.dim_sellers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.dim_sellers"} */
+alter table "dwh"."marts"."dim_sellers__dbt_tmp" rename to "dim_sellers"
+[0m17:41:35.740960 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:35.741291 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:35.742191 [debug] [Thread-4 (]: On model.aaa.fct_order_items: COMMIT
+[0m17:41:35.743013 [debug] [Thread-2 (]: On model.aaa.dim_sellers: COMMIT
+[0m17:41:35.743303 [debug] [Thread-4 (]: Using postgres connection "model.aaa.fct_order_items"
+[0m17:41:35.743583 [debug] [Thread-2 (]: Using postgres connection "model.aaa.dim_sellers"
+[0m17:41:35.743819 [debug] [Thread-4 (]: On model.aaa.fct_order_items: COMMIT
+[0m17:41:35.744042 [debug] [Thread-2 (]: On model.aaa.dim_sellers: COMMIT
+[0m17:41:35.760559 [debug] [Thread-4 (]: SQL status: COMMIT in 0.016 seconds
+[0m17:41:35.762676 [debug] [Thread-4 (]: Applying DROP to: "dwh"."marts"."fct_order_items__dbt_backup"
+[0m17:41:35.763023 [debug] [Thread-2 (]: SQL status: COMMIT in 0.019 seconds
+[0m17:41:35.763522 [debug] [Thread-4 (]: Using postgres connection "model.aaa.fct_order_items"
+[0m17:41:35.764928 [debug] [Thread-2 (]: Applying DROP to: "dwh"."marts"."dim_sellers__dbt_backup"
+[0m17:41:35.765302 [debug] [Thread-4 (]: On model.aaa.fct_order_items: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.fct_order_items"} */
+drop table if exists "dwh"."marts"."fct_order_items__dbt_backup" cascade
+[0m17:41:35.765766 [debug] [Thread-2 (]: Using postgres connection "model.aaa.dim_sellers"
+[0m17:41:35.766105 [debug] [Thread-2 (]: On model.aaa.dim_sellers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.dim_sellers"} */
+drop table if exists "dwh"."marts"."dim_sellers__dbt_backup" cascade
+[0m17:41:35.766534 [debug] [Thread-4 (]: SQL status: DROP TABLE in 0.000 seconds
+[0m17:41:35.766846 [debug] [Thread-2 (]: SQL status: DROP TABLE in 0.000 seconds
+[0m17:41:35.767795 [debug] [Thread-4 (]: On model.aaa.fct_order_items: Close
+[0m17:41:35.768675 [debug] [Thread-2 (]: On model.aaa.dim_sellers: Close
+[0m17:41:35.769160 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE7B0B1D0>]}
+[0m17:41:35.770046 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE807E690>]}
+[0m17:41:35.769693 [info ] [Thread-4 (]: 35 of 55 OK created sql table model marts.fct_order_items ...................... [[32mSELECT 112650[0m in 0.49s]
+[0m17:41:35.771061 [debug] [Thread-4 (]: Finished running node model.aaa.fct_order_items
+[0m17:41:35.770635 [info ] [Thread-2 (]: 37 of 55 OK created sql table model marts.dim_sellers .......................... [[32mSELECT 3095[0m in 0.40s]
+[0m17:41:35.771498 [debug] [Thread-4 (]: Began running node test.aaa.not_null_dim_products_product_id.c8aba288d1
+[0m17:41:35.771964 [debug] [Thread-2 (]: Finished running node model.aaa.dim_sellers
+[0m17:41:35.772670 [debug] [Thread-2 (]: Began running node test.aaa.unique_dim_products_product_id.ef7b2a9985
+[0m17:41:35.772359 [info ] [Thread-4 (]: 39 of 55 START test not_null_dim_products_product_id ........................... [RUN]
+[0m17:41:35.773525 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.aaa.fct_order_items, now test.aaa.not_null_dim_products_product_id.c8aba288d1)
+[0m17:41:35.773112 [info ] [Thread-2 (]: 40 of 55 START test unique_dim_products_product_id ............................. [RUN]
+[0m17:41:35.773912 [debug] [Thread-4 (]: Began compiling node test.aaa.not_null_dim_products_product_id.c8aba288d1
+[0m17:41:35.774231 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.aaa.dim_sellers, now test.aaa.unique_dim_products_product_id.ef7b2a9985)
+[0m17:41:35.776725 [debug] [Thread-4 (]: Writing injected SQL for node "test.aaa.not_null_dim_products_product_id.c8aba288d1"
+[0m17:41:35.776996 [debug] [Thread-2 (]: Began compiling node test.aaa.unique_dim_products_product_id.ef7b2a9985
+[0m17:41:35.779386 [debug] [Thread-2 (]: Writing injected SQL for node "test.aaa.unique_dim_products_product_id.ef7b2a9985"
+[0m17:41:35.780230 [debug] [Thread-4 (]: Began executing node test.aaa.not_null_dim_products_product_id.c8aba288d1
+[0m17:41:35.781722 [debug] [Thread-4 (]: Writing runtime sql for node "test.aaa.not_null_dim_products_product_id.c8aba288d1"
+[0m17:41:35.782073 [debug] [Thread-2 (]: Began executing node test.aaa.unique_dim_products_product_id.ef7b2a9985
+[0m17:41:35.783778 [debug] [Thread-2 (]: Writing runtime sql for node "test.aaa.unique_dim_products_product_id.ef7b2a9985"
+[0m17:41:35.784540 [debug] [Thread-4 (]: Using postgres connection "test.aaa.not_null_dim_products_product_id.c8aba288d1"
+[0m17:41:35.784868 [debug] [Thread-4 (]: On test.aaa.not_null_dim_products_product_id.c8aba288d1: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_dim_products_product_id.c8aba288d1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select product_id
+from "dwh"."marts"."dim_products"
+where product_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.785128 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:35.785669 [debug] [Thread-2 (]: Using postgres connection "test.aaa.unique_dim_products_product_id.ef7b2a9985"
+[0m17:41:35.786018 [debug] [Thread-2 (]: On test.aaa.unique_dim_products_product_id.ef7b2a9985: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_dim_products_product_id.ef7b2a9985"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    product_id as unique_field,
+    count(*) as n_records
+
+from "dwh"."marts"."dim_products"
+where product_id is not null
+group by product_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.786298 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:35.822506 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.037 seconds
+[0m17:41:35.823751 [debug] [Thread-4 (]: On test.aaa.not_null_dim_products_product_id.c8aba288d1: ROLLBACK
+[0m17:41:35.824721 [debug] [Thread-4 (]: On test.aaa.not_null_dim_products_product_id.c8aba288d1: Close
+[0m17:41:35.825790 [info ] [Thread-4 (]: 39 of 55 PASS not_null_dim_products_product_id ................................. [[32mPASS[0m in 0.05s]
+[0m17:41:35.826639 [debug] [Thread-4 (]: Finished running node test.aaa.not_null_dim_products_product_id.c8aba288d1
+[0m17:41:35.827128 [debug] [Thread-4 (]: Began running node test.aaa.not_null_fct_order_items_order_item_key.47516a6371
+[0m17:41:35.827720 [info ] [Thread-4 (]: 41 of 55 START test not_null_fct_order_items_order_item_key .................... [RUN]
+[0m17:41:35.828325 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_dim_products_product_id.c8aba288d1, now test.aaa.not_null_fct_order_items_order_item_key.47516a6371)
+[0m17:41:35.828805 [debug] [Thread-4 (]: Began compiling node test.aaa.not_null_fct_order_items_order_item_key.47516a6371
+[0m17:41:35.831625 [debug] [Thread-4 (]: Writing injected SQL for node "test.aaa.not_null_fct_order_items_order_item_key.47516a6371"
+[0m17:41:35.832006 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.046 seconds
+[0m17:41:35.833017 [debug] [Thread-2 (]: On test.aaa.unique_dim_products_product_id.ef7b2a9985: ROLLBACK
+[0m17:41:35.833445 [debug] [Thread-4 (]: Began executing node test.aaa.not_null_fct_order_items_order_item_key.47516a6371
+[0m17:41:35.834765 [debug] [Thread-4 (]: Writing runtime sql for node "test.aaa.not_null_fct_order_items_order_item_key.47516a6371"
+[0m17:41:35.835105 [debug] [Thread-2 (]: On test.aaa.unique_dim_products_product_id.ef7b2a9985: Close
+[0m17:41:35.835586 [info ] [Thread-2 (]: 40 of 55 PASS unique_dim_products_product_id ................................... [[32mPASS[0m in 0.06s]
+[0m17:41:35.836095 [debug] [Thread-2 (]: Finished running node test.aaa.unique_dim_products_product_id.ef7b2a9985
+[0m17:41:35.836404 [debug] [Thread-2 (]: Began running node test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f
+[0m17:41:35.836806 [debug] [Thread-4 (]: Using postgres connection "test.aaa.not_null_fct_order_items_order_item_key.47516a6371"
+[0m17:41:35.837394 [debug] [Thread-4 (]: On test.aaa.not_null_fct_order_items_order_item_key.47516a6371: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_fct_order_items_order_item_key.47516a6371"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_item_key
+from "dwh"."marts"."fct_order_items"
+where order_item_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.837121 [info ] [Thread-2 (]: 42 of 55 START test relationships_fct_order_items_order_date__date_day__ref_dim_date_  [RUN]
+[0m17:41:35.837766 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:35.838102 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.aaa.unique_dim_products_product_id.ef7b2a9985, now test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f)
+[0m17:41:35.838582 [debug] [Thread-2 (]: Began compiling node test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f
+[0m17:41:35.842996 [debug] [Thread-2 (]: Writing injected SQL for node "test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f"
+[0m17:41:35.844873 [debug] [Thread-2 (]: Began executing node test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f
+[0m17:41:35.847262 [debug] [Thread-2 (]: Writing runtime sql for node "test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f"
+[0m17:41:35.848296 [debug] [Thread-2 (]: Using postgres connection "test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f"
+[0m17:41:35.848638 [debug] [Thread-2 (]: On test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with child as (
+    select order_date as from_field
+    from "dwh"."marts"."fct_order_items"
+    where order_date is not null
+),
+
+parent as (
+    select date_day as to_field
+    from "dwh"."marts"."dim_date"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.848893 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:35.892204 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.054 seconds
+[0m17:41:35.894201 [debug] [Thread-4 (]: On test.aaa.not_null_fct_order_items_order_item_key.47516a6371: ROLLBACK
+[0m17:41:35.894584 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.046 seconds
+[0m17:41:35.895673 [debug] [Thread-2 (]: On test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f: ROLLBACK
+[0m17:41:35.895987 [debug] [Thread-4 (]: On test.aaa.not_null_fct_order_items_order_item_key.47516a6371: Close
+[0m17:41:35.896950 [debug] [Thread-2 (]: On test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f: Close
+[0m17:41:35.896617 [info ] [Thread-4 (]: 41 of 55 PASS not_null_fct_order_items_order_item_key .......................... [[32mPASS[0m in 0.07s]
+[0m17:41:35.897559 [debug] [Thread-4 (]: Finished running node test.aaa.not_null_fct_order_items_order_item_key.47516a6371
+[0m17:41:35.898477 [debug] [Thread-4 (]: Began running node test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1
+[0m17:41:35.898134 [info ] [Thread-2 (]: 42 of 55 PASS relationships_fct_order_items_order_date__date_day__ref_dim_date_  [[32mPASS[0m in 0.06s]
+[0m17:41:35.899352 [debug] [Thread-2 (]: Finished running node test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f
+[0m17:41:35.898964 [info ] [Thread-4 (]: 43 of 55 START test relationships_fct_order_items_product_id__product_id__ref_dim_products_  [RUN]
+[0m17:41:35.899779 [debug] [Thread-2 (]: Began running node test.aaa.unique_fct_order_items_order_item_key.4d6426a255
+[0m17:41:35.900166 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_fct_order_items_order_item_key.47516a6371, now test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1)
+[0m17:41:35.900749 [debug] [Thread-4 (]: Began compiling node test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1
+[0m17:41:35.900497 [info ] [Thread-2 (]: 44 of 55 START test unique_fct_order_items_order_item_key ...................... [RUN]
+[0m17:41:35.906869 [debug] [Thread-4 (]: Writing injected SQL for node "test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1"
+[0m17:41:35.907377 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.aaa.relationships_fct_order_items_order_date__date_day__ref_dim_date_.6c94075c2f, now test.aaa.unique_fct_order_items_order_item_key.4d6426a255)
+[0m17:41:35.907846 [debug] [Thread-2 (]: Began compiling node test.aaa.unique_fct_order_items_order_item_key.4d6426a255
+[0m17:41:35.910187 [debug] [Thread-2 (]: Writing injected SQL for node "test.aaa.unique_fct_order_items_order_item_key.4d6426a255"
+[0m17:41:35.910708 [debug] [Thread-4 (]: Began executing node test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1
+[0m17:41:35.911988 [debug] [Thread-4 (]: Writing runtime sql for node "test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1"
+[0m17:41:35.912381 [debug] [Thread-2 (]: Began executing node test.aaa.unique_fct_order_items_order_item_key.4d6426a255
+[0m17:41:35.913905 [debug] [Thread-2 (]: Writing runtime sql for node "test.aaa.unique_fct_order_items_order_item_key.4d6426a255"
+[0m17:41:35.914493 [debug] [Thread-4 (]: Using postgres connection "test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1"
+[0m17:41:35.914811 [debug] [Thread-4 (]: On test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with child as (
+    select product_id as from_field
+    from "dwh"."marts"."fct_order_items"
+    where product_id is not null
+),
+
+parent as (
+    select product_id as to_field
+    from "dwh"."marts"."dim_products"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.915093 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:35.915552 [debug] [Thread-2 (]: Using postgres connection "test.aaa.unique_fct_order_items_order_item_key.4d6426a255"
+[0m17:41:35.915857 [debug] [Thread-2 (]: On test.aaa.unique_fct_order_items_order_item_key.4d6426a255: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_fct_order_items_order_item_key.4d6426a255"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    order_item_key as unique_field,
+    count(*) as n_records
+
+from "dwh"."marts"."fct_order_items"
+where order_item_key is not null
+group by order_item_key
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.916112 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:35.949142 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.034 seconds
+[0m17:41:35.950576 [debug] [Thread-4 (]: On test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1: ROLLBACK
+[0m17:41:35.951459 [debug] [Thread-4 (]: On test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1: Close
+[0m17:41:35.952118 [info ] [Thread-4 (]: 43 of 55 PASS relationships_fct_order_items_product_id__product_id__ref_dim_products_  [[32mPASS[0m in 0.05s]
+[0m17:41:35.953036 [debug] [Thread-4 (]: Finished running node test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1
+[0m17:41:35.953579 [debug] [Thread-4 (]: Began running node test.aaa.not_null_dim_sellers_seller_id.2e68260d7c
+[0m17:41:35.954100 [info ] [Thread-4 (]: 45 of 55 START test not_null_dim_sellers_seller_id ............................. [RUN]
+[0m17:41:35.954662 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.aaa.relationships_fct_order_items_product_id__product_id__ref_dim_products_.adfb860dd1, now test.aaa.not_null_dim_sellers_seller_id.2e68260d7c)
+[0m17:41:35.954978 [debug] [Thread-4 (]: Began compiling node test.aaa.not_null_dim_sellers_seller_id.2e68260d7c
+[0m17:41:35.957487 [debug] [Thread-4 (]: Writing injected SQL for node "test.aaa.not_null_dim_sellers_seller_id.2e68260d7c"
+[0m17:41:35.958388 [debug] [Thread-4 (]: Began executing node test.aaa.not_null_dim_sellers_seller_id.2e68260d7c
+[0m17:41:35.959989 [debug] [Thread-4 (]: Writing runtime sql for node "test.aaa.not_null_dim_sellers_seller_id.2e68260d7c"
+[0m17:41:35.960757 [debug] [Thread-4 (]: Using postgres connection "test.aaa.not_null_dim_sellers_seller_id.2e68260d7c"
+[0m17:41:35.961041 [debug] [Thread-4 (]: On test.aaa.not_null_dim_sellers_seller_id.2e68260d7c: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_dim_sellers_seller_id.2e68260d7c"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select seller_id
+from "dwh"."marts"."dim_sellers"
+where seller_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.961289 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:35.971970 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.011 seconds
+[0m17:41:35.974050 [debug] [Thread-4 (]: On test.aaa.not_null_dim_sellers_seller_id.2e68260d7c: ROLLBACK
+[0m17:41:35.974923 [debug] [Thread-4 (]: On test.aaa.not_null_dim_sellers_seller_id.2e68260d7c: Close
+[0m17:41:35.976035 [info ] [Thread-4 (]: 45 of 55 PASS not_null_dim_sellers_seller_id ................................... [[32mPASS[0m in 0.02s]
+[0m17:41:35.976605 [debug] [Thread-4 (]: Finished running node test.aaa.not_null_dim_sellers_seller_id.2e68260d7c
+[0m17:41:35.976901 [debug] [Thread-4 (]: Began running node test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680
+[0m17:41:35.977224 [info ] [Thread-4 (]: 46 of 55 START test relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_  [RUN]
+[0m17:41:35.977879 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_dim_sellers_seller_id.2e68260d7c, now test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680)
+[0m17:41:35.978233 [debug] [Thread-4 (]: Began compiling node test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680
+[0m17:41:35.981582 [debug] [Thread-4 (]: Writing injected SQL for node "test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680"
+[0m17:41:35.982653 [debug] [Thread-4 (]: Began executing node test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680
+[0m17:41:35.984145 [debug] [Thread-4 (]: Writing runtime sql for node "test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680"
+[0m17:41:35.984908 [debug] [Thread-4 (]: Using postgres connection "test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680"
+[0m17:41:35.985209 [debug] [Thread-4 (]: On test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with child as (
+    select seller_id as from_field
+    from "dwh"."marts"."fct_order_items"
+    where seller_id is not null
+),
+
+parent as (
+    select seller_id as to_field
+    from "dwh"."marts"."dim_sellers"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:35.985571 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:35.993638 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.077 seconds
+[0m17:41:35.995117 [debug] [Thread-2 (]: On test.aaa.unique_fct_order_items_order_item_key.4d6426a255: ROLLBACK
+[0m17:41:35.995801 [debug] [Thread-2 (]: On test.aaa.unique_fct_order_items_order_item_key.4d6426a255: Close
+[0m17:41:35.996423 [info ] [Thread-2 (]: 44 of 55 PASS unique_fct_order_items_order_item_key ............................ [[32mPASS[0m in 0.09s]
+[0m17:41:35.996970 [debug] [Thread-2 (]: Finished running node test.aaa.unique_fct_order_items_order_item_key.4d6426a255
+[0m17:41:35.997341 [debug] [Thread-2 (]: Began running node test.aaa.unique_dim_sellers_seller_id.b55e677f09
+[0m17:41:35.997954 [info ] [Thread-2 (]: 47 of 55 START test unique_dim_sellers_seller_id ............................... [RUN]
+[0m17:41:35.998574 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.aaa.unique_fct_order_items_order_item_key.4d6426a255, now test.aaa.unique_dim_sellers_seller_id.b55e677f09)
+[0m17:41:35.998901 [debug] [Thread-2 (]: Began compiling node test.aaa.unique_dim_sellers_seller_id.b55e677f09
+[0m17:41:36.001789 [debug] [Thread-2 (]: Writing injected SQL for node "test.aaa.unique_dim_sellers_seller_id.b55e677f09"
+[0m17:41:36.002733 [debug] [Thread-2 (]: Began executing node test.aaa.unique_dim_sellers_seller_id.b55e677f09
+[0m17:41:36.004304 [debug] [Thread-2 (]: Writing runtime sql for node "test.aaa.unique_dim_sellers_seller_id.b55e677f09"
+[0m17:41:36.005142 [debug] [Thread-2 (]: Using postgres connection "test.aaa.unique_dim_sellers_seller_id.b55e677f09"
+[0m17:41:36.005512 [debug] [Thread-2 (]: On test.aaa.unique_dim_sellers_seller_id.b55e677f09: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_dim_sellers_seller_id.b55e677f09"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    seller_id as unique_field,
+    count(*) as n_records
+
+from "dwh"."marts"."dim_sellers"
+where seller_id is not null
+group by seller_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:36.005839 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:36.009963 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.024 seconds
+[0m17:41:36.011649 [debug] [Thread-4 (]: On test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680: ROLLBACK
+[0m17:41:36.012485 [debug] [Thread-4 (]: On test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680: Close
+[0m17:41:36.013081 [info ] [Thread-4 (]: 46 of 55 PASS relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_  [[32mPASS[0m in 0.04s]
+[0m17:41:36.013820 [debug] [Thread-4 (]: Finished running node test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680
+[0m17:41:36.018269 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.012 seconds
+[0m17:41:36.019224 [debug] [Thread-2 (]: On test.aaa.unique_dim_sellers_seller_id.b55e677f09: ROLLBACK
+[0m17:41:36.019914 [debug] [Thread-2 (]: On test.aaa.unique_dim_sellers_seller_id.b55e677f09: Close
+[0m17:41:36.020419 [info ] [Thread-2 (]: 47 of 55 PASS unique_dim_sellers_seller_id ..................................... [[32mPASS[0m in 0.02s]
+[0m17:41:36.020949 [debug] [Thread-2 (]: Finished running node test.aaa.unique_dim_sellers_seller_id.b55e677f09
+[0m17:41:36.185193 [debug] [Thread-3 (]: SQL status: SELECT 96096 in 0.910 seconds
+[0m17:41:36.187363 [debug] [Thread-3 (]: Using postgres connection "model.aaa.dim_customers"
+[0m17:41:36.187652 [debug] [Thread-3 (]: On model.aaa.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.dim_customers"} */
+alter table "dwh"."marts"."dim_customers__dbt_tmp" rename to "dim_customers"
+[0m17:41:36.188514 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:36.189333 [debug] [Thread-3 (]: On model.aaa.dim_customers: COMMIT
+[0m17:41:36.189585 [debug] [Thread-3 (]: Using postgres connection "model.aaa.dim_customers"
+[0m17:41:36.189796 [debug] [Thread-3 (]: On model.aaa.dim_customers: COMMIT
+[0m17:41:36.192821 [debug] [Thread-3 (]: SQL status: COMMIT in 0.003 seconds
+[0m17:41:36.193996 [debug] [Thread-3 (]: Applying DROP to: "dwh"."marts"."dim_customers__dbt_backup"
+[0m17:41:36.194326 [debug] [Thread-3 (]: Using postgres connection "model.aaa.dim_customers"
+[0m17:41:36.194542 [debug] [Thread-3 (]: On model.aaa.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.dim_customers"} */
+drop table if exists "dwh"."marts"."dim_customers__dbt_backup" cascade
+[0m17:41:36.195102 [debug] [Thread-3 (]: SQL status: DROP TABLE in 0.000 seconds
+[0m17:41:36.195828 [debug] [Thread-3 (]: On model.aaa.dim_customers: Close
+[0m17:41:36.196224 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE82BFCB0>]}
+[0m17:41:36.196811 [info ] [Thread-3 (]: 34 of 55 OK created sql table model marts.dim_customers ........................ [[32mSELECT 96096[0m in 0.94s]
+[0m17:41:36.197217 [debug] [Thread-3 (]: Finished running node model.aaa.dim_customers
+[0m17:41:36.197673 [debug] [Thread-4 (]: Began running node test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d
+[0m17:41:36.197929 [debug] [Thread-3 (]: Began running node test.aaa.unique_dim_customers_customer_unique_id.6fdb869708
+[0m17:41:36.198161 [debug] [Thread-2 (]: Began running node test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d
+[0m17:41:36.198387 [info ] [Thread-4 (]: 48 of 55 START test not_null_dim_customers_customer_unique_id .................. [RUN]
+[0m17:41:36.199281 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.aaa.relationships_fct_order_items_seller_id__seller_id__ref_dim_sellers_.7a12e2a680, now test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d)
+[0m17:41:36.198593 [info ] [Thread-3 (]: 50 of 55 START test unique_dim_customers_customer_unique_id .................... [RUN]
+[0m17:41:36.199585 [debug] [Thread-4 (]: Began compiling node test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d
+[0m17:41:36.199839 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.aaa.dim_customers, now test.aaa.unique_dim_customers_customer_unique_id.6fdb869708)
+[0m17:41:36.198981 [info ] [Thread-2 (]: 49 of 55 START test relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_  [RUN]
+[0m17:41:36.202249 [debug] [Thread-4 (]: Writing injected SQL for node "test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d"
+[0m17:41:36.202554 [debug] [Thread-3 (]: Began compiling node test.aaa.unique_dim_customers_customer_unique_id.6fdb869708
+[0m17:41:36.202818 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.aaa.unique_dim_sellers_seller_id.b55e677f09, now test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d)
+[0m17:41:36.204722 [debug] [Thread-3 (]: Writing injected SQL for node "test.aaa.unique_dim_customers_customer_unique_id.6fdb869708"
+[0m17:41:36.204987 [debug] [Thread-2 (]: Began compiling node test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d
+[0m17:41:36.207573 [debug] [Thread-2 (]: Writing injected SQL for node "test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d"
+[0m17:41:36.207882 [debug] [Thread-4 (]: Began executing node test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d
+[0m17:41:36.209226 [debug] [Thread-4 (]: Writing runtime sql for node "test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d"
+[0m17:41:36.209670 [debug] [Thread-3 (]: Began executing node test.aaa.unique_dim_customers_customer_unique_id.6fdb869708
+[0m17:41:36.210780 [debug] [Thread-3 (]: Writing runtime sql for node "test.aaa.unique_dim_customers_customer_unique_id.6fdb869708"
+[0m17:41:36.211180 [debug] [Thread-4 (]: Using postgres connection "test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d"
+[0m17:41:36.211455 [debug] [Thread-4 (]: On test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select customer_unique_id
+from "dwh"."marts"."dim_customers"
+where customer_unique_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:36.211724 [debug] [Thread-2 (]: Began executing node test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d
+[0m17:41:36.212018 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:36.213133 [debug] [Thread-2 (]: Writing runtime sql for node "test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d"
+[0m17:41:36.213771 [debug] [Thread-3 (]: Using postgres connection "test.aaa.unique_dim_customers_customer_unique_id.6fdb869708"
+[0m17:41:36.214096 [debug] [Thread-3 (]: On test.aaa.unique_dim_customers_customer_unique_id.6fdb869708: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_dim_customers_customer_unique_id.6fdb869708"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    customer_unique_id as unique_field,
+    count(*) as n_records
+
+from "dwh"."marts"."dim_customers"
+where customer_unique_id is not null
+group by customer_unique_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:36.214363 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:41:36.215118 [debug] [Thread-2 (]: Using postgres connection "test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d"
+[0m17:41:36.215546 [debug] [Thread-2 (]: On test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with child as (
+    select customer_unique_id as from_field
+    from "dwh"."marts"."fct_order_items"
+    where customer_unique_id is not null
+),
+
+parent as (
+    select customer_unique_id as to_field
+    from "dwh"."marts"."dim_customers"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:36.216403 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:36.239573 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.027 seconds
+[0m17:41:36.241199 [debug] [Thread-4 (]: On test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d: ROLLBACK
+[0m17:41:36.242706 [debug] [Thread-4 (]: On test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d: Close
+[0m17:41:36.243321 [info ] [Thread-4 (]: 48 of 55 PASS not_null_dim_customers_customer_unique_id ........................ [[32mPASS[0m in 0.04s]
+[0m17:41:36.243868 [debug] [Thread-4 (]: Finished running node test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d
+[0m17:41:36.251008 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.035 seconds
+[0m17:41:36.252173 [debug] [Thread-2 (]: On test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d: ROLLBACK
+[0m17:41:36.252942 [debug] [Thread-2 (]: On test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d: Close
+[0m17:41:36.253787 [info ] [Thread-2 (]: 49 of 55 PASS relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_  [[32mPASS[0m in 0.05s]
+[0m17:41:36.254475 [debug] [Thread-2 (]: Finished running node test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d
+[0m17:41:36.265546 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.051 seconds
+[0m17:41:36.266547 [debug] [Thread-3 (]: On test.aaa.unique_dim_customers_customer_unique_id.6fdb869708: ROLLBACK
+[0m17:41:36.267328 [debug] [Thread-3 (]: On test.aaa.unique_dim_customers_customer_unique_id.6fdb869708: Close
+[0m17:41:36.267865 [info ] [Thread-3 (]: 50 of 55 PASS unique_dim_customers_customer_unique_id .......................... [[32mPASS[0m in 0.07s]
+[0m17:41:36.268424 [debug] [Thread-3 (]: Finished running node test.aaa.unique_dim_customers_customer_unique_id.6fdb869708
+[0m17:41:36.576613 [debug] [Thread-1 (]: SQL status: SELECT 99441 in 1.108 seconds
+[0m17:41:36.578439 [debug] [Thread-1 (]: Using postgres connection "model.aaa.fct_orders"
+[0m17:41:36.578682 [debug] [Thread-1 (]: On model.aaa.fct_orders: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.fct_orders"} */
+alter table "dwh"."marts"."fct_orders__dbt_tmp" rename to "fct_orders"
+[0m17:41:36.579987 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:41:36.580757 [debug] [Thread-1 (]: On model.aaa.fct_orders: COMMIT
+[0m17:41:36.580993 [debug] [Thread-1 (]: Using postgres connection "model.aaa.fct_orders"
+[0m17:41:36.581194 [debug] [Thread-1 (]: On model.aaa.fct_orders: COMMIT
+[0m17:41:36.597313 [debug] [Thread-1 (]: SQL status: COMMIT in 0.016 seconds
+[0m17:41:36.598648 [debug] [Thread-1 (]: Applying DROP to: "dwh"."marts"."fct_orders__dbt_backup"
+[0m17:41:36.599017 [debug] [Thread-1 (]: Using postgres connection "model.aaa.fct_orders"
+[0m17:41:36.599235 [debug] [Thread-1 (]: On model.aaa.fct_orders: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "model.aaa.fct_orders"} */
+drop table if exists "dwh"."marts"."fct_orders__dbt_backup" cascade
+[0m17:41:36.599876 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.000 seconds
+[0m17:41:36.600675 [debug] [Thread-1 (]: On model.aaa.fct_orders: Close
+[0m17:41:36.601100 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '280d0b26-4a2c-4a15-ba81-9d2eef85795d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE82BCF50>]}
+[0m17:41:36.601600 [info ] [Thread-1 (]: 38 of 55 OK created sql table model marts.fct_orders ........................... [[32mSELECT 99441[0m in 1.14s]
+[0m17:41:36.602058 [debug] [Thread-1 (]: Finished running node model.aaa.fct_orders
+[0m17:41:36.602549 [debug] [Thread-3 (]: Began running node test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2
+[0m17:41:36.602819 [debug] [Thread-2 (]: Began running node test.aaa.not_null_fct_orders_order_id.4e687af8d0
+[0m17:41:36.603066 [debug] [Thread-1 (]: Began running node test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045
+[0m17:41:36.603321 [debug] [Thread-4 (]: Began running node test.aaa.assert_order_items_amount_matches
+[0m17:41:36.603582 [info ] [Thread-3 (]: 53 of 55 START test relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_  [RUN]
+[0m17:41:36.603963 [info ] [Thread-2 (]: 52 of 55 START test not_null_fct_orders_order_id ............................... [RUN]
+[0m17:41:36.604354 [info ] [Thread-1 (]: 54 of 55 START test relationships_fct_orders_order_date__date_day__ref_dim_date_  [RUN]
+[0m17:41:36.605059 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.aaa.unique_dim_customers_customer_unique_id.6fdb869708, now test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2)
+[0m17:41:36.604694 [info ] [Thread-4 (]: 51 of 55 START test assert_order_items_amount_matches .......................... [RUN]
+[0m17:41:36.605390 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.aaa.relationships_fct_order_items_customer_unique_id__customer_unique_id__ref_dim_customers_.da14a2cb0d, now test.aaa.not_null_fct_orders_order_id.4e687af8d0)
+[0m17:41:36.605690 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.aaa.fct_orders, now test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045)
+[0m17:41:36.605969 [debug] [Thread-3 (]: Began compiling node test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2
+[0m17:41:36.606233 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_dim_customers_customer_unique_id.e3fe18087d, now test.aaa.assert_order_items_amount_matches)
+[0m17:41:36.606475 [debug] [Thread-2 (]: Began compiling node test.aaa.not_null_fct_orders_order_id.4e687af8d0
+[0m17:41:36.606717 [debug] [Thread-1 (]: Began compiling node test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045
+[0m17:41:36.609698 [debug] [Thread-3 (]: Writing injected SQL for node "test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2"
+[0m17:41:36.609955 [debug] [Thread-4 (]: Began compiling node test.aaa.assert_order_items_amount_matches
+[0m17:41:36.611799 [debug] [Thread-2 (]: Writing injected SQL for node "test.aaa.not_null_fct_orders_order_id.4e687af8d0"
+[0m17:41:36.614721 [debug] [Thread-1 (]: Writing injected SQL for node "test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045"
+[0m17:41:36.616276 [debug] [Thread-4 (]: Writing injected SQL for node "test.aaa.assert_order_items_amount_matches"
+[0m17:41:36.616994 [debug] [Thread-3 (]: Began executing node test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2
+[0m17:41:36.618355 [debug] [Thread-3 (]: Writing runtime sql for node "test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2"
+[0m17:41:36.619046 [debug] [Thread-1 (]: Began executing node test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045
+[0m17:41:36.619362 [debug] [Thread-2 (]: Began executing node test.aaa.not_null_fct_orders_order_id.4e687af8d0
+[0m17:41:36.622276 [debug] [Thread-1 (]: Writing runtime sql for node "test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045"
+[0m17:41:36.624069 [debug] [Thread-2 (]: Writing runtime sql for node "test.aaa.not_null_fct_orders_order_id.4e687af8d0"
+[0m17:41:36.624472 [debug] [Thread-3 (]: Using postgres connection "test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2"
+[0m17:41:36.624796 [debug] [Thread-4 (]: Began executing node test.aaa.assert_order_items_amount_matches
+[0m17:41:36.625214 [debug] [Thread-3 (]: On test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with child as (
+    select customer_unique_id as from_field
+    from "dwh"."marts"."fct_orders"
+    where customer_unique_id is not null
+),
+
+parent as (
+    select customer_unique_id as to_field
+    from "dwh"."marts"."dim_customers"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:36.626570 [debug] [Thread-4 (]: Writing runtime sql for node "test.aaa.assert_order_items_amount_matches"
+[0m17:41:36.626842 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:41:36.627252 [debug] [Thread-1 (]: Using postgres connection "test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045"
+[0m17:41:36.627557 [debug] [Thread-2 (]: Using postgres connection "test.aaa.not_null_fct_orders_order_id.4e687af8d0"
+[0m17:41:36.627942 [debug] [Thread-1 (]: On test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with child as (
+    select order_date as from_field
+    from "dwh"."marts"."fct_orders"
+    where order_date is not null
+),
+
+parent as (
+    select date_day as to_field
+    from "dwh"."marts"."dim_date"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:36.628249 [debug] [Thread-2 (]: On test.aaa.not_null_fct_orders_order_id.4e687af8d0: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.not_null_fct_orders_order_id.4e687af8d0"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from "dwh"."marts"."fct_orders"
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:36.628584 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:41:36.628898 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:36.629623 [debug] [Thread-4 (]: Using postgres connection "test.aaa.assert_order_items_amount_matches"
+[0m17:41:36.630120 [debug] [Thread-4 (]: On test.aaa.assert_order_items_amount_matches: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.assert_order_items_amount_matches"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  -- fct_orders.items_amount must equal the sum of item prices in fct_order_items
+select o.order_id
+from "dwh"."marts"."fct_orders" o
+left join (
+    select order_id, sum(price) as items_sum
+    from "dwh"."marts"."fct_order_items"
+    group by 1
+) i on i.order_id = o.order_id
+where o.items_amount <> coalesce(i.items_sum, 0)
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:36.630560 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:41:36.658635 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.030 seconds
+[0m17:41:36.660068 [debug] [Thread-2 (]: On test.aaa.not_null_fct_orders_order_id.4e687af8d0: ROLLBACK
+[0m17:41:36.660438 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.032 seconds
+[0m17:41:36.661445 [debug] [Thread-1 (]: On test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045: ROLLBACK
+[0m17:41:36.661722 [debug] [Thread-2 (]: On test.aaa.not_null_fct_orders_order_id.4e687af8d0: Close
+[0m17:41:36.662599 [debug] [Thread-1 (]: On test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045: Close
+[0m17:41:36.662343 [info ] [Thread-2 (]: 52 of 55 PASS not_null_fct_orders_order_id ..................................... [[32mPASS[0m in 0.06s]
+[0m17:41:36.662978 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.036 seconds
+[0m17:41:36.663416 [debug] [Thread-2 (]: Finished running node test.aaa.not_null_fct_orders_order_id.4e687af8d0
+[0m17:41:36.664681 [debug] [Thread-3 (]: On test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2: ROLLBACK
+[0m17:41:36.663826 [info ] [Thread-1 (]: 54 of 55 PASS relationships_fct_orders_order_date__date_day__ref_dim_date_ ..... [[32mPASS[0m in 0.06s]
+[0m17:41:36.665134 [debug] [Thread-2 (]: Began running node test.aaa.unique_fct_orders_order_id.523ddb6ce5
+[0m17:41:36.665671 [debug] [Thread-1 (]: Finished running node test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045
+[0m17:41:36.665967 [info ] [Thread-2 (]: 55 of 55 START test unique_fct_orders_order_id ................................. [RUN]
+[0m17:41:36.666424 [debug] [Thread-3 (]: On test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2: Close
+[0m17:41:36.666745 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.aaa.not_null_fct_orders_order_id.4e687af8d0, now test.aaa.unique_fct_orders_order_id.523ddb6ce5)
+[0m17:41:36.667041 [debug] [Thread-2 (]: Began compiling node test.aaa.unique_fct_orders_order_id.523ddb6ce5
+[0m17:41:36.670137 [debug] [Thread-2 (]: Writing injected SQL for node "test.aaa.unique_fct_orders_order_id.523ddb6ce5"
+[0m17:41:36.667401 [info ] [Thread-3 (]: 53 of 55 PASS relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_  [[32mPASS[0m in 0.06s]
+[0m17:41:36.670756 [debug] [Thread-3 (]: Finished running node test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2
+[0m17:41:36.671330 [debug] [Thread-2 (]: Began executing node test.aaa.unique_fct_orders_order_id.523ddb6ce5
+[0m17:41:36.672677 [debug] [Thread-2 (]: Writing runtime sql for node "test.aaa.unique_fct_orders_order_id.523ddb6ce5"
+[0m17:41:36.673386 [debug] [Thread-2 (]: Using postgres connection "test.aaa.unique_fct_orders_order_id.523ddb6ce5"
+[0m17:41:36.673746 [debug] [Thread-2 (]: On test.aaa.unique_fct_orders_order_id.523ddb6ce5: /* {"app": "dbt", "dbt_version": "1.11.17", "profile_name": "aaa", "target_name": "dev", "node_id": "test.aaa.unique_fct_orders_order_id.523ddb6ce5"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    order_id as unique_field,
+    count(*) as n_records
+
+from "dwh"."marts"."fct_orders"
+where order_id is not null
+group by order_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:41:36.674013 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:41:36.730175 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.056 seconds
+[0m17:41:36.731252 [debug] [Thread-2 (]: On test.aaa.unique_fct_orders_order_id.523ddb6ce5: ROLLBACK
+[0m17:41:36.731908 [debug] [Thread-2 (]: On test.aaa.unique_fct_orders_order_id.523ddb6ce5: Close
+[0m17:41:36.732531 [info ] [Thread-2 (]: 55 of 55 PASS unique_fct_orders_order_id ....................................... [[32mPASS[0m in 0.07s]
+[0m17:41:36.733136 [debug] [Thread-2 (]: Finished running node test.aaa.unique_fct_orders_order_id.523ddb6ce5
+[0m17:41:36.761344 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.131 seconds
+[0m17:41:36.762396 [debug] [Thread-4 (]: On test.aaa.assert_order_items_amount_matches: ROLLBACK
+[0m17:41:36.763071 [debug] [Thread-4 (]: On test.aaa.assert_order_items_amount_matches: Close
+[0m17:41:36.763609 [info ] [Thread-4 (]: 51 of 55 PASS assert_order_items_amount_matches ................................ [[32mPASS[0m in 0.16s]
+[0m17:41:36.764252 [debug] [Thread-4 (]: Finished running node test.aaa.assert_order_items_amount_matches
+[0m17:41:36.765432 [debug] [MainThread]: On master: COMMIT
+[0m17:41:36.765685 [debug] [MainThread]: Using postgres connection "master"
+[0m17:41:36.765861 [debug] [MainThread]: On master: COMMIT
+[0m17:41:36.766017 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:41:36.773133 [debug] [MainThread]: SQL status: COMMIT in 0.007 seconds
+[0m17:41:36.773412 [debug] [MainThread]: On master: Close
+[0m17:41:36.773730 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:41:36.773933 [debug] [MainThread]: Connection 'list_dwh' was properly closed.
+[0m17:41:36.774101 [debug] [MainThread]: Connection 'list_dwh' was properly closed.
+[0m17:41:36.774248 [debug] [MainThread]: Connection 'list_dwh_staging' was properly closed.
+[0m17:41:36.774389 [debug] [MainThread]: Connection 'list_dwh_marts' was properly closed.
+[0m17:41:36.774529 [debug] [MainThread]: Connection 'test.aaa.assert_order_items_amount_matches' was properly closed.
+[0m17:41:36.774669 [debug] [MainThread]: Connection 'test.aaa.relationships_fct_orders_customer_unique_id__customer_unique_id__ref_dim_customers_.370175e5e2' was properly closed.
+[0m17:41:36.774825 [debug] [MainThread]: Connection 'test.aaa.relationships_fct_orders_order_date__date_day__ref_dim_date_.3a634a9045' was properly closed.
+[0m17:41:36.774974 [debug] [MainThread]: Connection 'test.aaa.unique_fct_orders_order_id.523ddb6ce5' was properly closed.
+[0m17:41:36.775212 [info ] [MainThread]: 
+[0m17:41:36.775514 [info ] [MainThread]: Finished running 6 table models, 40 data tests, 9 view models in 0 hours 0 minutes and 2.52 seconds (2.52s).
+[0m17:41:36.779690 [debug] [MainThread]: Command end result
+[0m17:41:36.804117 [debug] [MainThread]: Wrote artifact WritableManifest to D:\personal\ai-analytics-assistant\dbt\target\manifest.json
+[0m17:41:36.807356 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\personal\ai-analytics-assistant\dbt\target\semantic_manifest.json
+[0m17:41:36.812043 [debug] [MainThread]: Wrote artifact RunExecutionResult to D:\personal\ai-analytics-assistant\dbt\target\run_results.json
+[0m17:41:36.812284 [info ] [MainThread]: 
+[0m17:41:36.812682 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m17:41:36.812981 [info ] [MainThread]: 
+[0m17:41:36.813235 [info ] [MainThread]: Done. PASS=55 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=55
+[0m17:41:36.814456 [debug] [MainThread]: Command `dbt build` succeeded at 17:41:36.814365 after 3.91 seconds
+[0m17:41:36.814701 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE7A611F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE5B28830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022BE840BBF0>]}
+[0m17:41:36.814925 [debug] [MainThread]: Flushing usage events
+[0m17:41:37.048324 [debug] [MainThread]: An error was encountered while trying to flush usage events
