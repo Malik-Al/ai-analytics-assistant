@@ -17,3 +17,59 @@ models:
           - accepted_values:
               arguments:
                 values: [delivered, shipped, canceled, unavailable, invoiced, processing, created, approved]
+  - name: stg_order_items
+    description: One row per item in an order.
+    columns:
+      - name: order_id
+        data_tests: [not_null]
+      - name: price
+        data_tests: [not_null]
+
+  - name: stg_order_payments
+    columns:
+      - name: payment_type
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [credit_card, boleto, voucher, debit_card, not_defined]
+
+  - name: stg_order_reviews
+    description: One row per (review_id, order_id).
+    columns:
+      - name: review_key
+        data_tests: [unique, not_null]
+      - name: review_score
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4, 5]
+                quote: false
+
+  - name: stg_customers
+    description: One row per customer_id (one per order). Real person = customer_unique_id.
+    columns:
+      - name: customer_id
+        data_tests: [unique, not_null]
+      - name: customer_unique_id
+        data_tests: [not_null]
+
+  - name: stg_sellers
+    columns:
+      - name: seller_id
+        data_tests: [unique, not_null]
+
+  - name: stg_products
+    columns:
+      - name: product_id
+        data_tests: [unique, not_null]
+
+  - name: stg_product_category_translation
+    columns:
+      - name: category_name
+        data_tests: [unique, not_null]
+
+  - name: stg_geolocation
+    description: One row per zip code prefix (deduplicated).
+    columns:
+      - name: zip_code_prefix
+        data_tests: [unique, not_null]              
