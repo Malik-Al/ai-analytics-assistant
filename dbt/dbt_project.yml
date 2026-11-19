@@ -9,6 +9,9 @@ clean-targets: ["target", "dbt_packages"]
 
 models:
   aaa:
+    +persist_docs:
+      relation: true
+      columns: true
     staging:
       +schema: staging
       +materialized: view

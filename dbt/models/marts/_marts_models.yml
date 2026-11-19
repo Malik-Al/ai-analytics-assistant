@@ -2,73 +2,191 @@ version: 2
 
 models:
   - name: dim_customers
-    description: One row per real customer (customer_unique_id).
+    description: >
+      Customer dimension. One row per real customer (customer_unique_id).
+      Olist issues a new customer_id for every order, so customer_unique_id is the person.
     columns:
       - name: customer_unique_id
+        description: Primary key. Unique identifier of a real customer.
         data_tests: [unique, not_null]
+      - name: zip_code_prefix
+        description: First 5 digits of the customer's zip code (latest order).
+      - name: city
+        description: Customer city, lowercase (latest order).
+      - name: state
+        description: Brazilian state code, e.g. SP, RJ (latest order).
+      - name: latitude
+        description: Approximate latitude of the zip code prefix.
+      - name: longitude
+        description: Approximate longitude of the zip code prefix.
+      - name: first_order_at
+        description: Timestamp of the customer's first order.
+      - name: last_order_at
+        description: Timestamp of the customer's most recent order.
+      - name: orders_count
+        description: Total number of orders placed by the customer.
 
   - name: dim_products
-    description: One row per product.
+    description: Product dimension. One row per product.
     columns:
       - name: product_id
+        description: Primary key.
         data_tests: [unique, not_null]
+      - name: category_name_pt
+        description: Original category name in Portuguese; 'unknown' if missing.
+      - name: category
+        description: Category name in English. Use this column for grouping by category.
+      - name: name_length
+        description: Number of characters in the product name.
+      - name: description_length
+        description: Number of characters in the product description.
+      - name: photos_qty
+        description: Number of product photos.
+      - name: weight_g
+        description: Product weight in grams.
+      - name: length_cm
+        description: Product length in centimeters.
+      - name: height_cm
+        description: Product height in centimeters.
+      - name: width_cm
+        description: Product width in centimeters.
 
   - name: dim_sellers
-    description: One row per seller.
+    description: Seller dimension. One row per seller.
     columns:
       - name: seller_id
+        description: Primary key.
         data_tests: [unique, not_null]
+      - name: zip_code_prefix
+        description: First 5 digits of the seller's zip code.
+      - name: city
+        description: Seller city, lowercase.
+      - name: state
+        description: Brazilian state code of the seller.
+      - name: latitude
+        description: Approximate latitude of the zip code prefix.
+      - name: longitude
+        description: Approximate longitude of the zip code prefix.
 
   - name: dim_date
-    description: One row per calendar day 2016-2018.
+    description: Calendar dimension. One row per day from 2016-01-01 to 2018-12-31.
     columns:
       - name: date_day
+        description: Primary key. Calendar date.
         data_tests: [unique, not_null]
+      - name: year
+        description: Calendar year.
+      - name: quarter
+        description: Quarter of the year, 1-4.
+      - name: month
+        description: Month number, 1-12.
+      - name: month_name
+        description: Short month name, e.g. Jan.
+      - name: year_month
+        description: Year and month as text, e.g. 2018-01. Use for monthly grouping.
+      - name: day_of_week
+        description: ISO day of week, 1 = Monday ... 7 = Sunday.
+      - name: day_name
+        description: Short day name, e.g. Mon.
+      - name: is_weekend
+        description: True for Saturday and Sunday.
 
   - name: fct_order_items
-    description: One row per item in an order.
+    description: >
+      Order items fact. One row per item in an order.
+      Use for revenue by product, category or seller. Revenue = sum(price).
     columns:
       - name: order_item_key
+        description: Primary key. Hash of order_id and order_item_id.
         data_tests: [unique, not_null]
+      - name: order_id
+        description: Order identifier. Joins to fct_orders.order_id.
+      - name: order_item_id
+        description: Sequential number of the item within the order (1, 2, 3...).
       - name: customer_unique_id
+        description: Foreign key to dim_customers.
         data_tests:
           - relationships:
               arguments:
                 to: ref('dim_customers')
                 field: customer_unique_id
       - name: product_id
+        description: Foreign key to dim_products.
         data_tests:
           - relationships:
               arguments:
                 to: ref('dim_products')
                 field: product_id
       - name: seller_id
+        description: Foreign key to dim_sellers.
         data_tests:
           - relationships:
               arguments:
                 to: ref('dim_sellers')
                 field: seller_id
       - name: order_date
+        description: Date the order was placed. Foreign key to dim_date.date_day.
         data_tests:
           - relationships:
               arguments:
                 to: ref('dim_date')
                 field: date_day
+      - name: order_status
+        description: Status of the parent order (delivered, shipped, canceled, ...).
+      - name: price
+        description: Item price in BRL, excluding freight.
+      - name: freight_value
+        description: Freight cost for the item in BRL.
+      - name: total_amount
+        description: price + freight_value, in BRL.
 
   - name: fct_orders
-    description: One row per order.
+    description: >
+      Orders fact. One row per order. Use for order counts, average order value,
+      delivery performance, payments and review scores.
     columns:
       - name: order_id
+        description: Primary key.
         data_tests: [unique, not_null]
       - name: customer_unique_id
+        description: Foreign key to dim_customers.
         data_tests:
           - relationships:
               arguments:
                 to: ref('dim_customers')
                 field: customer_unique_id
       - name: order_date
+        description: Date the order was placed. Foreign key to dim_date.date_day.
         data_tests:
           - relationships:
               arguments:
                 to: ref('dim_date')
                 field: date_day
+      - name: order_status
+        description: delivered, shipped, canceled, unavailable, invoiced, processing, created, approved.
+      - name: ordered_at
+        description: Timestamp when the order was placed.
+      - name: approved_at
+        description: Timestamp when the payment was approved.
+      - name: shipped_at
+        description: Timestamp when the order was handed to the carrier.
+      - name: delivered_at
+        description: Timestamp when the customer received the order. Null if not delivered.
+      - name: estimated_delivery_at
+        description: Delivery date promised to the customer.
+      - name: item_count
+        description: Number of items in the order.
+      - name: items_amount
+        description: Sum of item prices in BRL, excluding freight.
+      - name: freight_amount
+        description: Sum of freight costs in BRL.
+      - name: payment_amount
+        description: Total amount paid in BRL (may differ from items + freight due to vouchers and interest).
+      - name: max_installments
+        description: Maximum number of installments used to pay for the order.
+      - name: review_score
+        description: Average customer review score 1-5. Null if no review.
+      - name: delivery_days
+        description: Days from order placement to delivery. Null if not delivered.
+      - name: is_late
+        description: True if delivered after the estimated delivery date. Null if not delivered.
