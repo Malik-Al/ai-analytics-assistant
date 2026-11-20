@@ -2,11 +2,18 @@
 
 from __future__ import annotations
 
+from typing import Any
+
+import psycopg
 from mcp.server import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
 from pydantic import BaseModel
 
 import db
+from sql_guard import UnsafeSqlError, validate_sql
+
+MAX_ROWS = 200
+TIMEOUT_MS = 5000
 
 mcp = MCPServer(
     name="olist-dwh",
@@ -58,6 +65,41 @@ def describe_table(table_name: str) -> TableDetails:
         table_name=table_name,
         description=tables[table_name],
         columns=[ColumnInfo(**row) for row in db.fetch_columns(table_name)],
+    )
+
+
+class QueryResult(BaseModel):
+    columns: list[str]
+    rows: list[list[Any]]
+    row_count: int
+    truncated: bool  # True if the query returned more than MAX_ROWS rows
+
+
+@mcp.tool()
+def run_readonly_sql(sql: str) -> QueryResult:
+    """Run one read-only SELECT (Postgres dialect) against the marts tables.
+
+    Use only tables from list_tables and columns from describe_table.
+    Aggregate in SQL (GROUP BY, SUM, COUNT) instead of fetching raw rows:
+    at most 200 rows are returned and queries are stopped after 5 seconds.
+    """
+    allowed_tables = {row["table_name"] for row in db.fetch_tables()}
+    try:
+        safe_sql = validate_sql(sql, allowed_tables)
+        columns, rows = db.run_query(safe_sql, MAX_ROWS, TIMEOUT_MS)
+    except UnsafeSqlError as e:
+        raise ToolError(f"Query rejected: {e}") from e
+    except psycopg.Error as e:
+        # the Postgres message (syntax error, unknown column, timeout) lets the LLM fix its SQL
+        raise ToolError(f"Database error: {e}") from e
+
+    truncated = len(rows) > MAX_ROWS
+    rows = rows[:MAX_ROWS]
+    return QueryResult(
+        columns=columns,
+        rows=[list(row) for row in rows],
+        row_count=len(rows),
+        truncated=truncated,
     )
 
 

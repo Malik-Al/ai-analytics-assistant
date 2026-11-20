@@ -6,7 +6,7 @@ import os
 from typing import Any
 
 import psycopg
-from psycopg.rows import dict_row
+from psycopg.rows import dict_row, tuple_row
 
 SCHEMA = os.environ.get("MCP_SCHEMA", "marts")
 
@@ -59,3 +59,15 @@ ORDER BY a.attnum
 def fetch_columns(table_name: str, schema: str = SCHEMA) -> list[dict[str, Any]]:
     with connect() as conn:
         return conn.execute(LIST_COLUMNS_SQL, (schema, table_name)).fetchall()
+
+
+def run_query(sql: str, max_rows: int, timeout_ms: int) -> tuple[list[str], list[tuple]]:
+    """Run an already validated SELECT. Fetches at most max_rows + 1 rows."""
+    wrapped = f"SELECT * FROM ({sql}) AS q LIMIT {max_rows + 1}"
+    with connect() as conn, conn.cursor(row_factory=tuple_row) as cur:
+        # SET LOCAL lives until the end of this transaction only
+        cur.execute(f"SET LOCAL statement_timeout = {int(timeout_ms)}")
+        cur.execute("SET LOCAL search_path = marts")
+        cur.execute(wrapped)
+        columns = [col.name for col in cur.description]
+        return columns, cur.fetchall()
