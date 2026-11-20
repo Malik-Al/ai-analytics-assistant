@@ -84,6 +84,10 @@ table _Measures
 
 		annotation PBI_FormatHint = {"currencyCulture":"ru-KG"}
 
+	measure 'Avg Delivery Days' = AVERAGE ( fct_orders[delivery_days] )
+		formatString: 0.0
+		lineageTag: bbe539b9-ff02-451d-b0d4-81efdb51cade
+
 	partition _Measures = m
 		mode: import
 		source =
