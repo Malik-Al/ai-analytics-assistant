@@ -39,3 +39,23 @@ ORDER BY c.relname
 def fetch_tables(schema: str = SCHEMA) -> list[dict[str, Any]]:
     with connect() as conn:
         return conn.execute(LIST_TABLES_SQL, (schema,)).fetchall()
+
+
+LIST_COLUMNS_SQL = """
+SELECT a.attname AS column_name,
+       format_type(a.atttypid, a.atttypmod) AS data_type,
+       col_description(c.oid, a.attnum) AS description
+FROM pg_class c
+JOIN pg_namespace n ON n.oid = c.relnamespace
+JOIN pg_attribute a ON a.attrelid = c.oid
+WHERE n.nspname = %s
+  AND c.relname = %s
+  AND a.attnum > 0          -- skip system columns (ctid, xmin, ...)
+  AND NOT a.attisdropped    -- skip dropped columns
+ORDER BY a.attnum
+"""
+
+
+def fetch_columns(table_name: str, schema: str = SCHEMA) -> list[dict[str, Any]]:
+    with connect() as conn:
+        return conn.execute(LIST_COLUMNS_SQL, (schema, table_name)).fetchall()
