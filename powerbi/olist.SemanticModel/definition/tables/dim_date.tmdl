@@ -18,28 +18,28 @@ table dim_date
 		dataType: int64
 		formatString: 0
 		lineageTag: 6bba2f36-df03-4f0e-b752-097c17f41665
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: year
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column quarter
 		dataType: int64
 		formatString: 0
 		lineageTag: de54596c-8945-40d8-b8c7-0227cae31a54
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: quarter
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column month
 		dataType: int64
 		formatString: 0
 		lineageTag: 5037f6e4-a501-419f-9921-1212ff2d2ae7
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: month
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column month_name
 		dataType: string
@@ -61,10 +61,10 @@ table dim_date
 		dataType: int64
 		formatString: 0
 		lineageTag: 62025be9-370a-4f42-bfc9-7f1c30802057
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: day_of_week
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column day_name
 		dataType: string

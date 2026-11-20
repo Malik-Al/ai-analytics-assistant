@@ -1,39 +1,34 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
-  "name": "12c21106321823ac6331",
+  "name": "6329646e3dbc46507ee2",
   "position": {
-    "x": 103.1500753193887,
-    "y": 18.369191495233604,
+    "x": 9.4228793153689239,
+    "y": 0,
     "z": 0,
-    "height": 779.98413118222686,
-    "width": 1701.2697354047123,
+    "height": 280.80180359799397,
+    "width": 1228.7434627241078,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
-        "Category": {
+        "Data": {
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_products"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "category"
+                  "Property": "Revenue"
                 }
               },
-              "queryRef": "dim_products.category",
-              "nativeQueryRef": "category",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
+              "queryRef": "_Measures.Revenue",
+              "nativeQueryRef": "Revenue"
+            },
             {
               "field": {
                 "Measure": {
@@ -56,11 +51,25 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Revenue"
+                  "Property": "AOV"
                 }
               },
-              "queryRef": "_Measures.Revenue",
-              "nativeQueryRef": "Revenue"
+              "queryRef": "_Measures.AOV",
+              "nativeQueryRef": "AOV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Customers"
+                }
+              },
+              "queryRef": "_Measures.Customers",
+              "nativeQueryRef": "Customers"
             }
           ]
         }
@@ -75,7 +84,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Orders"
+                "Property": "Revenue"
               }
             },
             "direction": "Descending"
@@ -89,7 +98,21 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "f0cd4c006b25d92c061a",
+        "name": "3a65228a9a9ea9b28080",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6fc471f2bc460d283873",
         "field": {
           "Measure": {
             "Expression": {
@@ -103,21 +126,7 @@
         "type": "Advanced"
       },
       {
-        "name": "09a5c531949e0d393d15",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_products"
-              }
-            },
-            "Property": "category"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a85e7c40314658067649",
+        "name": "f8dae81a4766420c355c",
         "field": {
           "Measure": {
             "Expression": {
@@ -125,7 +134,21 @@
                 "Entity": "_Measures"
               }
             },
-            "Property": "Revenue"
+            "Property": "AOV"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cdd378c64aeda534b634",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Customers"
           }
         },
         "type": "Advanced"

@@ -37,7 +37,7 @@ table _Measures
 		changedProperty = IsHidden
 
 	measure AOV = DIVIDE ( [Revenue], [Orders] )
-		formatString: #,0.###############\ "сом";-#,0.###############\ "сом";#,0.###############\ "сом"
+		formatString: #,0.00\ "сом";-#,0.00\ "сом";#,0.00\ "сом"
 		lineageTag: 7b7494e9-2286-4388-b15d-03d8e5b2834c
 
 		changedProperty = IsHidden
