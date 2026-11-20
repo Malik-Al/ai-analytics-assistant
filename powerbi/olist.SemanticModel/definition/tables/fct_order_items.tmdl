@@ -1,0 +1,114 @@
+table fct_order_items
+	lineageTag: e3b219da-ab7d-459a-96a3-1662e73a8ca8
+
+	column order_item_key
+		dataType: string
+		lineageTag: 22f1a12d-b01e-4a46-9735-30c349e78a53
+		summarizeBy: none
+		sourceColumn: order_item_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_id
+		dataType: string
+		lineageTag: 0e69810a-319e-424f-b40f-cf3d06262727
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_item_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d865f8c7-c92a-4dfc-afb9-29b160741a51
+		summarizeBy: sum
+		sourceColumn: order_item_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_unique_id
+		dataType: string
+		lineageTag: f00417cd-1558-46a5-a775-23278f6d1d55
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: 15589eaf-d566-49f9-be3b-dc5e0948d0ce
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_id
+		dataType: string
+		lineageTag: ec4e9b2f-f762-4d95-95c5-b4c801c91331
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1606a15d-76bc-4364-8d06-0be5c6f7003f
+		summarizeBy: none
+		sourceColumn: order_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column order_status
+		dataType: string
+		lineageTag: eb26db84-f43c-4a61-a068-132e79607f9e
+		summarizeBy: none
+		sourceColumn: order_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: double
+		lineageTag: 8b9ff85d-e97e-41de-8934-e16dfb3c80a6
+		summarizeBy: sum
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column freight_value
+		dataType: double
+		lineageTag: 9281a637-4f2e-4019-8262-e9258361e779
+		summarizeBy: sum
+		sourceColumn: freight_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_amount
+		dataType: double
+		lineageTag: 316d2ece-9731-4a7b-8d1f-e92100ff72b7
+		summarizeBy: sum
+		sourceColumn: total_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fct_order_items = m
+		mode: import
+		source =
+				let
+				    Источник = PostgreSQL.Database("localhost:5433", "dwh"),
+				    marts_fct_order_items = Источник{[Schema="marts",Item="fct_order_items"]}[Data]
+				in
+				    marts_fct_order_items
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

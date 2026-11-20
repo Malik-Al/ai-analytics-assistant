@@ -1,0 +1,98 @@
+table dim_date
+	lineageTag: 0efd4948-1bb8-467a-b4c8-c435bdacfcee
+	dataCategory: Time
+
+	column date_day
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: 5d3ccf3a-529b-4e01-811e-3c8f106c739b
+		summarizeBy: none
+		sourceColumn: date_day
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 6bba2f36-df03-4f0e-b752-097c17f41665
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: de54596c-8945-40d8-b8c7-0227cae31a54
+		summarizeBy: sum
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: 5037f6e4-a501-419f-9921-1212ff2d2ae7
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: 8412fe0f-deca-4c95-82e1-f5505c90609f
+		summarizeBy: none
+		sourceColumn: month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_month
+		dataType: string
+		lineageTag: e8f61753-fcab-43bb-bafc-08d74415864d
+		summarizeBy: none
+		sourceColumn: year_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 62025be9-370a-4f42-bfc9-7f1c30802057
+		summarizeBy: sum
+		sourceColumn: day_of_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_name
+		dataType: string
+		lineageTag: 5b2e67da-8edb-4488-ae1c-50311d753772
+		summarizeBy: none
+		sourceColumn: day_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6bd8148f-2237-4f25-9f35-787855650a80
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = m
+		mode: import
+		source =
+				let
+				    Источник = PostgreSQL.Database("localhost:5433", "dwh"),
+				    marts_dim_date = Источник{[Schema="marts",Item="dim_date"]}[Data]
+				in
+				    marts_dim_date
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

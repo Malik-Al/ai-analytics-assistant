@@ -1,0 +1,173 @@
+table fct_orders
+	lineageTag: 822ad9cf-2476-4936-9e3f-d9e407701e83
+
+	column order_id
+		dataType: string
+		lineageTag: 39620f36-af38-40b3-9694-c8789068d3eb
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_unique_id
+		dataType: string
+		lineageTag: de07a91f-5ef9-4b5e-b49e-c07491d216b6
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4141cb88-e506-4957-95b0-fe98694ab478
+		summarizeBy: none
+		sourceColumn: order_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column order_status
+		dataType: string
+		lineageTag: 9cd2dcae-bbb1-4c9d-af36-063943dc3043
+		summarizeBy: none
+		sourceColumn: order_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column ordered_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fa89108a-cc7b-4bd4-bc02-3f251810d32a
+		summarizeBy: none
+		sourceColumn: ordered_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column approved_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 74a23228-e4a3-4308-a108-00202be41279
+		summarizeBy: none
+		sourceColumn: approved_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipped_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1b6f8a63-86b4-4059-abff-3f402e5036c4
+		summarizeBy: none
+		sourceColumn: shipped_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivered_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d6bd7b26-c1c5-4431-97d6-cdf77e5296c2
+		summarizeBy: none
+		sourceColumn: delivered_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column estimated_delivery_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a72b096a-381f-46ec-bf1d-a328476cfaf8
+		summarizeBy: none
+		sourceColumn: estimated_delivery_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 8339c149-247e-4a2e-93f2-24d56d17d648
+		summarizeBy: sum
+		sourceColumn: item_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column items_amount
+		dataType: double
+		lineageTag: 59517a82-3162-4256-95e2-4b03c37c02e6
+		summarizeBy: sum
+		sourceColumn: items_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column freight_amount
+		dataType: double
+		lineageTag: e0ce228f-eb38-42e9-bcc9-6cbe591f4102
+		summarizeBy: sum
+		sourceColumn: freight_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column payment_amount
+		dataType: double
+		lineageTag: 473d384b-b08f-482e-aff0-b0282ddf5da3
+		summarizeBy: sum
+		sourceColumn: payment_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column max_installments
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e030c82-36a7-46c8-9553-b833d174ca47
+		summarizeBy: sum
+		sourceColumn: max_installments
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_score
+		dataType: double
+		lineageTag: f2706045-0dcf-4b39-89da-a94c7428843d
+		summarizeBy: sum
+		sourceColumn: review_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column delivery_days
+		dataType: double
+		lineageTag: f4cac9cf-3678-4a3f-9568-64586b955690
+		summarizeBy: sum
+		sourceColumn: delivery_days
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_late
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9c8df62c-9a4a-4816-a500-fa9795231eae
+		summarizeBy: none
+		sourceColumn: is_late
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_orders = m
+		mode: import
+		source =
+				let
+				    Источник = PostgreSQL.Database("localhost:5433", "dwh"),
+				    marts_fct_orders = Источник{[Schema="marts",Item="fct_orders"]}[Data]
+				in
+				    marts_fct_orders
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

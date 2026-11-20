@@ -1,0 +1,100 @@
+table _Measures
+	lineageTag: b37ede83-0890-4421-897a-70fc55840b02
+
+	measure Freight = SUM ( fct_order_items[freight_value] )
+		formatString: #,0.###############\ "сом";-#,0.###############\ "сом";#,0.###############\ "сом"
+		lineageTag: f50c6716-ea2e-4e90-aba5-8bdbd424805d
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"ru-KG"}
+
+	measure 'Items Sold' = COUNTROWS ( fct_order_items )
+		lineageTag: 46c1cea9-3641-4327-a772-5de1d57d322a
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Revenue = SUM ( fct_order_items[price] )
+		formatString: #,0.###############\ "сом";-#,0.###############\ "сом";#,0.###############\ "сом"
+		lineageTag: 89369de8-b41e-4015-8a49-aa9ee163c284
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"ru-KG"}
+
+	measure Orders = DISTINCTCOUNT ( fct_order_items[order_id] )
+		formatString: 0
+		lineageTag: 1b8574af-9a02-46c0-b0f3-dcd5f7865bc3
+
+		changedProperty = IsHidden
+
+	measure Customers = DISTINCTCOUNT ( fct_order_items[customer_unique_id] )
+		formatString: 0
+		lineageTag: 30379d65-f779-444e-9930-5b0c86509d69
+
+		changedProperty = IsHidden
+
+	measure AOV = DIVIDE ( [Revenue], [Orders] )
+		formatString: #,0.###############\ "сом";-#,0.###############\ "сом";#,0.###############\ "сом"
+		lineageTag: 7b7494e9-2286-4388-b15d-03d8e5b2834c
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"ru-KG"}
+
+	measure 'Avg Review' = AVERAGE ( fct_orders[review_score] )
+		lineageTag: b06756c9-1b06-46b4-b454-5de4e7bce7f7
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Late Delivery %' =
+			
+			DIVIDE (
+			    CALCULATE ( COUNTROWS ( fct_orders ), fct_orders[is_late] = TRUE () ),
+			    CALCULATE ( COUNTROWS ( fct_orders ), NOT ISBLANK ( fct_orders[is_late] ) )
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 4e4c5da8-515c-407e-9549-5727345b55ea
+
+		changedProperty = IsHidden
+
+	measure 'Revenue PM' = CALCULATE ( [Revenue], DATEADD ( dim_date[date_day], -1, MONTH ) )
+		formatString: #,0.###############\ "сом";-#,0.###############\ "сом";#,0.###############\ "сом"
+		lineageTag: c45561c8-cfef-452f-ad12-90864e067458
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"ru-KG"}
+
+	measure 'Revenue MoM %' = DIVIDE ( [Revenue] - [Revenue PM], [Revenue PM] )
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 36e10e49-00f3-444e-9985-ca73951a6e94
+
+		changedProperty = IsHidden
+
+	measure 'Revenue YTD' = TOTALYTD ( [Revenue], dim_date[date_day] )
+		formatString: #,0.###############\ "сом";-#,0.###############\ "сом";#,0.###############\ "сом"
+		lineageTag: 91641bf6-c23d-404d-8703-2df20464d3f7
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"ru-KG"}
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Источник = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Столбец1 = _t]),
+				    #"Измененный тип" = Table.TransformColumnTypes(Источник,{{"Столбец1", type text}}),
+				    #"Удаленные столбцы" = Table.RemoveColumns(#"Измененный тип",{"Столбец1"})
+				in
+				    #"Удаленные столбцы"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

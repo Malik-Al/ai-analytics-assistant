@@ -1,0 +1,103 @@
+table dim_products
+	lineageTag: 19ad4071-8ec2-4ad0-8c70-b17f162d9d72
+
+	column product_id
+		dataType: string
+		lineageTag: ab555da9-c24e-4eb4-97b0-df8639802002
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_name_pt
+		dataType: string
+		lineageTag: ef22f725-a791-4072-a526-a0599f533848
+		summarizeBy: none
+		sourceColumn: category_name_pt
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 93ab65e2-b0aa-4965-b594-bff74abb5fb3
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column name_length
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d64f46f-3519-4706-b12c-b9731b371d53
+		summarizeBy: none
+		sourceColumn: name_length
+
+		annotation SummarizationSetBy = Automatic
+
+	column description_length
+		dataType: int64
+		formatString: 0
+		lineageTag: f2b5b94f-1c89-47e8-afa7-df1c5b3fea84
+		summarizeBy: none
+		sourceColumn: description_length
+
+		annotation SummarizationSetBy = Automatic
+
+	column photos_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e91325a-628a-4feb-b635-b393d7eaa2cc
+		summarizeBy: none
+		sourceColumn: photos_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column weight_g
+		dataType: int64
+		formatString: 0
+		lineageTag: 10aa1442-ed96-4811-b457-3225384adde0
+		summarizeBy: none
+		sourceColumn: weight_g
+
+		annotation SummarizationSetBy = Automatic
+
+	column length_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: 737e77b1-42ae-4bcf-9b75-08737bfcc9b4
+		summarizeBy: none
+		sourceColumn: length_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	column height_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: ece49ff3-4283-416b-a433-6c9abbbcad72
+		summarizeBy: none
+		sourceColumn: height_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	column width_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: dea9cd0e-cbed-47fd-8dfa-eb0e6f17a0eb
+		summarizeBy: none
+		sourceColumn: width_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_products = m
+		mode: import
+		source =
+				let
+				    Источник = PostgreSQL.Database("localhost:5433", "dwh"),
+				    marts_dim_products = Источник{[Schema="marts",Item="dim_products"]}[Data]
+				in
+				    marts_dim_products
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

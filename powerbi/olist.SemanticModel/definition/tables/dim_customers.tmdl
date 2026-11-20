@@ -1,0 +1,95 @@
+table dim_customers
+	lineageTag: 058520d6-1ae1-4e89-ac60-b8ddb7cee2b1
+
+	column customer_unique_id
+		dataType: string
+		lineageTag: 2ee322d8-c9c0-4ec5-a6d6-cf2459fd61a6
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column zip_code_prefix
+		dataType: string
+		lineageTag: 58e5297b-3e43-4acb-badc-0fa725f4a9e5
+		summarizeBy: none
+		sourceColumn: zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 5b7d52de-1bc8-4d9d-aac5-f44f557d705b
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 75d8444a-4171-4a6e-a4d8-5ea5f3a8d146
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		lineageTag: b8b11cd6-623a-4b5d-a661-cd2b167ca3f9
+		summarizeBy: sum
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column longitude
+		dataType: double
+		lineageTag: f1d786ba-1c34-4574-b2c2-11bad58b05c4
+		summarizeBy: sum
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column first_order_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 53a82b9a-1bda-4083-8a0d-b422a959ff97
+		summarizeBy: none
+		sourceColumn: first_order_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_order_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e987d45e-9ab7-435a-8d1e-a31881f438b6
+		summarizeBy: none
+		sourceColumn: last_order_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column orders_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d23772c-ab08-45c1-a937-92e11b175980
+		summarizeBy: sum
+		sourceColumn: orders_count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_customers = m
+		mode: import
+		source =
+				let
+				    Источник = PostgreSQL.Database("localhost:5433", "dwh"),
+				    marts_dim_customers = Источник{[Schema="marts",Item="dim_customers"]}[Data]
+				in
+				    marts_dim_customers
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,24 @@
+relationship AutoDetected_b7f9c81b-8722-4ac0-8915-9616b908d3ce
+	fromColumn: fct_order_items.customer_unique_id
+	toColumn: dim_customers.customer_unique_id
+
+relationship AutoDetected_a61c120d-e010-44a4-ad2d-3f8629d9a5ce
+	fromColumn: fct_orders.customer_unique_id
+	toColumn: dim_customers.customer_unique_id
+
+relationship AutoDetected_47d01d65-554a-483b-89b4-9ef4dfcbd6f0
+	fromColumn: fct_order_items.product_id
+	toColumn: dim_products.product_id
+
+relationship AutoDetected_a9dcc2be-314d-439f-bcd8-88074dcfa837
+	fromColumn: fct_order_items.seller_id
+	toColumn: dim_sellers.seller_id
+
+relationship 2fc86577-3ec8-3c0e-dc72-c51002d4f22f
+	fromColumn: fct_order_items.order_date
+	toColumn: dim_date.date_day
+
+relationship 9df2d6f5-5b44-9332-e721-8ea49b9edbf1
+	fromColumn: fct_orders.order_date
+	toColumn: dim_date.date_day
+

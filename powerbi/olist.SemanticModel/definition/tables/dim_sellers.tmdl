@@ -1,0 +1,68 @@
+table dim_sellers
+	lineageTag: 902d86eb-181a-42f7-b890-a3019cd5c675
+
+	column seller_id
+		dataType: string
+		lineageTag: 78e279b1-8573-43f3-962d-ec8100c85189
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column zip_code_prefix
+		dataType: string
+		lineageTag: 7abc133a-0bb7-48ef-af09-3c31e14b44dc
+		summarizeBy: none
+		sourceColumn: zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: ea9753c2-fa98-437e-95b1-4469e833082c
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 878c59c2-6591-42ec-84b9-e7c0fa4ca76d
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		lineageTag: ecd3e3b2-6743-4f74-a923-8e930db01006
+		summarizeBy: none
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column longitude
+		dataType: double
+		lineageTag: 75418d3d-d7ee-4b3d-bd23-cb6fc57e1f67
+		summarizeBy: none
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim_sellers = m
+		mode: import
+		source =
+				let
+				    Источник = PostgreSQL.Database("localhost:5433", "dwh"),
+				    marts_dim_sellers = Источник{[Schema="marts",Item="dim_sellers"]}[Data]
+				in
+				    marts_dim_sellers
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+
