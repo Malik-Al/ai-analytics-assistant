@@ -1,0 +1,41 @@
+"""Postgres access for the MCP server. Read-only by design."""
+
+from __future__ import annotations
+
+import os
+from typing import Any
+
+import psycopg
+from psycopg.rows import dict_row
+
+SCHEMA = os.environ.get("MCP_SCHEMA", "marts")
+
+
+def connect() -> psycopg.Connection:
+    conn = psycopg.connect(
+        host=os.environ.get("POSTGRES_HOST", "localhost"),
+        port=os.environ.get("POSTGRES_PORT", "5433"),
+        dbname=os.environ["POSTGRES_DB"],
+        user=os.environ["POSTGRES_USER"],
+        password=os.environ["POSTGRES_PASSWORD"],
+        row_factory=dict_row,  # rows as dicts: {"table_name": ..., "description": ...}
+    )
+    # every transaction on this connection is READ ONLY: INSERT/UPDATE/DDL fail in Postgres
+    conn.read_only = True
+    return conn
+
+
+LIST_TABLES_SQL = """
+SELECT c.relname AS table_name,
+       obj_description(c.oid, 'pg_class') AS description
+FROM pg_class c
+JOIN pg_namespace n ON n.oid = c.relnamespace
+WHERE n.nspname = %s
+  AND c.relkind IN ('r', 'v', 'm')  -- table, view, materialized view
+ORDER BY c.relname
+"""
+
+
+def fetch_tables(schema: str = SCHEMA) -> list[dict[str, Any]]:
+    with connect() as conn:
+        return conn.execute(LIST_TABLES_SQL, (schema,)).fetchall()

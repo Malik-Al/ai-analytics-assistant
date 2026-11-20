@@ -1,0 +1,37 @@
+[project]
+name = "mcp-server"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { email = "malikimenov@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "mcp>=2.3,<3",
+    "psycopg[binary]>=3.3",
+]
+
+[project.scripts]
+mcp-server = "mcp_server:main"
+
+[build-system]
+requires = ["uv_build>=0.13.9,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "anyio>=4.16.0",
+    "pytest>=9.2.0",
+    "ruff>=0.17.6",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

@@ -51,3 +51,26 @@ dbt_build:
     - uv run python load_raw.py
     - cd "$CI_PROJECT_DIR/dbt" && uv sync --locked
     - uv run dbt build
+
+.mcp_server:
+  image: ghcr.io/astral-sh/uv:python3.13-bookworm-slim
+  cache:
+    key:
+      files: [mcp_server/uv.lock]
+    paths: [.uv-cache]
+  before_script:
+    - cd mcp_server
+    - uv sync --locked
+
+mcp_lint:
+  extends: .mcp_server
+  stage: lint
+  script:
+    - uv run ruff format --check .
+    - uv run ruff check .
+
+mcp_test:
+  extends: .mcp_server
+  stage: test
+  script:
+    - uv run pytest
