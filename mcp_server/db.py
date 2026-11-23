@@ -16,8 +16,8 @@ def connect() -> psycopg.Connection:
         host=os.environ.get("POSTGRES_HOST", "localhost"),
         port=os.environ.get("POSTGRES_PORT", "5433"),
         dbname=os.environ["POSTGRES_DB"],
-        user=os.environ["POSTGRES_USER"],
-        password=os.environ["POSTGRES_PASSWORD"],
+        user=os.environ["MCP_READER_USER"],
+        password=os.environ["MCP_READER_PASSWORD"],
         row_factory=dict_row,  # rows as dicts: {"table_name": ..., "description": ...}
     )
     # every transaction on this connection is READ ONLY: INSERT/UPDATE/DDL fail in Postgres
@@ -32,6 +32,7 @@ FROM pg_class c
 JOIN pg_namespace n ON n.oid = c.relnamespace
 WHERE n.nspname = %s
   AND c.relkind IN ('r', 'v', 'm')  -- table, view, materialized view
+  AND has_table_privilege(c.oid, 'SELECT')  -- only what the connected role can read
 ORDER BY c.relname
 """
 
