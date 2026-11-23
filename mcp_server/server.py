@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Any
+import datetime as dt
+from decimal import Decimal
 
 import psycopg
 from mcp.server import MCPServer
@@ -68,9 +69,24 @@ def describe_table(table_name: str) -> TableDetails:
     )
 
 
+# JSON scalar types only: untyped values ({} in JSON Schema) are rejected by strict LLM providers
+Cell = str | int | float | bool | None
+
+
+def to_cell(value: object) -> Cell:
+    """Convert a Postgres value to a JSON-friendly scalar."""
+    if value is None or isinstance(value, str | bool | int | float):
+        return value
+    if isinstance(value, Decimal):
+        return float(value)  # numeric -> number; fine for analytics answers
+    if isinstance(value, dt.date | dt.datetime | dt.time):
+        return value.isoformat()
+    return str(value)
+
+
 class QueryResult(BaseModel):
     columns: list[str]
-    rows: list[list[Any]]
+    rows: list[list[Cell]]
     row_count: int
     truncated: bool  # True if the query returned more than MAX_ROWS rows
 
@@ -97,7 +113,7 @@ def run_readonly_sql(sql: str) -> QueryResult:
     rows = rows[:MAX_ROWS]
     return QueryResult(
         columns=columns,
-        rows=[list(row) for row in rows],
+        rows=[[to_cell(value) for value in row] for row in rows],
         row_count=len(rows),
         truncated=truncated,
     )
