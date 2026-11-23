@@ -4,13 +4,17 @@ from __future__ import annotations
 
 import datetime as dt
 from decimal import Decimal
+from functools import cache
+from typing import Annotated
 
+import openai
 import psycopg
 from mcp.server import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 import db
+from embeddings import Embedder, get_embedder
 from sql_guard import UnsafeSqlError, validate_sql
 
 MAX_ROWS = 200
@@ -117,6 +121,38 @@ def run_readonly_sql(sql: str) -> QueryResult:
         row_count=len(rows),
         truncated=truncated,
     )
+
+
+@cache
+def query_embedder() -> Embedder:
+    """Created on first use and reused: one API client per server process."""
+    return get_embedder()
+
+
+class DocChunk(BaseModel):
+    source: str
+    title: str
+    content: str
+    score: float  # cosine similarity, higher is more relevant
+
+
+@mcp.tool()
+def search_docs(
+    query: str,
+    top_k: Annotated[int, Field(ge=1, le=10)] = 3,
+) -> list[DocChunk]:
+    """Search the business knowledge base: metric definitions and dataset caveats.
+
+    Use it to learn how a metric is defined (revenue, AOV, late delivery, review score)
+    or which data quirks to respect (time coverage, order statuses) before writing SQL.
+    """
+    embedder = query_embedder()
+    try:
+        [vector] = embedder.embed([query])
+    except openai.OpenAIError as e:
+        raise ToolError(f"Embedding provider error: {e}") from e
+    rows = db.search_chunks(vector, embedder.model, top_k)
+    return [DocChunk(**row) for row in rows]
 
 
 if __name__ == "__main__":

@@ -72,3 +72,22 @@ def run_query(sql: str, max_rows: int, timeout_ms: int) -> tuple[list[str], list
         cur.execute(wrapped)
         columns = [col.name for col in cur.description]
         return columns, cur.fetchall()
+
+
+SEARCH_CHUNKS_SQL = """
+SELECT source,
+       title,
+       content,
+       1 - (embedding <=> %(query)s::vector) AS score  -- cosine similarity, 1 = identical
+FROM knowledge.chunks
+WHERE embedding_model = %(model)s  -- vectors of different models are not comparable
+ORDER BY embedding <=> %(query)s::vector
+LIMIT %(top_k)s
+"""
+
+
+def search_chunks(query_vector: list[float], model: str, top_k: int) -> list[dict[str, Any]]:
+    with connect() as conn:
+        return conn.execute(
+            SEARCH_CHUNKS_SQL, {"query": str(query_vector), "model": model, "top_k": top_k}
+        ).fetchall()

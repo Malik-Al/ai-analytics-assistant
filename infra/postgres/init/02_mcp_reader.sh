@@ -18,16 +18,21 @@ ALTER ROLE :"reader" WITH LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE PASSWORD :'r
 -- safety defaults applied to every session of this role
 ALTER ROLE :"reader" SET default_transaction_read_only = on;
 ALTER ROLE :"reader" SET statement_timeout = '10s';
-ALTER ROLE :"reader" SET search_path = marts;
+-- public holds the pgvector type and operators (<=>) used by search_docs
+ALTER ROLE :"reader" SET search_path = marts, public;
 
 GRANT CONNECT ON DATABASE :"DBNAME" TO :"reader";
 -- PUBLIC may create temp tables by default; the reader should not write anything at all
 REVOKE TEMPORARY ON DATABASE :"DBNAME" FROM PUBLIC;
 GRANT USAGE ON SCHEMA marts TO :"reader";
 GRANT SELECT ON ALL TABLES IN SCHEMA marts TO :"reader";
+GRANT USAGE ON SCHEMA knowledge TO :"reader";
+GRANT SELECT ON ALL TABLES IN SCHEMA knowledge TO :"reader";
 
 -- dbt drops and recreates marts tables on every build; without default privileges
 -- the new tables would not be readable by the reader
 ALTER DEFAULT PRIVILEGES FOR ROLE :"owner" IN SCHEMA marts
+    GRANT SELECT ON TABLES TO :"reader";
+ALTER DEFAULT PRIVILEGES FOR ROLE :"owner" IN SCHEMA knowledge
     GRANT SELECT ON TABLES TO :"reader";
 SQL
