@@ -1,78 +1,34 @@
 """Embed docs/knowledge/*.md into knowledge.chunks (pgvector) for search_docs.
 
 Incremental: only new or changed chunks are sent to the embedding API.
-Run from mcp_server/:  uv run --env-file ../.env python index_docs.py [--dry-run]
+Run as: uv run --env-file ../.env olist-index-docs [--dry-run]
 """
 
 from __future__ import annotations
 
 import argparse
-import hashlib
-import os
-from dataclasses import dataclass
-from pathlib import Path
+import sys
 
 import psycopg
 
-from embeddings import get_embedder
+from olist_mcp.adapters.embeddings import get_embedder
+from olist_mcp.config import get_settings
+from olist_mcp.domain.chunking import plan_changes, split_markdown
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-DOCS_DIR = REPO_ROOT / "docs" / "knowledge"
 PRICE_PER_1M_TOKENS = 0.02  # text-embedding-3-small, USD
-
-
-@dataclass(frozen=True)
-class Chunk:
-    source: str  # file name, e.g. metrics.md
-    chunk_index: int
-    title: str
-    content: str
-
-    @property
-    def content_hash(self) -> str:
-        return hashlib.sha256(self.content.encode()).hexdigest()
-
-
-def split_markdown(source: str, text: str) -> list[Chunk]:
-    """One chunk per `## section`, prefixed with the document title for context."""
-    doc_title = ""
-    sections: list[tuple[str, list[str]]] = []
-    for line in text.splitlines():
-        if line.startswith("# "):
-            doc_title = line[2:].strip()
-        elif line.startswith("## "):
-            sections.append((line[3:].strip(), []))
-        elif sections:
-            sections[-1][1].append(line)
-
-    chunks = []
-    for i, (section, body) in enumerate(sections):
-        title = f"{doc_title} / {section}" if doc_title else section
-        content = f"{title}\n\n" + "\n".join(body).strip()
-        chunks.append(Chunk(source=source, chunk_index=i, title=title, content=content))
-    return chunks
-
-
-def plan_changes(
-    chunks: list[Chunk], existing: dict[tuple[str, int], tuple[str, str]], model: str
-) -> tuple[list[Chunk], list[tuple[str, int]]]:
-    """Return (chunks to embed, keys to delete). existing: key -> (content_hash, model)."""
-    to_embed = [
-        c for c in chunks if existing.get((c.source, c.chunk_index)) != (c.content_hash, model)
-    ]
-    current = {(c.source, c.chunk_index) for c in chunks}
-    to_delete = [key for key in existing if key not in current]
-    return to_embed, to_delete
 
 
 def connect_owner() -> psycopg.Connection:
     # the indexer writes, so it uses the owner role, not mcp_reader
+    settings = get_settings()
+    if settings.postgres_user is None or settings.postgres_password is None:
+        sys.exit("POSTGRES_USER and POSTGRES_PASSWORD are required for the indexer")
     return psycopg.connect(
-        host=os.environ.get("POSTGRES_HOST", "localhost"),
-        port=os.environ.get("POSTGRES_PORT", "5433"),
-        dbname=os.environ["POSTGRES_DB"],
-        user=os.environ["POSTGRES_USER"],
-        password=os.environ["POSTGRES_PASSWORD"],
+        host=settings.postgres_host,
+        port=settings.postgres_port,
+        dbname=settings.postgres_db,
+        user=settings.postgres_user,
+        password=settings.postgres_password.get_secret_value(),
     )
 
 
@@ -105,9 +61,10 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true", help="show the plan, call no API")
     args = parser.parse_args()
 
+    docs_dir = get_settings().knowledge_docs_dir
     chunks = [
         chunk
-        for path in sorted(DOCS_DIR.glob("*.md"))
+        for path in sorted(docs_dir.glob("*.md"))
         for chunk in split_markdown(path.name, path.read_text(encoding="utf-8"))
     ]
     embedder = get_embedder()

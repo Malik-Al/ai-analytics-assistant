@@ -1,4 +1,4 @@
-from index_docs import Chunk, plan_changes, split_markdown
+from olist_mcp.domain.chunking import Chunk, plan_changes, split_markdown
 
 DOC = """# Business metrics
 

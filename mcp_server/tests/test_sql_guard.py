@@ -1,6 +1,6 @@
 import pytest
 
-from sql_guard import UnsafeSqlError, validate_sql
+from olist_mcp.domain.sql_guard import UnsafeSqlError, validate_sql
 
 TABLES = {"fct_orders", "dim_customers"}
 

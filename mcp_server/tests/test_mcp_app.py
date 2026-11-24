@@ -1,8 +1,8 @@
 import pytest
 from mcp.client import Client
 
-import db
-import server
+import olist_mcp.entrypoints.mcp_app as mcp_app
+from olist_mcp.adapters import postgres
 
 FAKE_TABLES = [
     {"table_name": "dim_customers", "description": "One row per real customer."},
@@ -37,16 +37,16 @@ class FakeEmbedder:
 
 @pytest.fixture(autouse=True)
 def fake_db(monkeypatch):
-    monkeypatch.setattr(db, "fetch_tables", lambda schema=db.SCHEMA: FAKE_TABLES)
-    monkeypatch.setattr(db, "fetch_columns", lambda table_name, schema=db.SCHEMA: FAKE_COLUMNS)
+    monkeypatch.setattr(postgres, "fetch_tables", lambda schema=None: FAKE_TABLES)
+    monkeypatch.setattr(postgres, "fetch_columns", lambda table_name, schema=None: FAKE_COLUMNS)
     monkeypatch.setattr(
-        db,
+        postgres,
         "search_chunks",
         lambda query_vector, model, top_k: FAKE_CHUNKS[:top_k],
     )
-    monkeypatch.setattr(server, "query_embedder", lambda: FakeEmbedder())
+    monkeypatch.setattr(mcp_app, "query_embedder", lambda: FakeEmbedder())
     monkeypatch.setattr(
-        db,
+        postgres,
         "run_query",
         lambda sql, max_rows, timeout_ms: (["n"], [(i,) for i in range(max_rows + 1)]),
     )
@@ -54,14 +54,14 @@ def fake_db(monkeypatch):
 
 @pytest.mark.anyio
 async def test_list_tables_is_registered():
-    async with Client(server.mcp) as client:
+    async with Client(mcp_app.mcp) as client:
         tools = await client.list_tools()
     assert "list_tables" in [t.name for t in tools.tools]
 
 
 @pytest.mark.anyio
 async def test_list_tables_returns_tables():
-    async with Client(server.mcp) as client:
+    async with Client(mcp_app.mcp) as client:
         result = await client.call_tool("list_tables", {})
     assert not result.is_error
     assert result.structured_content == {"result": FAKE_TABLES}
@@ -69,7 +69,7 @@ async def test_list_tables_returns_tables():
 
 @pytest.mark.anyio
 async def test_describe_table_returns_columns():
-    async with Client(server.mcp) as client:
+    async with Client(mcp_app.mcp) as client:
         result = await client.call_tool("describe_table", {"table_name": "fct_orders"})
     assert not result.is_error
     assert result.structured_content == {
@@ -81,7 +81,7 @@ async def test_describe_table_returns_columns():
 
 @pytest.mark.anyio
 async def test_describe_table_unknown_table_is_error():
-    async with Client(server.mcp) as client:
+    async with Client(mcp_app.mcp) as client:
         result = await client.call_tool("describe_table", {"table_name": "orders"})
     assert result.is_error
     assert "dim_customers, fct_orders" in result.content[0].text
@@ -89,8 +89,8 @@ async def test_describe_table_unknown_table_is_error():
 
 @pytest.mark.anyio
 async def test_run_readonly_sql_truncates_rows(monkeypatch):
-    monkeypatch.setattr(server, "MAX_ROWS", 3)
-    async with Client(server.mcp) as client:
+    monkeypatch.setenv("MCP_MAX_ROWS", "3")
+    async with Client(mcp_app.mcp) as client:
         result = await client.call_tool(
             "run_readonly_sql", {"sql": "select 1 as n from fct_orders"}
         )
@@ -105,7 +105,7 @@ async def test_run_readonly_sql_truncates_rows(monkeypatch):
 
 @pytest.mark.anyio
 async def test_run_readonly_sql_rejects_writes():
-    async with Client(server.mcp) as client:
+    async with Client(mcp_app.mcp) as client:
         result = await client.call_tool("run_readonly_sql", {"sql": "delete from fct_orders"})
     assert result.is_error
     assert "Query rejected" in result.content[0].text
@@ -113,7 +113,7 @@ async def test_run_readonly_sql_rejects_writes():
 
 @pytest.mark.anyio
 async def test_search_docs_returns_chunks():
-    async with Client(server.mcp) as client:
+    async with Client(mcp_app.mcp) as client:
         result = await client.call_tool("search_docs", {"query": "what is revenue", "top_k": 1})
     assert not result.is_error
     assert result.structured_content == {"result": FAKE_CHUNKS[:1]}
@@ -121,6 +121,6 @@ async def test_search_docs_returns_chunks():
 
 @pytest.mark.anyio
 async def test_search_docs_rejects_too_large_top_k():
-    async with Client(server.mcp) as client:
+    async with Client(mcp_app.mcp) as client:
         result = await client.call_tool("search_docs", {"query": "revenue", "top_k": 50})
     assert result.is_error

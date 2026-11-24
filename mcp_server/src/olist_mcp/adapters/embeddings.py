@@ -1,9 +1,10 @@
-"""Embedding providers behind one small interface, selected by env."""
+"""Embedding providers behind one small interface, selected by settings."""
 
 from __future__ import annotations
 
-import os
 from typing import Protocol
+
+from olist_mcp.config import get_settings
 
 
 class Embedder(Protocol):
@@ -29,7 +30,8 @@ class OpenAIEmbedder:
 
 
 def get_embedder() -> Embedder:
-    provider = os.environ.get("EMBEDDING_PROVIDER", "openai")
+    settings = get_settings()
+    provider = settings.embedding_provider
     if provider == "openai":
-        return OpenAIEmbedder(model=os.environ.get("EMBEDDING_MODEL", "text-embedding-3-small"))
+        return OpenAIEmbedder(model=settings.embedding_model)
     raise ValueError(f"Unknown EMBEDDING_PROVIDER: {provider!r}")

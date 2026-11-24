@@ -2,22 +2,22 @@
 
 from __future__ import annotations
 
-import os
 from typing import Any
 
 import psycopg
 from psycopg.rows import dict_row, tuple_row
 
-SCHEMA = os.environ.get("MCP_SCHEMA", "marts")
+from olist_mcp.config import get_settings
 
 
 def connect() -> psycopg.Connection:
+    settings = get_settings()
     conn = psycopg.connect(
-        host=os.environ.get("POSTGRES_HOST", "localhost"),
-        port=os.environ.get("POSTGRES_PORT", "5433"),
-        dbname=os.environ["POSTGRES_DB"],
-        user=os.environ["MCP_READER_USER"],
-        password=os.environ["MCP_READER_PASSWORD"],
+        host=settings.postgres_host,
+        port=settings.postgres_port,
+        dbname=settings.postgres_db,
+        user=settings.mcp_reader_user,
+        password=settings.mcp_reader_password.get_secret_value(),
         row_factory=dict_row,  # rows as dicts: {"table_name": ..., "description": ...}
     )
     # every transaction on this connection is READ ONLY: INSERT/UPDATE/DDL fail in Postgres
@@ -37,7 +37,9 @@ ORDER BY c.relname
 """
 
 
-def fetch_tables(schema: str = SCHEMA) -> list[dict[str, Any]]:
+def fetch_tables(schema: str | None = None) -> list[dict[str, Any]]:
+    if schema is None:
+        schema = get_settings().mcp_schema
     with connect() as conn:
         return conn.execute(LIST_TABLES_SQL, (schema,)).fetchall()
 
@@ -57,7 +59,9 @@ ORDER BY a.attnum
 """
 
 
-def fetch_columns(table_name: str, schema: str = SCHEMA) -> list[dict[str, Any]]:
+def fetch_columns(table_name: str, schema: str | None = None) -> list[dict[str, Any]]:
+    if schema is None:
+        schema = get_settings().mcp_schema
     with connect() as conn:
         return conn.execute(LIST_COLUMNS_SQL, (schema, table_name)).fetchall()
 

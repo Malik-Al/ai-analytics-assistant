@@ -1,5 +1,9 @@
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"
+
 [project]
-name = "mcp-server"
+name = "olist-mcp"
 version = "0.1.0"
 description = "MCP server exposing the Olist data warehouse to LLM agents"
 requires-python = ">=3.13"
@@ -7,8 +11,13 @@ dependencies = [
     "mcp>=2.3,<3",
     "openai>=3.57",
     "psycopg[binary]>=3.3",
+    "pydantic-settings>=2.0",
     "sqlglot>=30.33",
 ]
+
+[project.scripts]
+olist-mcp = "olist_mcp.entrypoints.mcp_app:main"
+olist-index-docs = "olist_mcp.entrypoints.index_docs:main"
 
 [dependency-groups]
 dev = [
@@ -18,7 +27,6 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
-pythonpath = ["."]
 testpaths = ["tests"]
 
 [tool.ruff]

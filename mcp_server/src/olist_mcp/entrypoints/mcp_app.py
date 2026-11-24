@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-import datetime as dt
-from decimal import Decimal
 from functools import cache
 from typing import Annotated
 
@@ -11,14 +9,20 @@ import openai
 import psycopg
 from mcp.server import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
-from pydantic import BaseModel, Field
+from pydantic import Field
 
-import db
-from embeddings import Embedder, get_embedder
-from sql_guard import UnsafeSqlError, validate_sql
-
-MAX_ROWS = 200
-TIMEOUT_MS = 5000
+from olist_mcp.adapters import postgres
+from olist_mcp.adapters.embeddings import Embedder, get_embedder
+from olist_mcp.config import get_settings
+from olist_mcp.domain.models import (
+    ColumnInfo,
+    DocChunk,
+    QueryResult,
+    TableDetails,
+    TableInfo,
+    to_cell,
+)
+from olist_mcp.domain.sql_guard import UnsafeSqlError, validate_sql
 
 mcp = MCPServer(
     name="olist-dwh",
@@ -29,30 +33,13 @@ mcp = MCPServer(
 )
 
 
-class TableInfo(BaseModel):
-    table_name: str
-    description: str | None
-
-
 @mcp.tool()
 def list_tables() -> list[TableInfo]:
     """List tables in the analytics warehouse with their descriptions.
 
     Call this first to find which fact and dimension tables can answer the question.
     """
-    return [TableInfo(**row) for row in db.fetch_tables()]
-
-
-class ColumnInfo(BaseModel):
-    column_name: str
-    data_type: str
-    description: str | None
-
-
-class TableDetails(BaseModel):
-    table_name: str
-    description: str | None
-    columns: list[ColumnInfo]
+    return [TableInfo(**row) for row in postgres.fetch_tables()]
 
 
 @mcp.tool()
@@ -62,37 +49,15 @@ def describe_table(table_name: str) -> TableDetails:
     Call this before writing SQL against a table. Column descriptions explain how to use
     the column (e.g. which one is revenue, which one is the customer key).
     """
-    tables = {row["table_name"]: row["description"] for row in db.fetch_tables()}
+    tables = {row["table_name"]: row["description"] for row in postgres.fetch_tables()}
     if table_name not in tables:
         raise ToolError(f"Unknown table {table_name!r}. Available tables: {', '.join(tables)}")
 
     return TableDetails(
         table_name=table_name,
         description=tables[table_name],
-        columns=[ColumnInfo(**row) for row in db.fetch_columns(table_name)],
+        columns=[ColumnInfo(**row) for row in postgres.fetch_columns(table_name)],
     )
-
-
-# JSON scalar types only: untyped values ({} in JSON Schema) are rejected by strict LLM providers
-Cell = str | int | float | bool | None
-
-
-def to_cell(value: object) -> Cell:
-    """Convert a Postgres value to a JSON-friendly scalar."""
-    if value is None or isinstance(value, str | bool | int | float):
-        return value
-    if isinstance(value, Decimal):
-        return float(value)  # numeric -> number; fine for analytics answers
-    if isinstance(value, dt.date | dt.datetime | dt.time):
-        return value.isoformat()
-    return str(value)
-
-
-class QueryResult(BaseModel):
-    columns: list[str]
-    rows: list[list[Cell]]
-    row_count: int
-    truncated: bool  # True if the query returned more than MAX_ROWS rows
 
 
 @mcp.tool()
@@ -103,18 +68,21 @@ def run_readonly_sql(sql: str) -> QueryResult:
     Aggregate in SQL (GROUP BY, SUM, COUNT) instead of fetching raw rows:
     at most 200 rows are returned and queries are stopped after 5 seconds.
     """
-    allowed_tables = {row["table_name"] for row in db.fetch_tables()}
+    settings = get_settings()
+    max_rows = settings.mcp_max_rows
+    timeout_ms = settings.mcp_query_timeout_ms
+    allowed_tables = {row["table_name"] for row in postgres.fetch_tables()}
     try:
         safe_sql = validate_sql(sql, allowed_tables)
-        columns, rows = db.run_query(safe_sql, MAX_ROWS, TIMEOUT_MS)
+        columns, rows = postgres.run_query(safe_sql, max_rows, timeout_ms)
     except UnsafeSqlError as e:
         raise ToolError(f"Query rejected: {e}") from e
     except psycopg.Error as e:
         # the Postgres message (syntax error, unknown column, timeout) lets the LLM fix its SQL
         raise ToolError(f"Database error: {e}") from e
 
-    truncated = len(rows) > MAX_ROWS
-    rows = rows[:MAX_ROWS]
+    truncated = len(rows) > max_rows
+    rows = rows[:max_rows]
     return QueryResult(
         columns=columns,
         rows=[[to_cell(value) for value in row] for row in rows],
@@ -127,13 +95,6 @@ def run_readonly_sql(sql: str) -> QueryResult:
 def query_embedder() -> Embedder:
     """Created on first use and reused: one API client per server process."""
     return get_embedder()
-
-
-class DocChunk(BaseModel):
-    source: str
-    title: str
-    content: str
-    score: float  # cosine similarity, higher is more relevant
 
 
 @mcp.tool()
@@ -151,9 +112,13 @@ def search_docs(
         [vector] = embedder.embed([query])
     except openai.OpenAIError as e:
         raise ToolError(f"Embedding provider error: {e}") from e
-    rows = db.search_chunks(vector, embedder.model, top_k)
+    rows = postgres.search_chunks(vector, embedder.model, top_k)
     return [DocChunk(**row) for row in rows]
 
 
-if __name__ == "__main__":
+def main() -> None:
     mcp.run()  # stdio transport: the client starts this process and talks over stdin/stdout
+
+
+if __name__ == "__main__":
+    main()
