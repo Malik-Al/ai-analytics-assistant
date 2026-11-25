@@ -2,16 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Protocol
-
 from olist_mcp.config import get_settings
-
-
-class Embedder(Protocol):
-    model: str
-    dimensions: int
-
-    def embed(self, texts: list[str]) -> list[list[float]]: ...
+from olist_mcp.ports import Embedder
 
 
 class OpenAIEmbedder:
