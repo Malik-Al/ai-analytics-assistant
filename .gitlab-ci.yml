@@ -74,3 +74,26 @@ mcp_test:
   stage: test
   script:
     - uv run pytest
+
+.agent:
+  image: ghcr.io/astral-sh/uv:python3.13-bookworm-slim
+  cache:
+    key:
+      files: [agent/uv.lock]
+    paths: [.uv-cache]
+  before_script:
+    - cd agent
+    - uv sync --locked
+
+agent_lint:
+  extends: .agent
+  stage: lint
+  script:
+    - uv run ruff format --check .
+    - uv run ruff check .
+
+agent_test:
+  extends: .agent
+  stage: test
+  script:
+    - uv run pytest
