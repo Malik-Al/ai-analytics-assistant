@@ -1,29 +1,14 @@
-"""Postgres access for the MCP server. Read-only by design."""
+"""Postgres adapters for the MCP server ports. Read-only by design."""
 
 from __future__ import annotations
 
-from typing import Any
-
 import psycopg
+from psycopg import sql as pg_sql
 from psycopg.rows import dict_row, tuple_row
+from psycopg_pool import ConnectionPool
 
-from olist_mcp.config import get_settings
-
-
-def connect() -> psycopg.Connection:
-    settings = get_settings()
-    conn = psycopg.connect(
-        host=settings.postgres_host,
-        port=settings.postgres_port,
-        dbname=settings.postgres_db,
-        user=settings.mcp_reader_user,
-        password=settings.mcp_reader_password.get_secret_value(),
-        row_factory=dict_row,  # rows as dicts: {"table_name": ..., "description": ...}
-    )
-    # every transaction on this connection is READ ONLY: INSERT/UPDATE/DDL fail in Postgres
-    conn.read_only = True
-    return conn
-
+from olist_mcp.domain.errors import QueryExecutionError
+from olist_mcp.domain.models import ColumnInfo, DocChunk, TableInfo
 
 LIST_TABLES_SQL = """
 SELECT c.relname AS table_name,
@@ -35,13 +20,6 @@ WHERE n.nspname = %s
   AND has_table_privilege(c.oid, 'SELECT')  -- only what the connected role can read
 ORDER BY c.relname
 """
-
-
-def fetch_tables(schema: str | None = None) -> list[dict[str, Any]]:
-    if schema is None:
-        schema = get_settings().mcp_schema
-    with connect() as conn:
-        return conn.execute(LIST_TABLES_SQL, (schema,)).fetchall()
 
 
 LIST_COLUMNS_SQL = """
@@ -59,25 +37,6 @@ ORDER BY a.attnum
 """
 
 
-def fetch_columns(table_name: str, schema: str | None = None) -> list[dict[str, Any]]:
-    if schema is None:
-        schema = get_settings().mcp_schema
-    with connect() as conn:
-        return conn.execute(LIST_COLUMNS_SQL, (schema, table_name)).fetchall()
-
-
-def run_query(sql: str, max_rows: int, timeout_ms: int) -> tuple[list[str], list[tuple]]:
-    """Run an already validated SELECT. Fetches at most max_rows + 1 rows."""
-    wrapped = f"SELECT * FROM ({sql}) AS q LIMIT {max_rows + 1}"
-    with connect() as conn, conn.cursor(row_factory=tuple_row) as cur:
-        # SET LOCAL lives until the end of this transaction only
-        cur.execute(f"SET LOCAL statement_timeout = {int(timeout_ms)}")
-        cur.execute("SET LOCAL search_path = marts")
-        cur.execute(wrapped)
-        columns = [col.name for col in cur.description]
-        return columns, cur.fetchall()
-
-
 SEARCH_CHUNKS_SQL = """
 SELECT source,
        title,
@@ -90,8 +49,86 @@ LIMIT %(top_k)s
 """
 
 
-def search_chunks(query_vector: list[float], model: str, top_k: int) -> list[dict[str, Any]]:
-    with connect() as conn:
-        return conn.execute(
-            SEARCH_CHUNKS_SQL, {"query": str(query_vector), "model": model, "top_k": top_k}
-        ).fetchall()
+# --- Adapters implementing the ports (olist_mcp.ports) ---------------------------------
+
+
+def create_reader_pool(
+    *, host: str, port: int, dbname: str, user: str, password: str, max_size: int = 4
+) -> ConnectionPool:
+    """Pool of read-only connections for the MCP server. Opens eagerly: fails fast if DB is down."""
+
+    def configure(conn: psycopg.Connection) -> None:
+        # runs once per new physical connection: every transaction on it is READ ONLY
+        conn.read_only = True
+
+    pool = ConnectionPool(
+        kwargs={
+            "host": host,
+            "port": port,
+            "dbname": dbname,
+            "user": user,
+            "password": password,
+            "row_factory": dict_row,
+        },
+        min_size=1,
+        max_size=max_size,
+        configure=configure,
+        open=False,
+    )
+    pool.open(wait=True, timeout=10)
+    return pool
+
+
+class PostgresCatalog:
+    """Catalog port: table and column metadata (with dbt descriptions) from pg_catalog."""
+
+    def __init__(self, pool: ConnectionPool, schema: str) -> None:
+        self._pool = pool
+        self._schema = schema
+
+    def list_tables(self) -> list[TableInfo]:
+        with self._pool.connection() as conn:
+            rows = conn.execute(LIST_TABLES_SQL, (self._schema,)).fetchall()
+        return [TableInfo(**row) for row in rows]
+
+    def list_columns(self, table_name: str) -> list[ColumnInfo]:
+        with self._pool.connection() as conn:
+            rows = conn.execute(LIST_COLUMNS_SQL, (self._schema, table_name)).fetchall()
+        return [ColumnInfo(**row) for row in rows]
+
+
+class PostgresQueryRunner:
+    """QueryRunner port: runs an already validated SELECT with a timeout and a row cap."""
+
+    def __init__(self, pool: ConnectionPool, schema: str) -> None:
+        self._pool = pool
+        self._schema = schema
+
+    def run(self, sql: str, max_rows: int, timeout_ms: int) -> tuple[list[str], list[tuple]]:
+        wrapped = f"SELECT * FROM ({sql}) AS q LIMIT {max_rows + 1}"
+        try:
+            with self._pool.connection() as conn, conn.cursor(row_factory=tuple_row) as cur:
+                # SET LOCAL lives until the end of this transaction only
+                cur.execute(f"SET LOCAL statement_timeout = {int(timeout_ms)}")
+                cur.execute(
+                    pg_sql.SQL("SET LOCAL search_path = {}").format(pg_sql.Identifier(self._schema))
+                )
+                cur.execute(wrapped)
+                columns = [col.name for col in cur.description]
+                return columns, cur.fetchall()
+        except psycopg.Error as e:
+            # keep the Postgres message: it lets the LLM fix its SQL
+            raise QueryExecutionError(str(e)) from e
+
+
+class PostgresKnowledgeStore:
+    """KnowledgeStore port: cosine search in knowledge.chunks (pgvector)."""
+
+    def __init__(self, pool: ConnectionPool) -> None:
+        self._pool = pool
+
+    def search(self, query_vector: list[float], model: str, top_k: int) -> list[DocChunk]:
+        params = {"query": str(query_vector), "model": model, "top_k": top_k}
+        with self._pool.connection() as conn:
+            rows = conn.execute(SEARCH_CHUNKS_SQL, params).fetchall()
+        return [DocChunk(**row) for row in rows]
