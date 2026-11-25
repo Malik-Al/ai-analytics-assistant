@@ -11,7 +11,7 @@ import sys
 
 import psycopg
 
-from olist_mcp.adapters.embeddings import get_embedder
+from olist_mcp.adapters.embeddings import build_embedder
 from olist_mcp.config import get_settings
 from olist_mcp.domain.chunking import plan_changes, split_markdown
 
@@ -61,13 +61,14 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true", help="show the plan, call no API")
     args = parser.parse_args()
 
-    docs_dir = get_settings().knowledge_docs_dir
+    settings = get_settings()
+    docs_dir = settings.knowledge_docs_dir
     chunks = [
         chunk
         for path in sorted(docs_dir.glob("*.md"))
         for chunk in split_markdown(path.name, path.read_text(encoding="utf-8"))
     ]
-    embedder = get_embedder()
+    embedder = build_embedder(settings)
 
     with connect_owner() as conn:
         ensure_table(conn, embedder.dimensions)

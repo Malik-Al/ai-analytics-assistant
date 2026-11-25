@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import openai
 
-from olist_mcp.config import Settings, get_settings
+from olist_mcp.config import Settings
 from olist_mcp.domain.errors import EmbeddingError
 from olist_mcp.ports import Embedder
 
@@ -32,8 +32,3 @@ def build_embedder(settings: Settings) -> Embedder:
     if settings.embedding_provider == "openai":
         return OpenAIEmbedder(model=settings.embedding_model)
     raise ValueError(f"Unknown EMBEDDING_PROVIDER: {settings.embedding_provider!r}")
-
-
-def get_embedder() -> Embedder:
-    # TODO(MR B): removed once entrypoints build the embedder in the composition root
-    return build_embedder(get_settings())
