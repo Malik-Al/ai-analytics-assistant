@@ -5,9 +5,11 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import sys
 
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 from langchain_openai import ChatOpenAI
+from langgraph.errors import GraphRecursionError
 from langgraph.graph.state import CompiledStateGraph
 
 from olist_agent.config import Settings, get_settings
@@ -54,5 +56,14 @@ def main(argv: list[str] | None = None) -> None:
     )
     parser.add_argument("question")
     args = parser.parse_args(argv)
-    answer = asyncio.run(run(args.question, get_settings()))
+    settings = get_settings()
+    try:
+        answer = asyncio.run(run(args.question, settings))
+    except* GraphRecursionError:
+        # except* also matches the error wrapped in an ExceptionGroup by the MCP client;
+        # sys.exit(text) prints the text to stderr and exits with code 1
+        sys.exit(
+            f"Agent stopped: no answer after {settings.agent_max_steps} steps. "
+            "Rephrase the question or raise AGENT_MAX_STEPS."
+        )
     print(f"\n{answer}")

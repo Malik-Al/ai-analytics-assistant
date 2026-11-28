@@ -3,7 +3,7 @@ from langchain_core.messages import AIMessage
 from langchain_core.tools import tool
 from langgraph.errors import GraphRecursionError
 
-from olist_agent.cli import ask
+from olist_agent.cli import ask, main
 from olist_agent.graph import build_graph
 from tests.fakes import FakeToolModel
 
@@ -58,3 +58,16 @@ async def test_ask_stops_after_max_steps():
 
     with pytest.raises(GraphRecursionError):
         await ask(graph, "loop", max_steps=2)
+
+
+def test_main_reports_step_limit(monkeypatch):
+    async def fake_run(question, settings):
+        # the MCP client (anyio task group) wraps errors from inside the session
+        raise ExceptionGroup("unhandled errors", [GraphRecursionError("Recursion limit")])
+
+    monkeypatch.setattr("olist_agent.cli.run", fake_run)
+
+    with pytest.raises(SystemExit) as exc:
+        main(["loop forever"])
+
+    assert "Agent stopped: no answer after" in str(exc.value.code)
